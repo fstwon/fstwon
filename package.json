@@ -1,5 +1,13 @@
 {
-	"dependencies": {
+	"name": "fstwon",
+	"private": true,
+	"packageManager": "pnpm@8.15.4",
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"lint": "turbo run lint"
+	},
+	"devDependencies": {
 		"turbo": "^2.5.4"
 	}
 }
