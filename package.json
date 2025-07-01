@@ -1,7 +1,7 @@
 {
 	"name": "fstwon",
 	"private": true,
-	"packageManager": "pnpm@8.15.4",
+	"packageManager": "pnpm@9.0.0",
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev",
