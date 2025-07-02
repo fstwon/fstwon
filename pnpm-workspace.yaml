@@ -1,8 +1,7 @@
 # pnpm이 어떤 디렉토리를 워크스페이스로 인식할지 정의
-# apps/와 packages/ 아래의 폴더들이 각각 독립된 패키지(모듈)로 작동
-# TODO: 해당 주석 내용은 추후 libs 파일로 옮겨서 수정
+# apps/, packages/, libs/ 아래의 폴더들이 각각 독립된 패키지(모듈)로 작동
 
 packages:
-  - 'apps/*' # 실제 실행될 앱 관리 (Portfolio(about), Blog, Lab)
-  - 'packages/*' # 공용으로 사용할 UI, Utils 등 패키지 관리
-  - 'libs/*' # 전역으로 설정할 Configs 관리
+  - 'apps/*' # 실제 실행될 앱 관리 (portfolio(about), blog, lab)
+  - 'packages/*' # app에서 공용으로 사용할 UI, libs의 util, module을 사용하여 고도화 시킨 util, module 등 패키지 관리
+  - 'libs/*' # app에서 사용할 전역 config, packages에서 사용할 저수준 util, module 등 관리

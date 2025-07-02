@@ -1,0 +1,30 @@
+// Turborepo 2.5부터 turbo.jsonc 파일을 지원하여 주석 사용 가능 :contentReference[oaicite:1]{index=1}
+
+{
+	"$schema": "https://turborepo.org/schema.json",
+	// tasks: 각 워크스페이스 패키지의 package.json에 명시된 스크립트와 매핑
+	"tasks": {
+		"build": {
+			// 해당 task의 실행 순서 지정: '^build'는 의존 패키지 먼저 빌드하도록 함
+			"dependsOn": ["^build"],
+			// 빌드 결과물을 캐시 대상으로 지정함
+			"outputs": ["dist/**", "build/**", ".next/**"]
+		},
+		"dev": {
+			// dev는 캐시가 필요 없으므로 끔, 지속 실행(task 종료 시까지 프로세스 유지)
+			"cache": false,
+			"persistent": true
+		},
+		"lint": {
+			// 출력물 없음(lint는 결과물이 생성되지 않음)
+			"outputs": []
+		},
+		"test": {
+			// build가 완료된 후 실행하도록 의존 설정
+			"dependsOn": ["build"],
+			"outputs": []
+		}
+	}
+	// 글로벌 의존성 설정 예시 (필요시)
+	// "globalDependencies": ["**/.env"]
+}
