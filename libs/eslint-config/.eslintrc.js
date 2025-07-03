@@ -9,7 +9,7 @@ export default config = {
 		browser: true, // 브라우저 전역 객체 (window 등) 허용
 		es2021: true, // 최신 ECMAScript 문법을 사용 가능하게 설정
 	},
-
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaVersion: 2022, // 최신 문법 해석 (예: optional chaining)
 		sourceType: 'module', // ESM 사용 (import/export)
@@ -20,12 +20,15 @@ export default config = {
 	extends: [
 		'eslint:recommended', // ESLint의 기본 추천 규칙 사용
 		'plugin:react/recommended', // 리액트 JSX 추천 규칙 사용
+		'plugin:@typescript-eslint/recommended',
 		'prettier', // Prettier와 충돌 방지 (포맷팅 관련 규칙 off)
 	],
 
 	rules: {
-		semi: ['error', 'always'], // 세미콜론 필수
-		quotes: ['error', 'single'], // 작은 따옴표 사용
+		'react/react-in-jsx-scope': 'off',
+		'no-unused-vars': 'warn',
+		'no-console': 'warn',
+		'@typescript-eslint/explicit-module-boundary-types': 'off',
 	},
 
 	settings: {
