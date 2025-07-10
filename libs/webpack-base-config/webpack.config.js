@@ -29,8 +29,12 @@ function createBaseConfig(env = {}) {
 					use: [
 						'style-loader',
 						'css-loader',
-						'postcss-loader', // PostCSS 처리
-						'sass-loader', // SCSS 처리
+
+						// PostCSS 처리
+						'postcss-loader',
+
+						// SCSS 처리
+						'sass-loader',
 					],
 				},
 			],
