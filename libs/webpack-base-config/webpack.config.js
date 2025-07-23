@@ -31,10 +31,38 @@ function createBaseConfig(env = {}) {
 						'css-loader',
 
 						// PostCSS 처리
-						'postcss-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								postcssOptions: {
+									config: path.resolve(
+										__dirname,
+										'../postcss-config/postcss.config.js'
+									),
+								},
+							},
+						},
 
 						// SCSS 처리
 						'sass-loader',
+					],
+				},
+				{
+					test: /\.css$/,
+					use: [
+						'style-loader',
+						'css-loader',
+						{
+							loader: 'postcss-loader',
+							options: {
+								postcssOptions: {
+									config: path.resolve(
+										__dirname,
+										'../postcss-config/postcss.config.js'
+									),
+								},
+							},
+						},
 					],
 				},
 			],
