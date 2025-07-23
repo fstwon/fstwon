@@ -1,0 +1,21 @@
+{
+	"name": "@fstwon/styles",
+	"version": "1.0.0",
+	"description": "fstwon styles set",
+	"main": "tailwind/index.css",
+	"style": "tailwind/index.css",
+	"files": [
+		"tailwind/",
+		"scss/",
+		"shard/"
+	],
+	"scripts": {
+		"build:scss": "sass --no-source-map scss/main.scss dist/styles.css",
+		"build": "pnpm run build:scss"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"sass": "^1.89.2",
+		"tailwindcss": "^4.1.11"
+	}
+}

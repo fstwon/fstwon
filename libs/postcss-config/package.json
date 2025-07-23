@@ -1,0 +1,5 @@
+{
+	"name": "postcss-config",
+	"version": "0.0.1",
+	"main": "./postcss.config.js"
+}

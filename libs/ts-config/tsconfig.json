@@ -42,6 +42,10 @@
 		"noEmit": true,
 
 		// React JSX 변환 방식 (React 17+)
-		"jsx": "react-jsx"
+		"jsx": "react-jsx",
+
+		"paths": {
+			"@styles/*": ["packages/styles/*"]
+		}
 	}
 }

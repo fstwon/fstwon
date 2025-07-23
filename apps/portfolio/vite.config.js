@@ -7,7 +7,7 @@ export default mergeConfig(
 	defineConfig({
 		root: __dirname,
 		build: {
-			outdir: 'dist',
+			outDir: 'dist',
 			emptyOutDir: true,
 		},
 		resolve: {
