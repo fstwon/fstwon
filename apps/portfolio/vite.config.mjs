@@ -1,4 +1,4 @@
-import createBaseConfig from '../../libs/vite-base-config/vite.config';
+import createBaseConfig from '../../libs/vite-base-config/vite.config.mjs';
 import { defineConfig, mergeConfig } from 'vite';
 import path from 'path';
 
