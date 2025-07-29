@@ -23,6 +23,10 @@
 			// build가 완료된 후 실행하도록 의존 설정
 			"dependsOn": ["build"],
 			"outputs": []
+		},
+		"clean": {
+			// turbo cache 삭제 스크립트 설정
+			"cache": false
 		}
 	}
 	// 글로벌 의존성 설정 예시 (필요시)
