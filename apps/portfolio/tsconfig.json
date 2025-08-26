@@ -1,0 +1,13 @@
+{
+  "extends": "../../libs/ts-config/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@scss/*": ["../../packages/styles/scss/*"],
+      "@tailwind/*": ["../../packages/styles/tailwind/*"]
+    }
+  },
+  "include": ["src"]
+}
