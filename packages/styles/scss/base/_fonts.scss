@@ -1,0 +1,39 @@
+/* Fonts setup: Montserrat (en) + Pretendard (kr) */
+
+/* Montserrat via Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');
+
+/* Pretendard Variable (KR) — dynamic subset for web */
+@font-face {
+	font-family: 'Pretendard Variable';
+	src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.woff2') format('woff2-variations');
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Fallback static regular (optional) */
+@font-face {
+	font-family: 'Pretendard';
+	src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Root font stacks */
+:root {
+	--font-en: 'Montserrat', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	--font-kr: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Nanum Gothic', sans-serif;
+	--font-default: 'Montserrat', 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}
+
+/* Default font for the app: Montserrat → Pretendard */
+html {
+	font-family: var(--font-default);
+}
+
+/* Utility: force english font when needed */
+.en-font {
+	font-family: var(--font-en);
+}

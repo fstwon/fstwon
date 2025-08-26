@@ -1,5 +1,42 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @layer base {
-	@import '@scss/index.scss';
+  @import "@scss/base/_fonts.scss";
+  @import "@scss/index.scss";
+}
+
+@layer utilities {
+  @keyframes float-y {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+  @keyframes float-x {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(6px);
+    }
+  }
+  .animate-float-y {
+    animation: float-y 6s ease-in-out infinite;
+  }
+  .animate-float-x {
+    animation: float-x 7s ease-in-out infinite;
+  }
+  .animate-float-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animate-float-delay-400 {
+    animation-delay: 0.4s;
+  }
+  .animate-float-delay-600 {
+    animation-delay: 0.6s;
+  }
 }
