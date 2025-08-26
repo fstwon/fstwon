@@ -1,0 +1,11 @@
+[build]
+# Run from the repo root so pnpm can install the whole workspace
+command = "corepack enable && corepack prepare pnpm@8.15.4 --activate && pnpm install --frozen-lockfile && pnpm --filter portfolio run build"
+publish = "apps/portfolio/dist"
+
+[build.environment]
+# Match project Node version to avoid runtime mismatches
+NODE_VERSION = "22"
+
+# Optional: speed up installs by using a mirror if you want
+# NPM_FLAGS = "--no-audit --no-fund"
