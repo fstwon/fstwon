@@ -1,5 +1,9 @@
-import HomePage from '../pages/Home';
+import { IntroSection } from '@/sections/intro';
 
 export default function App() {
-	return <HomePage />;
+	return (
+		<div className='app'>
+			<IntroSection />
+		</div>
+	);
 }

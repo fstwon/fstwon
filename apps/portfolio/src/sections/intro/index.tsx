@@ -1,7 +1,10 @@
 export function IntroSection() {
 	return (
-		<div className='bg-red-500 text-white p-4 rounded-xl'>
-			Tailwind CSS 적용 확인하는 중
-		</div>
+		<section className='intro-section__container'>
+			{/* TODO: */}
+			Intro section 작업 중{/* main logo */}
+			{/* tech stack logo images */}
+			{/* set background color */}
+		</section>
 	);
 }
