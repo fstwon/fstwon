@@ -1,4 +1,3 @@
-// 공통 Vite 베이스 설정: 모든 앱에서 공유되는 플러그인/경로/스타일 옵션을 정의합니다
 import { defineConfig } from 'vite';
 import { fileURLToPath } from 'node:url';
 import react from '@vitejs/plugin-react';
