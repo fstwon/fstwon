@@ -11,8 +11,9 @@
 	},
 	"devDependencies": {
 		"@tailwindcss/vite": "^4.0.0",
-		"tailwindcss": "^4.1.11",
+		"prettier": "^3.6.2",
 		"rimraf": "^6.0.1",
+		"tailwindcss": "^4.1.11",
 		"turbo": "^2.5.5"
 	}
 }
