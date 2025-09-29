@@ -17,9 +17,7 @@ export default mergeConfig(
 			alias: {
 				// 소스 경로 별칭
 				'@': path.resolve(__dirname, './src'),
-				// 공용 스타일 패키지 별칭 적용
-				'@scss': path.resolve(__dirname, '../../packages/styles/scss'),
-				'@tailwind': path.resolve(__dirname, '../../packages/styles/tailwind'),
+				'@logos': path.resolve(__dirname, './src/assets/icons/logos'),
 			},
 		},
 		server: {

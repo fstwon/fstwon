@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { fileURLToPath } from 'node:url';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+import svgr from 'vite-plugin-svgr';
 import path from 'path';
 
 // __dirname 계산 (ESM)
@@ -20,12 +21,14 @@ const createBaseConfig = () => {
 					'../tailwind-config/tailwind.config.ts'
 				),
 			}),
+			svgr(),
 		],
 		resolve: {
 			alias: {
 				// 공용 스타일 패키지 경로 별칭
 				'@scss': path.resolve(__dirname, '../../packages/styles/scss'),
 				'@tailwind': path.resolve(__dirname, '../../packages/styles/tailwind'),
+				'@assets': path.resolve(__dirname, '../../packages/assets'),
 			},
 		},
 		css: {
