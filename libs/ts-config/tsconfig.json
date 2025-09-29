@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		// 루트 경로 설정 - 상대경로 계산 기준
 		"rootDir": "./",
+		"baseUrl": "./",
 
 		// 최신 JS 문법 사용
 		"target": "esnext",
