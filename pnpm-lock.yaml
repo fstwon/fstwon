@@ -23,9 +23,15 @@ importers:
       turbo:
         specifier: ^2.5.5
         version: 2.5.5
+      vite-plugin-svgr:
+        specifier: ^4.5.0
+        version: 4.5.0(vite@7.0.6)
 
   apps/portfolio:
     dependencies:
+      '@fstwon/assets':
+        specifier: '*'
+        version: link:../../packages/assets
       '@fstwon/styles':
         specifier: '*'
         version: link:../../packages/styles
@@ -60,13 +66,12 @@ importers:
       vite:
         specifier: ^7.0.1
         version: 7.0.6
-      vite-plugin-svgr:
-        specifier: ^4.5.0
-        version: 4.5.0(vite@7.0.6)
 
   libs/postcss-config: {}
 
   libs/tailwind-config: {}
+
+  packages/assets: {}
 
   packages/styles:
     devDependencies:

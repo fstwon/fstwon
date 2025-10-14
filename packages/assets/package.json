@@ -1,0 +1,13 @@
+{
+	"name": "@fstwon/assets",
+	"version": "1.0.0",
+	"description": "fstwon assets (fonts, icons, images)",
+	"main": "index.js",
+	"files": [
+		"fonts/",
+		"icons/",
+		"images/"
+	],
+	"private": true
+}
+
