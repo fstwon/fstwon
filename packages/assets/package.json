@@ -2,7 +2,11 @@
 	"name": "@fstwon/assets",
 	"version": "1.0.0",
 	"description": "fstwon assets (fonts, icons, images)",
-	"main": "index.js",
+	"exports": {
+		"./fonts/*": "./fonts/*",
+		"./icons/*": "./icons/*",
+		"./images/*": "./images/*"
+	},
 	"files": [
 		"fonts/",
 		"icons/",
@@ -10,4 +14,3 @@
 	],
 	"private": true
 }
-

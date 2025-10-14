@@ -1,0 +1,10 @@
+/* 로고 컨테이너: SVG가 부모 크기를 따르도록 설정 */
+.logo__container {
+	display: inline-block;
+
+	svg {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+}

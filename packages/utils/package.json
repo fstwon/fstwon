@@ -1,0 +1,14 @@
+{
+	"name": "@fstwon/utils",
+	"version": "1.0.0",
+	"description": "fstwon utilities",
+	"main": "index.js",
+	"exports": {
+		".": "./index.js"
+	},
+	"files": [
+		"index.js",
+		"classNames/"
+	],
+	"private": true
+}

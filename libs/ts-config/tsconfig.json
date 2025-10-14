@@ -1,9 +1,5 @@
 {
 	"compilerOptions": {
-		// 루트 경로 설정 - 상대경로 계산 기준
-		"rootDir": "./",
-		"baseUrl": "./",
-
 		// 최신 JS 문법 사용
 		"target": "esnext",
 		"module": "esnext",
@@ -45,8 +41,14 @@
 		// React JSX 변환 방식 (React 17+)
 		"jsx": "react-jsx",
 
+		// 워크스페이스 패키지 경로 설정 (모든 앱에서 공통 사용)
+		"baseUrl": ".",
 		"paths": {
-			"@styles/*": ["packages/styles/*"]
+			"@fstwon/styles": ["../../packages/styles"],
+			"@fstwon/styles/*": ["../../packages/styles/*"],
+			"@fstwon/utils": ["../../packages/utils"],
+			"@fstwon/utils/*": ["../../packages/utils/*"],
+			"@fstwon/assets/*": ["../../packages/assets/*"]
 		}
 	}
 }

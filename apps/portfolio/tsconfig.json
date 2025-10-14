@@ -1,13 +1,11 @@
 {
 	"extends": "../../libs/ts-config/tsconfig.json",
 	"compilerOptions": {
-		"rootDir": ".",
+		// 앱별 경로 설정 (packages 경로는 베이스에서 상속)
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["src/*"],
-			"@scss/*": ["../../packages/styles/scss/*"],
-			"@tailwind/*": ["../../packages/styles/tailwind/*"],
-			"@logos": ["src/assets/icons/logos"]
+			"@logos": ["src/assets/logos"]
 		}
 	},
 	"include": ["src", "../../libs/ts-config/vite-env.d.ts"]

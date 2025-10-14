@@ -4,6 +4,11 @@
 	"description": "fstwon styles set",
 	"main": "tailwind/index.css",
 	"style": "tailwind/index.css",
+	"exports": {
+		".": "./tailwind/index.css",
+		"./scss/*": "./scss/*",
+		"./tailwind/*": "./tailwind/*"
+	},
 	"files": [
 		"tailwind/",
 		"scss/",
