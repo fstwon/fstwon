@@ -16,7 +16,14 @@ const IntroLogo = ({ children, className = '' }: IntroLogoProps) => {
 		}
 	}, []);
 
-	return <div className={classNames('intro__logo', className)}>{children}</div>;
+	return (
+		<div
+			ref={ref}
+			className={classNames('intro__logo', className)}
+		>
+			{children}
+		</div>
+	);
 };
 
 export default IntroLogo;
