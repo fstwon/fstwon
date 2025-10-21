@@ -9,6 +9,8 @@
 	.intro__description {
 		display: flex;
 		align-items: center;
+
+		// TODO: font-size 수정
 		font-size: clamp(0.75rem, 1.5vw, 1.75rem);
 		line-height: 1.6;
 
