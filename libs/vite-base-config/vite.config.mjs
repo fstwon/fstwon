@@ -22,6 +22,42 @@ const createBaseConfig = () => {
 				),
 			}),
 			svgr(),
+			{
+				name: 'font-preload',
+				transformIndexHtml: (html) => {
+					// Font preload 최적화 적용
+					// 포트폴리오 우선 완성 후 자체 플러그인으로 수정 예정
+					const preloadFonts = [
+						`<link
+                rel="preconnect"
+                href="https://cdn.jsdelivr.net"
+                crossorigin
+              />`,
+						`<link
+                rel="preload"
+                href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2"
+                as="font"
+                type="font/woff2"
+                crossorigin
+            />`,
+						`<link
+                rel="preload"
+                href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+                as="font"
+                type="font/woff2"
+                crossorigin
+            />`,
+						`<link
+                rel="preload"
+                href="https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2"
+                as="font"
+                type="font/woff2"
+                crossorigin
+            />`,
+					].join('\n');
+					return html.replace('</head>', `${preloadFonts}\n</head>`);
+				},
+			},
 		],
 		resolve: {
 			alias: {
@@ -37,10 +73,6 @@ const createBaseConfig = () => {
 				),
 				'@fstwon/utils': path.resolve(__dirname, '../../packages/utils'),
 				'@fstwon/assets': path.resolve(__dirname, '../../packages/assets'),
-				'@logos': path.resolve(
-					__dirname,
-					'../../apps/portfolio/src/assets/icons/logos'
-				),
 			},
 		},
 		css: {

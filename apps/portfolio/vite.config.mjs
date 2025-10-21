@@ -17,7 +17,8 @@ export default mergeConfig(
 			alias: {
 				// 소스 경로 별칭
 				'@': path.resolve(__dirname, './src'),
-				'@logos': path.resolve(__dirname, './src/assets/icons/logos'),
+				'@logos': path.resolve(__dirname, './src/assets/logos'),
+				'@icons': path.resolve(__dirname, './src/assets/icons'),
 			},
 		},
 		server: {
