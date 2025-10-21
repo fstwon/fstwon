@@ -12,13 +12,13 @@ import './introLogoContainer.styles.scss';
 function IntroLogoContainer() {
 	return (
 		<div className='intro__logo__container relative w-full h-[45vw]'>
-			<MainLogo className='intro__logo-main w-[90%] absolute top-0 left-0 center' />
-			<HtmlLogo className='intro__logo-html w-[8%] absolute top-0 left-0' />
-			<Css3Logo className='intro__logo-css w-[8%] absolute top-0 left-0' />
-			<JsLogo className='intro__logo-js w-[8%] absolute top-0 left-0' />
-			<JavaLogo className='intro__logo-java w-[8%] absolute top-0 right-0' />
-			<OracleLogo className='intro__logo-oracle w-[8%] absolute top-0 right-0' />
-			<SpringLogo className='intro__logo-spring w-[8%] absolute top-0 right-0' />
+			<MainLogo className='intro__logo-main w-[85%]' />
+			<HtmlLogo className='intro__logo html w-[8%]' />
+			<Css3Logo className='intro__logo css w-[8%]' />
+			<JsLogo className='intro__logo js w-[8%]' />
+			<JavaLogo className='intro__logo java w-[8%]' />
+			<OracleLogo className='intro__logo oracle w-[8%]' />
+			<SpringLogo className='intro__logo spring w-[8%]' />
 		</div>
 	);
 }

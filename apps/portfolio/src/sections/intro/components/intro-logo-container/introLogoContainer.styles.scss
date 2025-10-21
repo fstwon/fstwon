@@ -1,6 +1,43 @@
 .intro__logo__container {
 	background-color: #1a1f25;
+	overflow: hidden;
+
 	.intro__logo-main {
+		position: absolute;
 		color: #fafafa;
+		top: 25%;
+		left: 50%;
+		transform: translate(-50%, 0);
+		z-index: 1;
+	}
+
+	.intro__logo {
+		position: absolute;
+		opacity: 0.4;
+
+		&.html {
+			bottom: 3%;
+			left: 5%;
+		}
+		&.css {
+			bottom: 10%;
+			left: 25%;
+		}
+		&.js {
+			bottom: 30%;
+			left: 10%;
+		}
+		&.java {
+			bottom: 5%;
+			right: 20%;
+		}
+		&.oracle {
+			bottom: 13%;
+			right: 5%;
+		}
+		&.spring {
+			bottom: 25%;
+			right: 7%;
+		}
 	}
 }

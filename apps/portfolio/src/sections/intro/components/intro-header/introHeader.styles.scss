@@ -1,13 +1,22 @@
 .intro__header {
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	padding: 10px 0;
+	justify-content: space-between;
+	padding: 10px 20px;
 	color: #aab0b8;
 	font-family: var(--font-mono);
 
 	.intro__description {
-		font-size: clamp(1rem, 1.5vw, 1.75rem);
+		display: flex;
+		align-items: center;
+		font-size: clamp(0.75rem, 1.5vw, 1.75rem);
 		line-height: 1.6;
+
+		.intro__header__icon {
+			&-web {
+				width: 13%;
+				margin-left: 0.5rem;
+			}
+		}
 	}
 }
