@@ -1,6 +1,6 @@
+import './introLogo.styles.scss';
 import { useEffect, useRef } from 'react';
 import { classNames } from '@fstwon/utils';
-import './introLogo.styles.scss';
 
 interface IntroLogoProps {
 	children: React.ReactNode;

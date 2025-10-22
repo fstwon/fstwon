@@ -1,3 +1,4 @@
+import './introLogoContainer.styles.scss';
 import {
 	MainLogo,
 	HtmlLogo,
@@ -7,7 +8,6 @@ import {
 	OracleLogo,
 	SpringLogo,
 } from '@/assets/logos';
-import './introLogoContainer.styles.scss';
 
 function IntroLogoContainer() {
 	return (
