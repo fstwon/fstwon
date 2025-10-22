@@ -1,13 +1,15 @@
 import './introHeader.styles.scss';
 import { WebIcon } from '@/assets/icons';
 import { useResponseLayout } from '@fstwon/utils/react';
-import { Activity } from 'react';
+import { Activity, useEffect } from 'react';
 
 function IntroHeader() {
-	const { isMobile, isTablet, isDesktop } = useResponseLayout();
+	const { isMobile } = useResponseLayout();
+
+	useEffect(() => {}, []);
 
 	return (
-		<Activity>
+		<Activity mode={isMobile ? 'hidden' : 'visible'}>
 			<section className='intro__header'>
 				<div className='intro__description'>
 					Web Developer

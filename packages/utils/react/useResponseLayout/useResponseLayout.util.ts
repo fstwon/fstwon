@@ -1,31 +1,53 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 
-const useResponseLayout = () => {
-	const [isMobile, setIsMobile] = useState<boolean>(false);
-	const [isTablet, setIsTablet] = useState<boolean>(false);
-	const [isDesktop, setIsDesktop] = useState<boolean>(false);
+const BREAKPOINTS = {
+	mobile: 768,
+	tablet: 1024,
+} as const;
 
-	useEffect(() => {
-		const handleResize = () => {
-			const windowWidth = window.innerWidth;
+type DeviceType = 'mobile' | 'tablet' | 'desktop';
 
-			if (windowWidth < 768) {
-				setIsMobile(true);
-			} else if (windowWidth >= 768 && windowWidth < 1024) {
-				setIsTablet(true);
+interface UseResponseLayoutReturn {
+	deviceType: DeviceType;
+	isMobile: boolean;
+	isTablet: boolean;
+	isDesktop: boolean;
+}
+
+const useResponseLayout = (): UseResponseLayoutReturn => {
+	const isInitialRender = useRef(true);
+	const [deviceType, setDeviceType] = useState<DeviceType>('desktop');
+
+	useLayoutEffect(() => {
+		const getDeviceType = (width: number): DeviceType => {
+			if (width < BREAKPOINTS.mobile) {
+				return 'mobile';
+			} else if (width < BREAKPOINTS.tablet) {
+				return 'tablet';
 			} else {
-				setIsDesktop(true);
+				return 'desktop';
 			}
 		};
+
+		const handleResize = () => {
+			const newDeviceType = getDeviceType(window.innerWidth);
+			setDeviceType(newDeviceType);
+		};
+
+		if (isInitialRender.current) {
+			handleResize();
+			isInitialRender.current = false;
+		}
 
 		window.addEventListener('resize', handleResize);
 		return () => window.removeEventListener('resize', handleResize);
 	}, []);
 
 	return {
-		isMobile,
-		isTablet,
-		isDesktop,
+		deviceType,
+		isMobile: deviceType === 'mobile',
+		isTablet: deviceType === 'tablet',
+		isDesktop: deviceType === 'desktop',
 	};
 };
 
