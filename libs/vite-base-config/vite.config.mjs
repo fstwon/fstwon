@@ -43,8 +43,8 @@ const createBaseConfig = () => {
 						`<link
                 rel="preload"
                 href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
-                as="font"
-                type="font/woff2"
+                as="style"
+                type="text/css"
                 crossorigin
             />`,
 						`<link
