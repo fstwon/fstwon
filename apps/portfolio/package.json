@@ -12,13 +12,13 @@
 		"@fstwon/styles": "*",
 		"@fstwon/utils": "*",
 		"gsap": "^3.13.0",
-		"react": "^19.1.0",
-		"react-dom": "^19.1.0",
+		"react": "^19.2.0",
+		"react-dom": "^19.2.0",
 		"tailwind-config": "*"
 	},
 	"devDependencies": {
-		"@types/react": "^19.1.8",
-		"@types/react-dom": "^19.1.6",
+		"@types/react": "^19.2.2",
+		"@types/react-dom": "^19.2.2",
 		"@vitejs/plugin-react": "^4.6.0",
 		"autoprefixer": "^10.x",
 		"postcss": "^8.x",
