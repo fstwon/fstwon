@@ -73,6 +73,7 @@ const createBaseConfig = () => {
 				),
 				'@fstwon/utils': path.resolve(__dirname, '../../packages/utils'),
 				'@fstwon/assets': path.resolve(__dirname, '../../packages/assets'),
+				'@fstwon/utils': path.resolve(__dirname, '../../packages/utils'),
 			},
 		},
 		css: {
