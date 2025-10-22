@@ -1,6 +1,6 @@
+import './logoContainer.styles.scss';
 import { useEffect, useRef } from 'react';
 import { classNames } from '@fstwon/utils';
-import './logoContainer.styles.scss';
 
 interface LogoContainerProps {
 	children: React.ReactElement<SVGElement>;

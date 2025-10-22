@@ -1,6 +1,6 @@
+import './iconContainer.styles.scss';
 import { classNames } from '@fstwon/utils';
 import { useEffect, useRef } from 'react';
-import './iconContainer.styles.scss';
 
 interface IconContainerProps {
 	children: React.ReactNode;
