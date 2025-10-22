@@ -1,1 +1,2 @@
-export { default as classNames } from './classNames/classNames.utils';
+export { default as classNames } from './classNames/classNames.util';
+export { useResponseLayout } from './react';

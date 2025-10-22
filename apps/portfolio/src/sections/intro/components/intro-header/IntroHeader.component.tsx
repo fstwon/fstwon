@@ -1,13 +1,16 @@
 import './introHeader.styles.scss';
 import { WebIcon } from '@/assets/icons';
+import { useResponseLayout } from '@fstwon/utils/react';
 
 function IntroHeader() {
+	const { isMobile, isTablet, isDesktop } = useResponseLayout();
+
 	return (
 		<section className='intro__header'>
-			<p className='intro__description'>
+			<div className='intro__description'>
 				Web Developer
 				<WebIcon className='intro__header__icon-web' />
-			</p>
+			</div>
 			<p className='intro__description'>
 				Building modern, responsive web experiences
 			</p>
