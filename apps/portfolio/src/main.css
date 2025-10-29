@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 
 :root {
-	font-family: var(--font-default);
+	font-family: var(--font-mono);
 	background-color: #171b20;
 	width: var(--layout-contents-width);
+	--color-text-primary: #aab0b8;
 }
