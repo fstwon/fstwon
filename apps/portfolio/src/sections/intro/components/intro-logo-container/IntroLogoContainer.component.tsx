@@ -32,7 +32,7 @@ function IntroLogoContainer() {
 					duration: 2,
 					ease: 'elastic',
 					delay: 0.5,
-					stagger: 0.1,
+					stagger: 0.2,
 				}
 			);
 
@@ -45,8 +45,8 @@ function IntroLogoContainer() {
 				{
 					opacity: 1,
 					y: 0,
-					duration: 0.5,
-					delay: 1.6,
+					duration: 1,
+					delay: 2.5,
 					ease: 'power2.inOut',
 				}
 			);
