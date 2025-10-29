@@ -1,6 +1,5 @@
 import './index.scss';
-import IntroLogoContainer from './components/intro-logo-container/IntroLogoContainer.component';
-import IntroHeader from './components/intro-header/IntroHeader.component';
+import { IntroHeader, IntroLogoContainer } from './components';
 
 export function IntroSection() {
 	return (
