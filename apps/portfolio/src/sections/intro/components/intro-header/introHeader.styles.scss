@@ -3,7 +3,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 10px 20px;
-	color: #aab0b8;
+	color: var(--color-text-primary);
 	font-family: var(--font-mono);
 
 	.intro__description {
