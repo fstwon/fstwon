@@ -1,11 +1,13 @@
 import './index.scss';
 import { IntroHeader, IntroLogoContainer } from './components';
 
-export function IntroSection() {
+const IntroSection = () => {
 	return (
 		<section className='intro__section'>
 			<IntroHeader />
 			<IntroLogoContainer />
 		</section>
 	);
-}
+};
+
+export default IntroSection;

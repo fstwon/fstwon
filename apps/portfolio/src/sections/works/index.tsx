@@ -1,12 +1,23 @@
 import './index.scss';
+import { WorksItem } from './components';
 
-export function WorksSection() {
+const WorksSection = () => {
 	return (
-		<section className='works__section p-8'>
-			<h1 className='works__section__title b-'>WORKS</h1>
-			<section className='works__section__content'>
-				{/* TODO: 경력 사항 컴포넌트 구현 후 추가 */}
+		<section className='works__section'>
+			<h1 className='works__section__title text-4xl font-bold p-8'>Works</h1>
+			<section className='works__section__content w-full'>
+				<WorksItem
+					number={1}
+					companyName='Company Name'
+					position='Position'
+					duration='Duration'
+					description='Description'
+					image='Image'
+					link='Link'
+				/>
 			</section>
 		</section>
 	);
-}
+};
+
+export default WorksSection;
