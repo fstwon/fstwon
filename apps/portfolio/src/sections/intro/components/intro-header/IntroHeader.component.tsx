@@ -1,12 +1,10 @@
 import './introHeader.styles.scss';
 import { WebIcon } from '@/assets/icons';
-import { useResponseLayout } from '@fstwon/utils/react';
-import { Activity, useEffect } from 'react';
+import { useResponseLayoutStore } from '@fstwon/utils/react/useResponseLayout/useResponseLayout.util';
+import { Activity } from 'react';
 
-function IntroHeader() {
-	const { isMobile } = useResponseLayout();
-
-	useEffect(() => {}, []);
+const IntroHeader = () => {
+	const { isMobile } = useResponseLayoutStore();
 
 	return (
 		<Activity mode={isMobile ? 'hidden' : 'visible'}>
@@ -24,6 +22,6 @@ function IntroHeader() {
 			</section>
 		</Activity>
 	);
-}
+};
 
 export default IntroHeader;
