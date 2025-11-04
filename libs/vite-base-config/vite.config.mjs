@@ -52,7 +52,18 @@ const createBaseConfig = () => {
                 href="https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2"
                 as="font"
                 type="font/woff2"
-                crossorigin
+                crossorigin="anonymous"
+            />`,
+						`<link
+                rel="preload"
+                as="style"
+                href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+                crossorigin="anonymous"
+            />`,
+						`<link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+              crossorigin="anonymous"
             />`,
 					].join('\n');
 					return html.replace('</head>', `${preloadFonts}\n</head>`);
