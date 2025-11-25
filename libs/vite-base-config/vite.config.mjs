@@ -25,8 +25,8 @@ const createBaseConfig = () => {
 			{
 				name: 'font-preload',
 				transformIndexHtml: (html) => {
+					// NOTE: 자체 플러그인 구현 시도 예정
 					// Font preload 최적화 적용
-					// 포트폴리오 우선 완성 후 자체 플러그인으로 수정 예정
 					const preloadFonts = [
 						`<link
                 rel="preconnect"
