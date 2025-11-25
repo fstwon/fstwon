@@ -6,19 +6,16 @@
 	color: var(--color-text-primary);
 	font-family: var(--font-mono);
 
-	.intro__description {
+	&__description {
 		display: flex;
 		align-items: center;
 
-		// TODO: font-size 수정
 		font-size: clamp(0.5rem, 1.3vw, 1.75rem);
 		line-height: 1.6;
 
-		.intro__header__icon {
-			&-web {
-				width: 13%;
-				margin-left: 0.5rem;
-			}
+		&__icon-web {
+			width: 13%;
+			margin-left: 0.5rem;
 		}
 	}
 }

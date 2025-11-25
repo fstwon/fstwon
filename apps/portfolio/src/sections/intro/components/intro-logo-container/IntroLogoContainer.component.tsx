@@ -54,7 +54,7 @@ function IntroLogoContainer() {
 	}, []);
 
 	return (
-		<div
+		<section
 			ref={containerRef}
 			className='intro__logo__container relative w-full h-[45vw]'
 		>
@@ -65,7 +65,7 @@ function IntroLogoContainer() {
 			<JavaLogo className='intro__logo java w-[8%]' />
 			<OracleLogo className='intro__logo oracle w-[8%]' />
 			<SpringLogo className='intro__logo spring w-[8%]' />
-		</div>
+		</section>
 	);
 }
 
