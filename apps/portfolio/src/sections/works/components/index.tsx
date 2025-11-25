@@ -1,3 +1,3 @@
-import WorksItem from './works-item/WorksItem.component';
+import WorkItem from './work-item/WorkItem.component';
 
-export { WorksItem };
+export { WorkItem };
