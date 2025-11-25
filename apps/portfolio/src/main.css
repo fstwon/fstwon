@@ -1,8 +1,13 @@
 @import 'tailwindcss';
 
+/* app base styles */
 :root {
 	font-family: var(--font-mono);
 	background-color: #171b20;
 	width: var(--layout-contents-width);
+}
+
+/* color sheet */
+:root {
 	--color-text-primary: #aab0b8;
 }
