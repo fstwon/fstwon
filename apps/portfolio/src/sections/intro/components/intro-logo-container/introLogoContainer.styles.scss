@@ -7,14 +7,14 @@
 		color: #fafafa;
 		top: 25%;
 		left: 50%;
-		opacity: 1;
+		opacity: 0;
 		transform: translate(-50%, 0);
 		z-index: 1;
 	}
 
 	.intro__logo {
 		position: absolute;
-		opacity: 0.4;
+		opacity: 0;
 
 		&.html {
 			bottom: 5%;
