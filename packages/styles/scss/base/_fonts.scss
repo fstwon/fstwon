@@ -61,10 +61,46 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-family: 'Montserrat';
+	src: url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+		format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+		format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+		format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+		format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
 :root {
 	--font-default:
-		'SUIT', 'Pretendard Variable', system-ui, -apple-system, 'Segoe UI',
-		'Noto Sans KR', sans-serif;
+		'SUIT', 'Pretendard Variable', system-ui, -apple-system, 'Segoe UI', 'Noto Sans KR', sans-serif;
 	--font-mono: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+	--font-montserrat: 'Montserrat', sans-serif;
 	--font-size-default: 16px;
 }
