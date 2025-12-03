@@ -14,7 +14,7 @@ import gsap from 'gsap';
 function IntroLogoContainer() {
 	const containerRef = useRef<HTMLDivElement>(null);
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		if (containerRef.current) {
 			const logos = containerRef.current.querySelectorAll('.intro__logo');
 			const mainLogo = containerRef.current.querySelector('.intro__logo-main');
