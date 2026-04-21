@@ -1,27 +1,25 @@
 import './index.scss';
 import { WorkItem } from './components';
 import { WORK_ITEM_DATA } from './constants/workItem.constant';
-import { WorkItemProps } from './components/work-item/WorkItem.component';
 
 const WorksSection = () => {
 	return (
-		<section className='works__section p-8'>
-			<h1 className='works__section__title text-4xl font-bold'>Works</h1>
-			<section className='works__section__content w-full'>
-				{WORK_ITEM_DATA.map((work: WorkItemProps) => (
+		<section className='works__section'>
+			<h2 className='works__section__title font-bold'>Works</h2>
+			<div className='works__section__content flex flex-col'>
+				{WORK_ITEM_DATA.map(work => (
 					<WorkItem
 						key={work.id}
 						id={work.id}
 						companyName={work.companyName}
 						position={work.position}
 						duration={work.duration}
-						description={work.description}
 						image={work.image}
 						link={work.link}
-						techStack={work.techStack}
+						projects={work.projects}
 					/>
 				))}
-			</section>
+			</div>
 		</section>
 	);
 };

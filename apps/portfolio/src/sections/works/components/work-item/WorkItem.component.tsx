@@ -1,77 +1,77 @@
 import './workItem.styles.scss';
 import { classNames } from '@fstwon/utils';
-import { useResponseLayoutStore } from '@fstwon/utils/react/useResponseLayout/useResponseLayout.util';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import WorkProjectItem from '../work-project-item/WorkProjectItem.component';
+import type { WorkItemData } from '../../constants/workItem.constant';
 
-export interface WorkItemProps {
-	id: number;
-	companyName: string;
-	position: string;
-	duration: string;
-	description: string;
-	image: string;
-	link: string;
-	techStack: string[];
-}
+export type WorkItemProps = WorkItemData;
 
-const WorkItem = ({
-	id,
-	companyName,
-	position,
-	duration,
-	description,
-	image,
-	link,
-}: WorkItemProps) => {
-	const { isMobile } = useResponseLayoutStore();
-	const ioRef = useRef<HTMLDivElement>(null);
-	const gsapRef = useRef<HTMLDivElement>(null);
+const WorkItem = ({ id, companyName, position, duration, image, link, projects }: WorkItemProps) => {
+	const containerRef = useRef<HTMLElement>(null);
+	const [isActive, setIsActive] = useState(false);
 
-	// TODO: intersection observer, gsap scale, style animation 적용
 	useEffect(() => {
-		if (ioRef.current) {
-			gsap.to(gsapRef.current!, {
-				// scale: 1.05,
-			});
-		}
+		const el = containerRef.current;
+		if (!el) return;
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				const active = entry.isIntersecting;
+				setIsActive(active);
+				gsap.to(el, {
+					opacity: active ? 1 : 0.28,
+					scale: active ? 1.05 : 1,
+					duration: 0.5,
+					ease: 'power2.out',
+				});
+			},
+			{ threshold: 0.5 },
+		);
+
+		observer.observe(el);
+		return () => observer.disconnect();
 	}, []);
+
+	const paddedId = String(id).padStart(2, '0');
 
 	return (
 		<article
-			className={classNames('works__item', isMobile ? 'w-full' : 'w-[80%]')}
-			ref={ioRef}
+			className={classNames('works__item', isActive && 'works__item--active')}
+			ref={containerRef}
 		>
-			<div
-				className='works__item__container'
-				ref={gsapRef}
-			>
-				<div className='works__item__id'>{id}</div>
+			<div className='works__item__left'>
+				<span className='works__item__left__id'>{paddedId}</span>
+				<div className='works__item__left__logo'>
+					<img src={image} alt={`${companyName} logo`} />
+				</div>
+			</div>
+			<div className='works__item__right'>
 				<a
-					className='works__item__link'
+					className='works__item__right__company-name'
 					href={link}
 					target='_blank'
 					rel='noopener noreferrer'
 				>
-					<div className='works__item__content'>
-						<div className='works__item__content__image__container'>
-							<img
-								src={image}
-								alt={`${companyName} - image`}
-							/>
-						</div>
-						<div className='works__item__content__info'>
-							<h1 className='works__item__content__info__company-name'>
-								{companyName}
-							</h1>
-							<p className='works__item__content__info__position'>{position}</p>
-							<p className='works__item__content__info__duration'>{duration}</p>
-						</div>
-						<p className='works__item__content__info__description'>
-							{description}
-						</p>
-					</div>
+					{companyName}
 				</a>
+				<p className='works__item__right__position'>{position}</p>
+				<div className='works__item__right__period-row'>
+					<span className='works__item__right__period-row__dot' />
+					<span className='works__item__right__period-row__text'>{duration}</span>
+				</div>
+				<div className='works__item__right__divider' />
+				<div className='works__item__right__projects'>
+					{projects.map(project => (
+						<WorkProjectItem
+							key={project.name}
+							name={project.name}
+							period={project.period}
+							description={project.description}
+							techStack={project.techStack}
+						/>
+					))}
+				</div>
 			</div>
 		</article>
 	);
