@@ -1,11 +1,42 @@
 .works__section {
-	color: var(--color-text-primary);
+	background-color: #1a1f25;
+	padding: 80px 144px;
 
 	&__title {
-		font-size: clamp(1.5rem, 4vw, 3rem);
+		font-size: clamp(2rem, 5vw, 4rem);
+		font-weight: 700;
+		color: #fafafa;
+		font-family: var(--font-montserrat);
+		margin-bottom: 60px;
 	}
+
 	&__content {
 		display: flex;
-		justify-content: end;
+		flex-direction: column;
+		gap: 48px;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.works__section {
+		padding: 60px 80px;
+
+		&__content {
+			gap: 36px;
+		}
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.works__section {
+		padding: 40px 20px;
+
+		&__title {
+			margin-bottom: 40px;
+		}
+
+		&__content {
+			gap: 24px;
+		}
 	}
 }
