@@ -1,5 +1,5 @@
 import './projectDetailPage.styles.scss';
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { PROJECT_ITEM_DATA } from '@/sections/projects/constants/projectItem.constant';
@@ -12,6 +12,11 @@ const ProjectDetailPage = () => {
 	const mainRowRef = useRef<HTMLDivElement>(null);
 
 	const project = PROJECT_ITEM_DATA.find(p => p.id === Number(id));
+
+	// 페인트 전 최상단으로 이동 — useLayoutEffect로 중간 위치 노출 방지
+	useLayoutEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	useEffect(() => {
 		if (!project) return;
