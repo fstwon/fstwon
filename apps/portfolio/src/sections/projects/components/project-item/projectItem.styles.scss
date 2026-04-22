@@ -10,9 +10,9 @@
 		opacity: 0.055;
 	}
 
+	// filter: brightness는 GSAP이 제어하는 부모 opacity와 충돌하지 않음
 	.projects__item__thumbnail {
-		border-color: rgba(255, 127, 40, 0.35);
-		opacity: 1;
+		filter: brightness(1);
 	}
 
 	.projects__item__body {
@@ -34,7 +34,6 @@
 		}
 
 		&__tags__tag {
-			color: #63d2ab;
 			opacity: 1;
 		}
 
@@ -52,9 +51,10 @@
 	overflow: hidden;
 	opacity: 0.35;
 	transform-origin: center;
+	cursor: pointer;
 	transition:
-		background-color 0.4s ease,
-		box-shadow 0.4s ease;
+		background-color 400ms ease,
+		box-shadow 400ms ease;
 
 	&--active {
 		@include spotlight-state;
@@ -74,7 +74,7 @@
 		width: 4px;
 		background-color: #ff7f28;
 		opacity: 0;
-		transition: opacity 0.4s ease;
+		transition: opacity 400ms ease;
 	}
 
 	&__watermark {
@@ -88,7 +88,7 @@
 		opacity: 0.03;
 		line-height: 1;
 		pointer-events: none;
-		transition: opacity 0.4s ease;
+		transition: opacity 400ms ease;
 	}
 
 	&__thumbnail {
@@ -97,10 +97,9 @@
 		background-color: #2a2d34;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 		overflow: hidden;
-		opacity: 0.55;
-		transition:
-			opacity 0.4s ease,
-			border-color 0.4s ease;
+		// opacity 대신 filter 사용 — GSAP의 부모 opacity 제어와 독립적으로 동작
+		filter: brightness(0.7);
+		transition: filter 150ms ease-out;
 
 		img {
 			width: 100%;
@@ -123,8 +122,8 @@
 			padding: 4px 8px;
 			border-radius: 4px;
 			transition:
-				background-color 0.4s ease,
-				color 0.4s ease;
+				background-color 400ms ease,
+				color 400ms ease;
 		}
 
 		&__title {
@@ -133,7 +132,7 @@
 			color: #fafafa;
 			font-family: var(--font-default);
 			opacity: 0.5;
-			transition: opacity 0.4s ease;
+			transition: opacity 400ms ease;
 		}
 
 		&__description {
@@ -142,14 +141,14 @@
 			font-family: var(--font-default);
 			line-height: 1.6;
 			opacity: 0.5;
-			transition: opacity 0.4s ease;
+			transition: opacity 400ms ease;
 		}
 
 		&__divider {
 			height: 1px;
 			width: 100%;
 			background-color: rgba(255, 255, 255, 0.06);
-			transition: background-color 0.4s ease;
+			transition: background-color 400ms ease;
 		}
 
 		&__tags {
@@ -164,14 +163,14 @@
 				padding: 4px 10px;
 				border-radius: 4px;
 				opacity: 0.45;
-				transition: opacity 0.4s ease;
+				transition: opacity 400ms ease;
 			}
 		}
 
 		&__links {
 			gap: 8px;
 			opacity: 0.5;
-			transition: opacity 0.4s ease;
+			transition: opacity 400ms ease;
 
 			&__github {
 				font-size: 11px;
