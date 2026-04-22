@@ -73,14 +73,16 @@ const ProjectItem = ({
 					))}
 				</div>
 				<div className='projects__item__body__links flex items-center'>
-					<a
-						className='projects__item__body__links__github'
-						href={githubUrl}
-						target='_blank'
-						rel='noopener noreferrer'
-					>
-						GitHub →
-					</a>
+					{githubUrl && (
+						<a
+							className='projects__item__body__links__github'
+							href={githubUrl}
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							GitHub →
+						</a>
+					)}
 					{liveUrl && (
 						<a
 							className='projects__item__body__links__live'
