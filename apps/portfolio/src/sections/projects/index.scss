@@ -1,0 +1,43 @@
+.projects__section {
+	background-color: #1a1f25;
+	padding: 80px 144px;
+
+	&__title {
+		font-size: clamp(2rem, 5vw, 4rem);
+		color: #fafafa;
+		font-family: var(--font-montserrat);
+		margin-bottom: 60px;
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 24px;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.projects__section {
+		padding: 60px 80px;
+
+		&__content {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
+		}
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.projects__section {
+		padding: 40px 20px;
+
+		&__title {
+			margin-bottom: 40px;
+		}
+
+		&__content {
+			grid-template-columns: 1fr;
+			gap: 16px;
+		}
+	}
+}
