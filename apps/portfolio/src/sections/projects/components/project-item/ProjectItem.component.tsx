@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import type { ProjectItemData } from '../../constants/projectItem.constant';
 
+const SCROLL_STORAGE_KEY = 'main-scroll-y';
+
 export type ProjectItemProps = ProjectItemData;
 
 const supportsHover = window.matchMedia('(hover: hover)').matches;
@@ -31,8 +33,8 @@ const ProjectItem = ({
 			([entry]) => {
 				const active = entry.isIntersecting;
 				if (!supportsHover) setIsActive(active);
+				// opacity는 항상 1 유지, scale만 뷰포트 진입 여부로 제어
 				gsap.to(el, {
-					opacity: active ? 1 : 0.35,
 					scale: active ? 1 : 0.97,
 					duration: 0.5,
 					ease: 'power2.out',
@@ -49,7 +51,9 @@ const ProjectItem = ({
 		const el = containerRef.current;
 		if (!el) return;
 
-		// 클릭한 카드 scale-up 후 페이지 전환
+		// 메인 페이지 스크롤 위치 저장 → 돌아올 때 복원
+		sessionStorage.setItem(SCROLL_STORAGE_KEY, String(window.scrollY));
+
 		gsap.to(el, {
 			scale: 1.04,
 			opacity: 0,
