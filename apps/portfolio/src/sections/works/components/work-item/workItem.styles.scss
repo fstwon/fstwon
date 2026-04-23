@@ -7,9 +7,13 @@
 	border: 2px solid transparent;
 	opacity: 0.28;
 	transition:
-		border-color 0.4s ease,
-		box-shadow 0.4s ease;
+		border-color 400ms ease,
+		box-shadow 400ms ease;
 	transform-origin: center;
+
+	&--clickable {
+		cursor: pointer;
+	}
 
 	&--active {
 		border-color: #ff7f28;
@@ -24,20 +28,28 @@
 			border-color: #ff7f28;
 		}
 
-		.works__item__right__period-row__dot {
-			background-color: #ff7f28;
-		}
+		.works__item__right {
+			&__header__arrow {
+				opacity: 1;
+				transform: translateX(0);
+			}
 
-		.works__item__right__period-row__text {
-			color: #ff7f28;
-		}
+			&__period-row__dot {
+				background-color: #ff7f28;
+			}
 
-		.works__item__right__divider {
-			background-color: rgba(255, 255, 255, 0.2);
-		}
+			&__period-row__text {
+				color: #ff7f28;
+			}
 
-		.works__project-item__tags__tag {
-			color: #ff7f28;
+			&__divider {
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+
+			&__tags__tag {
+				color: #ff7f28;
+				border-color: rgba(255, 127, 40, 0.25);
+			}
 		}
 	}
 
@@ -56,7 +68,9 @@
 			font-family: var(--font-montserrat);
 			opacity: 0.2;
 			line-height: 1;
-			transition: color 0.4s ease, opacity 0.4s ease;
+			transition:
+				color 400ms ease,
+				opacity 400ms ease;
 		}
 
 		&__logo {
@@ -69,7 +83,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			transition: border-color 0.4s ease;
+			transition: border-color 400ms ease;
 
 			img {
 				width: 100%;
@@ -83,19 +97,34 @@
 	&__right {
 		display: flex;
 		flex-direction: column;
-		gap: 16px;
+		gap: 12px;
 		flex: 1;
 		min-width: 0;
 
-		&__company-name {
-			font-size: 24px;
-			font-weight: 700;
-			color: #fafafa;
-			font-family: var(--font-default);
-			text-decoration: none;
+		&__header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 12px;
 
-			&:hover {
-				text-decoration: underline;
+			&__company {
+				font-size: 24px;
+				font-weight: 700;
+				color: #fafafa;
+				font-family: var(--font-default);
+			}
+
+			&__arrow {
+				font-size: 11px;
+				font-weight: 600;
+				font-family: var(--font-mono);
+				color: #ff7f28;
+				opacity: 0;
+				transform: translateX(-8px);
+				transition:
+					opacity 400ms ease,
+					transform 400ms ease;
+				flex-shrink: 0;
 			}
 		}
 
@@ -116,14 +145,14 @@
 				border-radius: 50%;
 				background-color: #63d2ab;
 				flex-shrink: 0;
-				transition: background-color 0.4s ease;
+				transition: background-color 400ms ease;
 			}
 
 			&__text {
 				font-size: 12px;
 				color: #63d2ab;
 				font-family: var(--font-default);
-				transition: color 0.4s ease;
+				transition: color 400ms ease;
 			}
 		}
 
@@ -131,13 +160,32 @@
 			height: 1px;
 			background-color: rgba(255, 255, 255, 0.1);
 			width: 100%;
-			transition: background-color 0.4s ease;
+			transition: background-color 400ms ease;
 		}
 
-		&__projects {
-			display: flex;
-			flex-direction: column;
-			gap: 12px;
+		&__description {
+			font-size: 13px;
+			color: #9ba2b2;
+			font-family: var(--font-default);
+			line-height: 1.65;
+		}
+
+		&__tags {
+			gap: 6px;
+
+			&__tag {
+				font-size: 10px;
+				font-weight: 600;
+				font-family: var(--font-mono);
+				color: #63d2ab;
+				background-color: rgba(99, 210, 171, 0.06);
+				border: 1px solid rgba(99, 210, 171, 0.15);
+				padding: 4px 10px;
+				border-radius: 4px;
+				transition:
+					color 400ms ease,
+					border-color 400ms ease;
+			}
 		}
 	}
 }
@@ -160,10 +208,8 @@
 			}
 		}
 
-		&__right {
-			&__company-name {
-				font-size: 20px;
-			}
+		&__right__header__company {
+			font-size: 20px;
 		}
 	}
 }
