@@ -6,4 +6,7 @@ node_modules
 
 # IDE
 .idea/
-.vscode/apps/portfolio/dist/
+.vscode/
+
+# build output
+apps/portfolio/dist/
