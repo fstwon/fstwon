@@ -6,4 +6,4 @@ node_modules
 
 # IDE
 .idea/
-.vscode/
+.vscode/apps/portfolio/dist/
