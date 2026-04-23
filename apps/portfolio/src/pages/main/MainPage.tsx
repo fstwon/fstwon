@@ -2,6 +2,7 @@ import { useLayoutEffect } from 'react';
 import IntroSection from '@/sections/intro';
 import WorksSection from '@/sections/works';
 import ProjectsSection from '@/sections/projects';
+import ContactSection from '@/sections/contact';
 
 const SCROLL_STORAGE_KEY = 'main-scroll-y';
 
@@ -19,6 +20,7 @@ const MainPage = () => {
 			<IntroSection />
 			<WorksSection />
 			<ProjectsSection />
+			<ContactSection />
 		</main>
 	);
 };
