@@ -1,0 +1,97 @@
+.contact__section {
+	position: relative;
+	background-color: #1a1f25;
+	padding: 100px 144px 0;
+	overflow: hidden;
+	border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+	// ── 배경 glow ─────────────────────────────────
+	&__bg-glow {
+		position: absolute;
+		border-radius: 50%;
+		pointer-events: none;
+
+		&--teal {
+			width: 560px;
+			height: 560px;
+			top: -60px;
+			left: 50%;
+			transform: translateX(-60%);
+			background: radial-gradient(circle, rgba(99, 210, 171, 0.07) 0%, transparent 70%);
+		}
+
+		&--orange {
+			width: 380px;
+			height: 380px;
+			top: 40px;
+			left: 58%;
+			background: radial-gradient(circle, rgba(255, 127, 40, 0.07) 0%, transparent 70%);
+		}
+	}
+
+	// ── 배경 ghost watermark ─────────────────────
+	&__watermark {
+		position: absolute;
+		top: 200px;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 220px;
+		font-weight: 800;
+		font-family: var(--font-montserrat);
+		color: #ffffff;
+		opacity: 0.027;
+		white-space: nowrap;
+		pointer-events: none;
+		user-select: none;
+		line-height: 1;
+	}
+
+	// ── 좌우 장식선 ───────────────────────────────
+	&__deco-line {
+		position: absolute;
+		top: 342px;
+		height: 1px;
+		width: 180px;
+		background-color: rgba(255, 255, 255, 0.07);
+
+		&--left  { left: 80px; }
+		&--right { right: 80px; }
+	}
+
+	// ── 푸터 ─────────────────────────────────────
+	&__footer {
+		border-top: 1px solid rgba(255, 255, 255, 0.06);
+		padding: 20px 0;
+		font-size: 12px;
+		color: #616674;
+		font-family: var(--font-default);
+	}
+}
+
+// ── 반응형 ────────────────────────────────────────
+@media only screen and (max-width: 1024px) {
+	.contact__section {
+		padding: 80px 80px 0;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.contact__section {
+		padding: 60px 20px 0;
+
+		&__watermark {
+			font-size: 130px;
+		}
+
+		&__deco-line {
+			display: none;
+		}
+
+		&__footer {
+			flex-direction: column;
+			align-items: center;
+			gap: 6px;
+			text-align: center;
+		}
+	}
+}
