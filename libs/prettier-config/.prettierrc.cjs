@@ -11,7 +11,7 @@ const config = {
 	trailingComma: 'es5',
 
 	// 줄 바꿈 기준 길이 (가독성 확보)
-	printWidth: 100,
+	printWidth: 30,
 
 	// 들여쓰기 너비
 	tabWidth: 2,
@@ -21,9 +21,9 @@ const config = {
 
 	// 단일 매개변수 화살표 함수는 괄호 생략
 	arrowParens: 'avoid',
+
+	// jsx 속성 한줄당 하나씩
+	singleAttributePerLine: true,
 };
 
-export default config;
-
-
-
+module.exports = config;

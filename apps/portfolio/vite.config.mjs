@@ -1,29 +1,29 @@
-import createBaseConfig from '../../libs/vite-base-config/vite.config.mjs';
-import { defineConfig, mergeConfig } from 'vite';
-import path from 'path';
+import createBaseConfig from "../../libs/vite-base-config/vite.config.mjs";
+import { defineConfig, mergeConfig } from "vite";
+import path from "path";
 
 export default mergeConfig(
-	createBaseConfig(),
-	defineConfig({
-		// 프로젝트 루트 디렉터리 명시
-		root: __dirname,
-		build: {
-			// 빌드 출력 디렉터리 설정
-			outDir: 'dist',
-			// 빌드 시 기존 출력물 비우기
-			emptyOutDir: true,
-		},
-		resolve: {
-			alias: {
-				// 소스 경로 별칭
-				'@': path.resolve(__dirname, './src'),
-				'@logos': path.resolve(__dirname, './src/assets/logos'),
-				'@icons': path.resolve(__dirname, './src/assets/icons'),
-			},
-		},
-		server: {
-			port: 3000,
-		},
-		base: '/',
-	})
+  createBaseConfig(),
+  defineConfig({
+    // 프로젝트 루트 디렉터리 명시
+    root: __dirname,
+    build: {
+      // 빌드 출력 디렉터리 설정
+      outDir: "dist",
+      // 빌드 시 기존 출력물 비우기
+      emptyOutDir: true,
+    },
+    resolve: {
+      alias: {
+        // 소스 경로 별칭
+        "@": path.resolve(__dirname, "./src"),
+        "@logos": path.resolve(__dirname, "./src/assets/logos"),
+        "@icons": path.resolve(__dirname, "./src/assets/icons"),
+      },
+    },
+    server: {
+      port: 3000,
+    },
+    base: "/",
+  }),
 );

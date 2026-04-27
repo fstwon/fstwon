@@ -6,7 +6,10 @@
 		width: 100%;
 		padding-bottom: 0.5em;
 		margin-bottom: 0.5em;
-		border-bottom: 2px solid var(--color-text-primary);
+		border-bottom: 2px solid
+			var(
+				--color-text-primary
+			);
 	}
 
 	&__link {
@@ -15,10 +18,12 @@
 	}
 
 	&__content {
-		display: flex;
 		width: 100%;
 		padding-top: 0.5em;
+
+		display: flex;
 		justify-content: space-between;
+		flex-direction: column;
 
 		&__image__container {
 			position: relative;

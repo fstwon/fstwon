@@ -1,0 +1,9 @@
+{
+	"name": "@fstwon/prettier-config",
+	"version": "0.0.0",
+	"private": true,
+	"main": "./.prettierrc.cjs",
+	"exports": {
+		".": "./.prettierrc.cjs"
+	}
+}
