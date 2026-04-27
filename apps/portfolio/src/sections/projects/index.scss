@@ -1,4 +1,4 @@
-.works__section {
+.projects__section {
 	background-color: #1a1f25;
 	padding: 80px 144px;
 
@@ -10,22 +10,25 @@
 	}
 
 	&__content {
-		gap: 48px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 24px;
 	}
 }
 
 @media only screen and (max-width: 1024px) {
-	.works__section {
+	.projects__section {
 		padding: 60px 80px;
 
 		&__content {
-			gap: 36px;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
 		}
 	}
 }
 
 @media only screen and (max-width: 768px) {
-	.works__section {
+	.projects__section {
 		padding: 40px 20px;
 
 		&__title {
@@ -33,7 +36,8 @@
 		}
 
 		&__content {
-			gap: 24px;
+			grid-template-columns: 1fr;
+			gap: 16px;
 		}
 	}
 }
