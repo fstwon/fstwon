@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@fstwon/prettier-config':
+        specifier: workspace:*
+        version: link:libs/prettier-config
       '@tailwindcss/vite':
         specifier: ^4.0.0
         version: 4.1.11(vite@7.0.6)
@@ -51,6 +54,9 @@ importers:
         specifier: '*'
         version: 0.1.2
     devDependencies:
+      '@fstwon/prettier-config':
+        specifier: workspace:*
+        version: link:../../libs/prettier-config
       '@types/react':
         specifier: ^19.2.2
         version: 19.2.2
@@ -74,6 +80,8 @@ importers:
         version: 7.0.6
 
   libs/postcss-config: {}
+
+  libs/prettier-config: {}
 
   libs/tailwind-config: {}
 

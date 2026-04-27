@@ -2,6 +2,7 @@
 	"name": "fstwon",
 	"private": true,
 	"packageManager": "pnpm@8.15.4",
+	"prettier": "@fstwon/prettier-config",
 	"scripts": {
 		"dev": "turbo run dev",
 		"build": "turbo run build",
@@ -10,6 +11,7 @@
 		"clean": "rimraf dist .turbo"
 	},
 	"devDependencies": {
+		"@fstwon/prettier-config": "workspace:*",
 		"@tailwindcss/vite": "^4.0.0",
 		"prettier": "^3.6.2",
 		"rimraf": "^6.0.1",

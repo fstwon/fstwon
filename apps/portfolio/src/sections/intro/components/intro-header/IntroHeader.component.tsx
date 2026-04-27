@@ -4,20 +4,33 @@ import { useResponseLayoutStore } from '@fstwon/utils/react/useResponseLayout/us
 import { Activity } from 'react';
 
 const IntroHeader = () => {
-	const { isMobile } = useResponseLayoutStore();
+	const { isMobile } =
+		useResponseLayoutStore();
 
 	return (
-		<Activity mode={isMobile ? 'hidden' : 'visible'}>
-			<section className='intro__header'>
-				<div className='intro__header__description'>
-					Web Developer
-					<WebIcon className='intro__header__description__icon-web' />
+		<Activity
+			mode={
+				isMobile
+					? 'hidden'
+					: 'visible'
+			}
+		>
+			<section className="intro__header">
+				<div className="intro__header__description">
+					<span className="intro__header__description__text">
+						Web Developer
+					</span>
+					<WebIcon className="intro__header__description__icon-web" />
 				</div>
-				<p className='intro__header__description'>
-					Building modern, responsive web experiences
+				<p className="intro__header__description">
+					Building modern,
+					responsive web
+					experiences
 				</p>
-				<p className='intro__header__description'>
-					with React.js and semantic web standards.
+				<p className="intro__header__description">
+					with React.js and
+					semantic web
+					standards.
 				</p>
 			</section>
 		</Activity>

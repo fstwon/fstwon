@@ -25,10 +25,18 @@ export default config = {
 	],
 
 	rules: {
+		// React 17+ JSX 변환으로 import React 불필요 (off)
 		'react/react-in-jsx-scope': 'off',
+
+		// 사용하지 않는 변수 경고 (warn)
 		'no-unused-vars': 'warn',
+
+		// console 사용 시 경고 (warn)
 		'no-console': 'warn',
-		'@typescript-eslint/explicit-module-boundary-types': 'off',
+
+		// 함수 반환 타입 명시 요구 비활성화 (off)
+		'@typescript-eslint/explicit-module-boundary-types':
+			'off',
 	},
 
 	settings: {

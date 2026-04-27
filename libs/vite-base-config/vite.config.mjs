@@ -16,12 +16,15 @@ const createBaseConfig = () => {
 			react(),
 			// Tailwind v4용 Vite 플러그인 (앱에서 @import 'tailwindcss' 사용)
 			tailwindcss({
-				config: path.resolve(__dirname, '../tailwind-config/tailwind.config.ts'),
+				config: path.resolve(
+					__dirname,
+					'../tailwind-config/tailwind.config.ts'
+				),
 			}),
 			svgr(),
 			{
 				name: 'font-preload',
-				transformIndexHtml: html => {
+				transformIndexHtml: (html) => {
 					// NOTE: 자체 플러그인 구현 시도 예정
 					// Font preload 최적화 적용
 					const preloadFonts = [
@@ -38,7 +41,9 @@ const createBaseConfig = () => {
 						`<link 
               rel="preload" 
               href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-              crossorigin
+              as="style"
+              type="text/css"
+              crossorigin="anonymous"
             />`,
 						`<link
 							rel="preconnect"
@@ -50,14 +55,14 @@ const createBaseConfig = () => {
 							href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2"
 							as="font"
 							type="font/woff2"
-							crossorigin
+							crossorigin="anonymous"
 						/>`,
 						`<link
 							rel="preload"
 							href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
 							as="style"
 							type="text/css"
-							crossorigin
+							crossorigin="anonymous"
 						/>`,
 						`<link
 							rel="preload"
@@ -86,8 +91,14 @@ const createBaseConfig = () => {
 			alias: {
 				// 워크스페이스 패키지 경로 별칭 (모든 앱에서 공통 사용)
 				'@fstwon/styles': path.resolve(__dirname, '../../packages/styles'),
-				'@fstwon/styles/scss': path.resolve(__dirname, '../../packages/styles/scss'),
-				'@fstwon/styles/tailwind': path.resolve(__dirname, '../../packages/styles/tailwind'),
+				'@fstwon/styles/scss': path.resolve(
+					__dirname,
+					'../../packages/styles/scss'
+				),
+				'@fstwon/styles/tailwind': path.resolve(
+					__dirname,
+					'../../packages/styles/tailwind'
+				),
 				'@fstwon/utils': path.resolve(__dirname, '../../packages/utils'),
 				'@fstwon/assets': path.resolve(__dirname, '../../packages/assets'),
 			},
