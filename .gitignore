@@ -8,5 +8,5 @@ node_modules
 .idea/
 .vscode/
 
-# project
-.design_draft
+# build output
+apps/portfolio/dist/

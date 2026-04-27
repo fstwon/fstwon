@@ -1,22 +1,19 @@
 import './workItem.styles.scss';
 import { classNames } from '@fstwon/utils';
-import { useResponseLayoutStore } from '@fstwon/utils/react/useResponseLayout/useResponseLayout.util';
 import {
 	useEffect,
 	useRef,
+	useState,
 } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
+import type { WorkItemData } from '../../constants/workItem.constant';
 
-export interface WorkItemProps {
-	id: number;
-	companyName: string;
-	position: string;
-	duration: string;
-	description: string;
-	image: string;
-	link: string;
-	techStack: string[];
-}
+export type WorkItemProps =
+	WorkItemData;
+
+const SCROLL_STORAGE_KEY =
+	'main-scroll-y';
 
 const WorkItem = ({
 	id,
@@ -25,70 +22,115 @@ const WorkItem = ({
 	duration,
 	description,
 	image,
-	link,
+	techStack,
+	hasDetail,
 }: WorkItemProps) => {
-	const { isMobile } =
-		useResponseLayoutStore();
-	const ioRef =
-		useRef<HTMLDivElement>(null);
-	const gsapRef =
-		useRef<HTMLDivElement>(null);
+	const containerRef =
+		useRef<HTMLElement>(null);
+	const [isActive, setIsActive] =
+		useState(false);
+	const navigate = useNavigate();
 
-	// TODO: intersection observer, gsap scale, style animation 적용
 	useEffect(() => {
-		if (ioRef.current) {
-			gsap.to(gsapRef.current!, {
-				// scale: 1.05,
-			});
-		}
+		const el = containerRef.current;
+		if (!el) return;
+
+		const observer =
+			new IntersectionObserver(
+				([entry]) => {
+					const active =
+						entry.isIntersecting;
+					setIsActive(active);
+					gsap.to(el, {
+						opacity: active ? 1 : 0.28,
+						scale: active ? 1.02 : 1,
+						duration: 0.5,
+						ease: 'power2.out',
+					});
+				},
+				{ threshold: 0.4 }
+			);
+
+		observer.observe(el);
+		return () => observer.disconnect();
 	}, []);
 
+	const paddedId = String(id).padStart(
+		2,
+		'0'
+	);
+
+	const handleClick = () => {
+		if (!hasDetail) return;
+		sessionStorage.setItem(
+			SCROLL_STORAGE_KEY,
+			String(window.scrollY)
+		);
+		navigate(`/works/${id}`);
+	};
+
 	return (
-		<div
+		<article
 			className={classNames(
 				'works__item',
-				isMobile ? 'w-full' : 'w-[80%]'
+				isActive &&
+					'works__item--active',
+				hasDetail &&
+					'works__item--clickable'
 			)}
-			ref={ioRef}
+			ref={containerRef}
+			onClick={handleClick}
 		>
-			<div
-				className="works__item__container"
-				ref={gsapRef}
-			>
-				<div className="works__item__id">
-					{id}
-				</div>
-				<a
-					className="works__item__link"
-					href={link}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<div className="works__item__content">
-						<div className="works__item__content__image__container">
-							<img
-								src={image}
-								alt={`${companyName} - image`}
-							/>
-						</div>
-						<div className="works__item__content__info">
-							<h1 className="works__item__content__info__company-name">
-								{companyName}
-							</h1>
-							<p className="works__item__content__info__position">
-								{position}
-							</p>
-							<p className="works__item__content__info__duration">
-								{duration}
-							</p>
-						</div>
-						<p className="works__item__content__info__description">
-							{description}
-						</p>
+			<div className="works__item__left">
+				<span className="works__item__left__id">
+					{paddedId}
+				</span>
+				{image && (
+					<div className="works__item__left__logo">
+						<img
+							src={image}
+							alt={`${companyName} logo`}
+						/>
 					</div>
-				</a>
+				)}
 			</div>
-		</div>
+
+			<div className="works__item__right">
+				<div className="works__item__right__header">
+					<h3 className="works__item__right__header__company">
+						{companyName}
+					</h3>
+					{hasDetail && (
+						<span className="works__item__right__header__arrow">
+							View Detail →
+						</span>
+					)}
+				</div>
+				<p className="works__item__right__position">
+					{position}
+				</p>
+				<div className="works__item__right__period-row">
+					<span className="works__item__right__period-row__dot" />
+					<span className="works__item__right__period-row__text">
+						{duration}
+					</span>
+				</div>
+				<div className="works__item__right__divider" />
+				<p className="works__item__right__description">
+					{description}
+				</p>
+				<div className="works__item__right__tags flex flex-wrap">
+					{techStack.map(tech => (
+						<span
+							key={tech}
+							className="works__item__right__tags__tag"
+						>
+							{tech}
+						</span>
+					))}
+				</div>
+			</div>
+		</article>
 	);
 };
 
