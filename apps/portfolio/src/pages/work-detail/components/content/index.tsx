@@ -1,0 +1,9 @@
+export { default as WorkDetailContent } from './WorkDetailContent.component';
+export { default as WorkDetailContentHeader } from './content-header/WorkDetailContentHeader.component';
+export { default as WorkDetailContentIntro } from './content-intro/WorkDetailContentIntro.component';
+export { default as WorkDetailMetrics } from './metrics/WorkDetailMetrics.component';
+export { default as WorkDetailArchitecture } from './architecture/WorkDetailArchitecture.component';
+export { default as WorkDetailCodeBlock } from './code-block/WorkDetailCodeBlock.component';
+export { default as WorkDetailKeyTasks } from './key-tasks/WorkDetailKeyTasks.component';
+export { default as WorkDetailTechTags } from './tech-tags/WorkDetailTechTags.component';
+export { default as ProblemTimeline } from './problem-timeline/ProblemTimeline.component';

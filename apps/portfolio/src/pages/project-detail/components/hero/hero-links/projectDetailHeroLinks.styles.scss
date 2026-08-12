@@ -1,0 +1,33 @@
+.project-detail__hero__links {
+	gap: 8px;
+	margin-top: 8px;
+
+	&__github,
+	&__live {
+		font-size: 13px;
+		font-weight: 500;
+		font-family: var(--font-default);
+		text-decoration: none;
+		padding: 0;
+		border-radius: 0;
+		transition: color 150ms ease;
+	}
+
+	&__github {
+		color: #fafafa;
+		background: none;
+
+		&:hover {
+			color: #ff7f28;
+		}
+	}
+
+	&__live {
+		color: #ff7f28;
+		background: none;
+
+		&:hover {
+			opacity: 0.85;
+		}
+	}
+}

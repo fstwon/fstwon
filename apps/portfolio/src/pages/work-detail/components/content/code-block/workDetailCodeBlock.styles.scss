@@ -1,0 +1,47 @@
+.work-detail-code {
+	margin: 20px 0 0;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: #12151a;
+
+	&__caption {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		padding: 10px 14px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		background-color: #1a1f25;
+	}
+
+	&__title {
+		font-size: 12px;
+		font-weight: 500;
+		color: #9ba2b2;
+		font-family: var(--font-default);
+	}
+
+	&__lang {
+		font-size: 11px;
+		font-weight: 600;
+		font-family: var(--font-mono);
+		color: #ff7f28;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+
+	&__pre {
+		margin: 0;
+		padding: 16px 14px;
+		overflow-x: auto;
+	}
+
+	&__code {
+		font-size: 12px;
+		font-family: var(--font-mono);
+		color: #d7dde8;
+		line-height: 1.65;
+		white-space: pre;
+	}
+}

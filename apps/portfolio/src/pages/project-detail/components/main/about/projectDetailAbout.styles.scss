@@ -1,0 +1,28 @@
+.project-detail__main__about {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.project-detail__main__desc__label {
+	margin: 0;
+	font-size: 12px;
+	font-weight: 500;
+	font-family: var(--font-default);
+	color: #9ba2b2;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+.project-detail__main__desc__divider {
+	display: none;
+}
+
+.project-detail__main__desc__text {
+	margin: 0;
+	font-size: 15px;
+	color: #9ba2b2;
+	font-family: var(--font-default);
+	line-height: 1.7;
+	white-space: pre-line;
+}

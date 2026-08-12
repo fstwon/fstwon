@@ -1,5 +1,12 @@
-import WorkDetailHero from './work-detail-hero/WorkDetailHero.component';
-import WorkDetailTabs from './work-detail-tabs/WorkDetailTabs.component';
-import WorkDetailContent from './work-detail-content/WorkDetailContent.component';
-
-export { WorkDetailHero, WorkDetailTabs, WorkDetailContent };
+export { WorkDetailNav } from './nav';
+export { WorkDetailNotFound } from './not-found';
+export { WorkDetailHero, WorkDetailHeroInfo, WorkDetailHeroLogo, WorkDetailHeroTags } from './hero';
+export { WorkDetailTabs } from './tabs';
+export {
+	WorkDetailContent,
+	WorkDetailContentHeader,
+	WorkDetailContentIntro,
+	WorkDetailKeyTasks,
+	WorkDetailTechTags,
+	ProblemTimeline,
+} from './content';

@@ -1,0 +1,25 @@
+.work-detail-content__section-label {
+	margin: 0 0 16px;
+	font-size: 12px;
+	font-weight: 500;
+	font-family: var(--font-default);
+	color: #9ba2b2;
+}
+
+.work-detail-content__intro {
+	padding: 0;
+	background: none;
+	border: none;
+	border-radius: 0;
+	display: flex;
+	flex-direction: column;
+
+	&__text {
+		margin: 0;
+		font-size: 15px;
+		color: #9ba2b2;
+		font-family: var(--font-default);
+		line-height: 1.7;
+		max-width: 42em;
+	}
+}

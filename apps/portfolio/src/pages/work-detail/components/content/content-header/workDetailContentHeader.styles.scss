@@ -1,0 +1,44 @@
+.work-detail-content__header {
+	gap: 16px;
+
+	&__left {
+		gap: 8px;
+	}
+
+	&__period {
+		margin: 0;
+		font-size: 12px;
+		font-weight: 500;
+		font-family: var(--font-mono);
+		color: #9ba2b2;
+		letter-spacing: 0.02em;
+	}
+
+	&__title {
+		margin: 0;
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		font-weight: 700;
+		color: #fafafa;
+		font-family: var(--font-default);
+		letter-spacing: -0.03em;
+		line-height: 1.2;
+	}
+
+	&__link {
+		font-size: 13px;
+		font-weight: 500;
+		font-family: var(--font-default);
+		color: #ff7f28;
+		text-decoration: none;
+		background: none;
+		border: none;
+		padding: 0;
+		flex-shrink: 0;
+		align-self: flex-start;
+		transition: opacity 150ms ease;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+}

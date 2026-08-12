@@ -3,15 +3,21 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { WORK_ITEM_DATA } from '@/sections/works/constants/workItem.constant';
-import { WorkDetailHero, WorkDetailTabs, WorkDetailContent } from './components';
+import {
+	WorkDetailNav,
+	WorkDetailNotFound,
+	WorkDetailHero,
+	WorkDetailTabs,
+	WorkDetailContent,
+} from './components';
 
 const WorkDetailPage = () => {
 	const { id } = useParams<{ id: string }>();
 	const navigate = useNavigate();
 
-	const heroRef = useRef<HTMLDivElement>(null);
-	const tabsRef = useRef<HTMLDivElement>(null);
-	const contentRef = useRef<HTMLDivElement>(null);
+	const heroRef = useRef<HTMLElement>(null);
+	const tabsRef = useRef<HTMLElement>(null);
+	const contentRef = useRef<HTMLElement>(null);
 
 	const work = WORK_ITEM_DATA.find(w => w.id === Number(id));
 	const [selectedProjectId, setSelectedProjectId] = useState(work?.projects?.[0]?.id ?? 0);
@@ -38,7 +44,12 @@ const WorkDetailPage = () => {
 			ease: 'power2.in',
 			onComplete: () => {
 				setSelectedProjectId(projectId);
-				gsap.to(contentRef.current, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' });
+				gsap.to(contentRef.current, {
+					opacity: 1,
+					y: 0,
+					duration: 0.3,
+					ease: 'power2.out',
+				});
 			},
 		});
 	};
@@ -50,45 +61,28 @@ const WorkDetailPage = () => {
 			duration: 0.25,
 			ease: 'power2.in',
 			stagger: 0.06,
-			onComplete: () => navigate('/'),
+			onComplete: () => {
+				navigate('/');
+			},
 		});
 	};
 
 	if (!work || !work.projects) {
-		return (
-			<div className='work-detail__not-found'>
-				<p>경력 정보를 찾을 수 없습니다.</p>
-				<button onClick={() => navigate('/')}>← 돌아가기</button>
-			</div>
-		);
+		return <WorkDetailNotFound onBack={() => navigate('/')} />;
 	}
 
 	return (
-		<div className='work-detail'>
-			<nav className='work-detail__nav'>
-				<button className='work-detail__nav__back' onClick={handleBack}>
-					← Works
-				</button>
-				<span className='work-detail__nav__company'>{work.companyName}</span>
-				<span />
-			</nav>
-
-			<div ref={heroRef}>
-				<WorkDetailHero work={work} />
-			</div>
-
-			<div ref={tabsRef}>
-				<WorkDetailTabs
-					projects={work.projects}
-					selectedId={selectedProjectId}
-					onSelect={handleTabSelect}
-				/>
-			</div>
-
-			<div ref={contentRef}>
-				{selectedProject && <WorkDetailContent project={selectedProject} />}
-			</div>
-		</div>
+		<main className='work-detail'>
+			<WorkDetailNav companyName={work.companyName} onBack={handleBack} />
+			<WorkDetailHero ref={heroRef} work={work} />
+			<WorkDetailTabs
+				ref={tabsRef}
+				projects={work.projects}
+				selectedId={selectedProjectId}
+				onSelect={handleTabSelect}
+			/>
+			{selectedProject && <WorkDetailContent ref={contentRef} project={selectedProject} />}
+		</main>
 	);
 };
 

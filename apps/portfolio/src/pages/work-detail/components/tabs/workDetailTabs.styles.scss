@@ -1,0 +1,95 @@
+.work-detail-tabs {
+	position: sticky;
+	top: 56px;
+	z-index: 90;
+	background-color: #1a1f25;
+	border-bottom: 1px solid
+		rgba(255, 255, 255, 0.08);
+
+	&__inner {
+		max-width: 1200px;
+		margin: 0 auto;
+		gap: 8px;
+	}
+
+	&__tab {
+		gap: 3px;
+		padding: 10px 16px;
+		background: transparent;
+		border: 1px solid
+			rgba(255, 255, 255, 0.1);
+		border-radius: 6px;
+		cursor: pointer;
+		text-align: left;
+		transition:
+			border-color 150ms ease,
+			background-color 150ms ease,
+			color 150ms ease;
+		margin: 12px 0;
+
+		&__title {
+			font-size: 13px;
+			font-weight: 400;
+			font-family: var(--font-default);
+			color: #9ba2b2;
+			transition: color 150ms ease;
+		}
+
+		&__period {
+			font-size: 11px;
+			font-family: var(--font-mono);
+			color: #616674;
+			transition: color 150ms ease;
+		}
+
+		&--active {
+			border-color: rgba(
+				255,
+				127,
+				40,
+				0.45
+			);
+			background-color: rgba(
+				255,
+				127,
+				40,
+				0.1
+			);
+
+			.work-detail-tabs__tab__title {
+				font-weight: 600;
+				color: #ff7f28;
+			}
+
+			.work-detail-tabs__tab__period {
+				color: #ff7f28;
+			}
+		}
+
+		&:not(&--active):hover {
+			.work-detail-tabs__tab__title {
+				color: #fafafa;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.work-detail-tabs__inner {
+		padding: 0 32px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.work-detail-tabs {
+		overflow-x: auto;
+
+		&__inner {
+			padding: 0 20px;
+		}
+
+		&__tab {
+			flex-shrink: 0;
+		}
+	}
+}

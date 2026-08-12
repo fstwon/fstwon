@@ -1,0 +1,43 @@
+.work-detail-hero {
+	background-color: #1a1f25;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	padding: 48px 48px 44px;
+
+	&__inner {
+		max-width: 1200px;
+		margin: 0 auto;
+		gap: 40px;
+	}
+
+	&__right {
+		gap: 16px;
+		flex-shrink: 0;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.work-detail-hero {
+		padding: 36px 32px 32px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.work-detail-hero {
+		padding: 28px 20px 24px;
+
+		&__inner {
+			flex-direction: column-reverse;
+			align-items: flex-start;
+		}
+
+		&__right {
+			flex-direction: row;
+			align-items: center;
+			width: 100%;
+		}
+	}
+
+	.work-detail-hero__right__tags {
+		max-width: 100%;
+	}
+}
