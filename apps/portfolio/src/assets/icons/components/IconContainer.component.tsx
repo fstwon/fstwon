@@ -8,7 +8,7 @@ interface IconContainerProps {
 }
 
 const IconContainer = ({ children, className = '' }: IconContainerProps) => {
-	const ref = useRef<HTMLDivElement>(null);
+	const ref = useRef<HTMLSpanElement>(null);
 
 	useEffect(() => {
 		if (ref.current) {
@@ -17,7 +17,9 @@ const IconContainer = ({ children, className = '' }: IconContainerProps) => {
 	}, []);
 
 	return (
-		<div className={classNames('icon__container', className)}>{children}</div>
+		<span className={classNames('icon__container', className)} ref={ref}>
+			{children}
+		</span>
 	);
 };
 

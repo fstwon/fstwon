@@ -1,11 +1,15 @@
 {
 	"extends": "../../libs/ts-config/tsconfig.json",
 	"compilerOptions": {
-		// 앱별 경로 설정 (packages 경로는 베이스에서 상속)
-		"baseUrl": ".",
+		// 앱별 경로 + 워크스페이스 패키지 (extends는 paths를 병합하지 않음)
 		"paths": {
-			"@/*": ["src/*"],
-			"@logos": ["src/assets/logos"]
+			"@/*": ["./src/*"],
+			"@logos": ["./src/assets/logos"],
+			"@fstwon/styles": ["../../packages/styles"],
+			"@fstwon/styles/*": ["../../packages/styles/*"],
+			"@fstwon/utils": ["../../packages/utils"],
+			"@fstwon/utils/*": ["../../packages/utils/*"],
+			"@fstwon/assets/*": ["../../packages/assets/*"]
 		}
 	},
 	"include": ["src", "../../libs/ts-config/vite-env.d.ts"]

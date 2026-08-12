@@ -10,3 +10,7 @@ node_modules
 
 # build output
 apps/portfolio/dist/
+
+# private data
+.project_design
+.project_detail

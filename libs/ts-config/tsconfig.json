@@ -26,8 +26,8 @@
 		// switch문에서 fallthrough 방지
 		"noFallthroughCasesInSwitch": true,
 
-		// Node.js 스타일 모듈 해석 사용
-		"moduleResolution": "node",
+		// Vite 등 번들러용 모듈 해석 (node/node10은 TS 6에서 deprecated)
+		"moduleResolution": "bundler",
 
 		// JSON 파일 import 가능하게 설정
 		"resolveJsonModule": true,
@@ -42,13 +42,23 @@
 		"jsx": "react-jsx",
 
 		// 워크스페이스 패키지 경로 설정 (모든 앱에서 공통 사용)
-		"baseUrl": ".",
+		// baseUrl은 TS 6에서 deprecated — paths는 이 파일 기준 상대경로
 		"paths": {
-			"@fstwon/styles": ["../../packages/styles"],
-			"@fstwon/styles/*": ["../../packages/styles/*"],
-			"@fstwon/utils": ["../../packages/utils"],
-			"@fstwon/utils/*": ["../../packages/utils/*"],
-			"@fstwon/assets/*": ["../../packages/assets/*"]
+			"@fstwon/styles": [
+				"../../packages/styles"
+			],
+			"@fstwon/styles/*": [
+				"../../packages/styles/*"
+			],
+			"@fstwon/utils": [
+				"../../packages/utils"
+			],
+			"@fstwon/utils/*": [
+				"../../packages/utils/*"
+			],
+			"@fstwon/assets/*": [
+				"../../packages/assets/*"
+			]
 		}
 	}
 }
