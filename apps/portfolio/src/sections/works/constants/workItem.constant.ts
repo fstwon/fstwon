@@ -726,6 +726,12 @@ function GameCardView({ title, rating, onClick }: GameCardViewProps) {
 								'WRO 번들 · 공통 레이아웃',
 						},
 					],
+					architecture: [
+						'기존 CMS(BE) 유지 + 신규 FE 레이어 분리',
+						'WRO — cssIndex / jsIndex / jsModule 번들 그룹',
+						'공통 UI — toast · pagination · header/mobile menu',
+						'페이지별 자산 로드 (전역 번들 + 페이지 CSS/JS)',
+					],
 					keyTasks: [
 						'WRO 기반 CSS/JS 번들·디렉터리 구조 설계 및 공통 레이아웃 구축',
 						'메인(Swiper·검색 탭·바로가기), 센터 PathVariable 라우팅, 카드 결제 팝업 구현',
@@ -816,6 +822,12 @@ function loadPageAssets(page) {
 								'대관 · 일마감 리포트',
 						},
 					],
+					architecture: [
+						'계층: Controller → Service → Model → JSP/JS',
+						'ParkGolf 전용 모듈 (강좌 Lecture와 도메인 분리)',
+						'Lecture / Rent — 파크골프 thin bridge만 연동',
+						'결제: NicePay (예약·취소 플로우)',
+					],
 					keyTasks: [
 						'파크골프 Controller/Service/Model/JSP/JS 전 계층 신규 구현 및 기존 강좌 모듈 연동',
 						'시설 대관 REST·예약 UI·취소 플로우 및 NicePay 결제 연동 개선',
@@ -905,6 +917,12 @@ public boolean isParkGolfLinked(String classType) {
 							value:
 								'Controller → JSP 전 구간',
 						},
+					],
+					architecture: [
+						'계층: Controller → Service → Mapper → JSP',
+						'신청 상태 — WAIT / LOTTERY / REFUND / CANCEL',
+						'강좌 안내 — 카테고리별 JS constants 분리',
+						'결제·CMS: NicePay 팝업 · CKEditor 게시판',
 					],
 					keyTasks: [
 						'강좌 목록·신청/취소·안내(6개 카테고리 constants) 및 신청 상태 API 연동',
@@ -998,6 +1016,12 @@ export const APPLY_STATUS = {
 							value:
 								'리포트 매출 정확도 개선',
 						},
+					],
+					architecture: [
+						'관리자 AXGrid — formatter / 소계로 금액 집계',
+						'집계 규칙: 단가(SALE_AMT) × 건수(ALL_QTY)',
+						'일마감 · 환불 · 엑셀 서식 동일 규칙 정렬',
+						'다중 센터 — 동일 화면·리포트 패턴 재사용',
 					],
 					keyTasks: [
 						'일마감 영수금액·공급가액·부가세를 단가×건수 기준으로 재계산하도록 AXGrid formatter/소계 수정',
