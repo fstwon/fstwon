@@ -12,8 +12,11 @@ const ProjectItem = ({
 	title,
 	description,
 	category,
+	period,
+	role,
 	techStack,
 	githubUrl,
+	links,
 	image,
 }: ProjectItemProps) => {
 	return (
@@ -25,10 +28,10 @@ const ProjectItem = ({
 			)}
 
 			<div className='projects__item__body flex flex-col'>
-				<ProjectItemHeader category={category} title={title} />
+				<ProjectItemHeader category={category} title={title} period={period} role={role} />
 				<ProjectItemDescription text={description} />
 				<ProjectItemTags tags={techStack} />
-				<ProjectItemLinks githubUrl={githubUrl} />
+				<ProjectItemLinks githubUrl={githubUrl} links={links} />
 			</div>
 		</article>
 	);

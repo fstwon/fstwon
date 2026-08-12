@@ -4,15 +4,26 @@
 	gap: 10px;
 }
 
+.projects__item__body__meta {
+	gap: 8px 12px;
+}
+
 .projects__item__body__category {
 	margin: 0;
-	align-self: flex-start;
 	font-size: 11px;
 	font-weight: 600;
 	font-family: var(--font-mono);
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 	color: #ff7f28;
+}
+
+.projects__item__body__period,
+.projects__item__body__role {
+	font-size: 12px;
+	font-family: var(--font-mono);
+	color: #9ba2b2;
+	line-height: 1.4;
 }
 
 .projects__item__body__title {
