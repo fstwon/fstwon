@@ -1,3 +1,8 @@
-import WorkItem from './work-item/WorkItem.component';
-
-export { WorkItem };
+export {
+	WorkItem,
+	WorkItemMedia,
+	WorkItemHeader,
+	WorkItemBody,
+	WorkItemHighlights,
+	WorkItemTags,
+} from './work-item';

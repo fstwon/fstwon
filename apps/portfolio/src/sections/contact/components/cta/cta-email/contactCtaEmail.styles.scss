@@ -1,0 +1,27 @@
+.contact__cta__link-row {
+	display: grid;
+	grid-template-columns: 80px 1fr;
+	gap: 0 16px;
+	padding: 20px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	align-items: center;
+
+	&__label {
+		font-size: 13px;
+		color: #9ba2b2;
+		font-family: var(--font-default);
+	}
+
+	&__value {
+		font-size: 15px;
+		font-weight: 500;
+		color: #fafafa;
+		font-family: var(--font-default);
+		text-decoration: none;
+		transition: color 150ms ease;
+
+		&:hover {
+			color: #ff7f28;
+		}
+	}
+}

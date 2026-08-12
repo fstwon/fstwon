@@ -1,4 +1,6 @@
-import IntroHeader from './intro-header/IntroHeader.component';
-import IntroLogoContainer from './intro-logo-container/IntroLogoContainer.component';
-
-export { IntroHeader, IntroLogoContainer };
+export {
+	IntroHeader,
+	IntroHeaderBadge,
+	IntroHeaderCopy,
+} from './header';
+export { IntroLogoContainer } from './logo-stage';

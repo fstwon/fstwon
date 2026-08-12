@@ -1,39 +1,45 @@
 .works__section {
 	background-color: #1a1f25;
-	padding: 80px 144px;
+	padding: 120px 144px;
+
+	&__header {
+		margin-bottom: 48px;
+	}
+
+	&__label {
+		margin: 0 0 12px;
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: #ff7f28;
+		font-family: var(--font-mono);
+	}
 
 	&__title {
-		font-size: clamp(2rem, 5vw, 4rem);
+		margin: 0;
+		font-size: clamp(1.75rem, 4vw, 2.25rem);
+		font-weight: 700;
 		color: #fafafa;
-		font-family: var(--font-montserrat);
-		margin-bottom: 60px;
+		font-family: var(--font-default);
+		letter-spacing: -0.03em;
+		line-height: 1.15;
 	}
 
 	&__content {
-		gap: 48px;
+		display: flex;
+		flex-direction: column;
 	}
 }
 
 @media only screen and (max-width: 1024px) {
 	.works__section {
-		padding: 60px 80px;
-
-		&__content {
-			gap: 36px;
-		}
+		padding: 100px 80px;
 	}
 }
 
 @media only screen and (max-width: 768px) {
 	.works__section {
-		padding: 40px 20px;
-
-		&__title {
-			margin-bottom: 40px;
-		}
-
-		&__content {
-			gap: 24px;
-		}
+		padding: 80px 20px;
 	}
 }

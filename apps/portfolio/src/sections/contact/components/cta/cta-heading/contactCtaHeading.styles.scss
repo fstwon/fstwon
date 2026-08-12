@@ -1,0 +1,22 @@
+.contact__cta__heading-block {
+	display: flex;
+	flex-direction: column;
+}
+
+.contact__cta__heading {
+	margin: 0 0 16px;
+	font-size: clamp(1.75rem, 4vw, 2.25rem);
+	font-weight: 700;
+	color: #fafafa;
+	font-family: var(--font-default);
+	letter-spacing: -0.03em;
+	line-height: 1.15;
+}
+
+.contact__cta__sub {
+	margin: 0;
+	font-size: 17px;
+	color: #9ba2b2;
+	font-family: var(--font-default);
+	line-height: 1.6;
+}

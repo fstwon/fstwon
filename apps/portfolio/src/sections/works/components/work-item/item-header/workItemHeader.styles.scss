@@ -1,0 +1,42 @@
+.works__item__right__header {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+
+	&__titles {
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 12px;
+		min-width: 0;
+	}
+
+	&__company {
+		margin: 0;
+		font-size: 18px;
+		font-weight: 700;
+		color: #fafafa;
+		font-family: var(--font-default);
+		letter-spacing: -0.02em;
+	}
+
+	&__position {
+		font-size: 14px;
+		color: #9ba2b2;
+		font-family: var(--font-default);
+	}
+
+	&__arrow {
+		font-size: 12px;
+		font-weight: 600;
+		font-family: var(--font-mono);
+		color: #ff7f28;
+		opacity: 0;
+		transform: translateX(-6px);
+		transition:
+			opacity 200ms ease,
+			transform 200ms ease;
+		flex-shrink: 0;
+	}
+}

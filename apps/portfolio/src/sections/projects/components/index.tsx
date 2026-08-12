@@ -1,3 +1,8 @@
-import ProjectItem from './project-item/ProjectItem.component';
-
-export { ProjectItem };
+export {
+	ProjectItem,
+	ProjectItemThumbnail,
+	ProjectItemHeader,
+	ProjectItemDescription,
+	ProjectItemTags,
+	ProjectItemLinks,
+} from './project-item';
