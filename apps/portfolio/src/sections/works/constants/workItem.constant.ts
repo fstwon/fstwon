@@ -98,7 +98,7 @@ export const WORK_ITEM_DATA: WorkItemData[] =
 			description:
 				'게임 리뷰·추천 플랫폼 프론트엔드 개발. jQuery → React 전환과 다수 도메인 유지보수, AI 챗봇·스토어 등 신규 서비스 구축을 담당.',
 			highlights: [
-				'AI Chatbot 신규 개발 · Product Hunt 144 Upvote',
+				'AI Chatbot 신규 개발 · Product Hunt 132 Upvote',
 				'jQuery → React SPA 전환, 17+ 도메인 개발·운영',
 				'Toss/PayPal 결제·장바구니 등 커머스 플로우 구축',
 			],
@@ -120,7 +120,7 @@ export const WORK_ITEM_DATA: WorkItemData[] =
 					title: '게임 추천 AI Chatbot',
 					period: '2023.03 ~ 2023.08',
 					intro:
-						'ChatGPT와 미니맵 게임 DB 기반 게임 추천 AI 챗봇 웹 서비스. 랜딩·인증·봇 선택·실시간 채팅·크레딧 결제 UI까지 전 구간 프론트엔드 개발 주도. Product Hunt 런칭, 144 Upvote 달성.',
+						'ChatGPT와 미니맵 게임 DB 기반 게임 추천 AI 챗봇 웹 서비스. 랜딩·인증·봇 선택·실시간 채팅·크레딧 결제 UI까지 전 구간 프론트엔드 개발 주도. Product Hunt 런칭, 132 Upvote 달성.',
 					liveUrl:
 						'https://www.producthunt.com/products/minimap-ai-game-recommendation-chatbot#minimap-ai',
 					screenshots: [
@@ -146,7 +146,7 @@ export const WORK_ITEM_DATA: WorkItemData[] =
 					metrics: [
 						{
 							label: 'Product Hunt',
-							value: '144 Upvote',
+							value: '132 Upvote',
 						},
 						{
 							label: '역할',
