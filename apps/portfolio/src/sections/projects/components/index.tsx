@@ -1,6 +1,5 @@
 export {
 	ProjectItem,
-	ProjectItemThumbnail,
 	ProjectItemHeader,
 	ProjectItemDescription,
 	ProjectItemTags,

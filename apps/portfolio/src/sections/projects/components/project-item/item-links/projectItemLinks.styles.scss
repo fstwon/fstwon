@@ -1,8 +1,7 @@
 .projects__item__body__links {
 	gap: 8px;
 
-	&__github,
-	&__live {
+	&__github {
 		font-size: 12px;
 		font-weight: 600;
 		font-family: var(--font-mono);
@@ -11,23 +10,11 @@
 		border-radius: 6px;
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		transition: background-color 200ms ease;
-	}
-
-	&__github {
 		color: #fafafa;
 		background-color: transparent;
 
 		&:hover {
 			background-color: rgba(255, 255, 255, 0.06);
-		}
-	}
-
-	&__live {
-		color: #ff7f28;
-		background-color: transparent;
-
-		&:hover {
-			background-color: rgba(255, 127, 40, 0.1);
 		}
 	}
 }
