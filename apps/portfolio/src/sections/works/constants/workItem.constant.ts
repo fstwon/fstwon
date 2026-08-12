@@ -1,18 +1,18 @@
-// NOTE: Server 개발 시 데이터 삭제
+﻿// NOTE: Server 개발 시 데이터 삭제
 import MinimapLogo from '@fstwon/assets/logos/minimap.logo.svg';
-import MinimapMainHomePc from '@/assets/works/minimap/main-home-pc.png';
-import MinimapMainHomeM from '@/assets/works/minimap/main-home-m.png';
-import MinimapStoreDetailPc from '@/assets/works/minimap/store_detail_pc.png';
-import MinimapStoreDetailM from '@/assets/works/minimap/store_detail_m.png';
-import MinimapStoreCartPc from '@/assets/works/minimap/store_cart_pc.png';
-import MinimapStoreCartM from '@/assets/works/minimap/store_cart_m.png';
-import MinimapChatbotMain from '@/assets/works/minimap/ai_chatbot_main.png';
-import MinimapChatbotProfile from '@/assets/works/minimap/ai_chatbot_profile.png';
-import MinimapChatbotChat from '@/assets/works/minimap/ai_chatbot_chat.png';
-import DwictGeumcheonMain from '@/assets/works/dwict/geumcheon_main.png';
-import DwictGbfmcMain from '@/assets/works/dwict/gbfmc_main.png';
-import DwictSongpaMain from '@/assets/works/dwict/songpa_main.png';
-import DwictJungnangMain from '@/assets/works/dwict/jungnang_main.png';
+import MinimapMainHomePc from '@/assets/images/works/minimap/main-home-pc.png';
+import MinimapMainHomeM from '@/assets/images/works/minimap/main-home-m.png';
+import MinimapStoreDetailPc from '@/assets/images/works/minimap/store_detail_pc.png';
+import MinimapStoreDetailM from '@/assets/images/works/minimap/store_detail_m.png';
+import MinimapStoreCartPc from '@/assets/images/works/minimap/store_cart_pc.png';
+import MinimapStoreCartM from '@/assets/images/works/minimap/store_cart_m.png';
+import MinimapChatbotMain from '@/assets/images/works/minimap/ai_chatbot_main.png';
+import MinimapChatbotProfile from '@/assets/images/works/minimap/ai_chatbot_profile.png';
+import MinimapChatbotChat from '@/assets/images/works/minimap/ai_chatbot_chat.png';
+import DwictGeumcheonMain from '@/assets/images/works/dwict/geumcheon_main.png';
+import DwictGbfmcMain from '@/assets/images/works/dwict/gbfmc_main.png';
+import DwictSongpaMain from '@/assets/images/works/dwict/songpa_main.png';
+import DwictJungnangMain from '@/assets/images/works/dwict/jungnang_main.png';
 
 export type ProblemStepLabel =
 	| '문제'
