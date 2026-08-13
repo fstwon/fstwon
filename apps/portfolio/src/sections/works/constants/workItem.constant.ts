@@ -675,7 +675,7 @@ function GameCardView({ title, rating, onClick }: GameCardViewProps) {
 			companyName: '㈜대원정보문화',
 			position:
 				'Web Software Developer',
-			duration: '2025.06 ~ 재직중',
+			duration: '2025.06 ~ 2026.06',
 			description:
 				'전자정부프레임워크 기반 공공·체육시설 웹 서비스 개발. 강좌·대관·결제·CMS·관리자 리포트까지 전 계층(Controller/Service/Mapper/JSP) 신규 기능 및 유지보수를 담당.',
 			highlights: [
