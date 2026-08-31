@@ -15,7 +15,7 @@
 		"shard/"
 	],
 	"scripts": {
-		"build:scss": "sass --no-source-map scss/main.scss dist/styles.css",
+		"build:scss": "sass --no-source-map scss/index.scss dist/styles.css",
 		"build": "pnpm run build:scss"
 	},
 	"dependencies": {},
