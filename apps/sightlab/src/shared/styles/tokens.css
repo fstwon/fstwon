@@ -1,0 +1,117 @@
+:root {
+	/* Primitive colors */
+	--sl-color-neutral-0: #ffffff;
+	--sl-color-neutral-50: #f7f7f4;
+	--sl-color-neutral-100: #f0f0eb;
+	--sl-color-neutral-200: #e2e2dd;
+	--sl-color-neutral-500: #686b70;
+	--sl-color-neutral-900: #181a1b;
+	--sl-color-purple-50: #ede8fa;
+	--sl-color-purple-600: #6535d8;
+	--sl-color-orange-100: #fbf0de;
+	--sl-color-orange-500: #f2a74b;
+	--sl-color-green-600: #27845b;
+	--sl-color-red-600: #c94a4a;
+	--sl-color-code-900: #202225;
+
+	/* Semantic colors */
+	--sl-color-bg-canvas: var(--sl-color-neutral-50);
+	--sl-color-bg-surface: var(--sl-color-neutral-0);
+	--sl-color-bg-subtle: var(--sl-color-neutral-100);
+	--sl-color-bg-code: var(--sl-color-code-900);
+	--sl-color-bg-brand-soft: var(--sl-color-purple-50);
+	--sl-color-bg-accent-soft: var(--sl-color-orange-100);
+	--sl-color-text-primary: var(--sl-color-neutral-900);
+	--sl-color-text-secondary: var(--sl-color-neutral-500);
+	--sl-color-text-inverse: var(--sl-color-neutral-0);
+	--sl-color-text-brand: var(--sl-color-purple-600);
+	--sl-color-border-default: var(--sl-color-neutral-200);
+	--sl-color-action-primary: var(--sl-color-purple-600);
+	--sl-color-accent-default: var(--sl-color-orange-500);
+	--sl-color-status-success: var(--sl-color-green-600);
+	--sl-color-status-danger: var(--sl-color-red-600);
+
+	/* Typography families */
+	--sl-font-family-sans: Inter, sans-serif;
+	--sl-font-family-mono: "JetBrains Mono", monospace;
+
+	/* Display / Hero */
+	--sl-font-size-display-hero: 48px;
+	--sl-font-weight-display-hero: 700;
+	--sl-line-height-display-hero: 54px;
+	--sl-letter-spacing-display-hero: -1px;
+
+	/* Heading / H1 */
+	--sl-font-size-heading-h1: 38px;
+	--sl-font-weight-heading-h1: 700;
+	--sl-line-height-heading-h1: 46px;
+	--sl-letter-spacing-heading-h1: -0.6px;
+
+	/* Heading / H2 */
+	--sl-font-size-heading-h2: 28px;
+	--sl-font-weight-heading-h2: 700;
+	--sl-line-height-heading-h2: 36px;
+	--sl-letter-spacing-heading-h2: -0.3px;
+
+	/* Heading / H3 */
+	--sl-font-size-heading-h3: 20px;
+	--sl-font-weight-heading-h3: 600;
+	--sl-line-height-heading-h3: 28px;
+	--sl-letter-spacing-heading-h3: 0;
+
+	/* Body / Large */
+	--sl-font-size-body-lg: 18px;
+	--sl-font-weight-body-lg: 400;
+	--sl-line-height-body-lg: 30px;
+	--sl-letter-spacing-body-lg: 0;
+
+	/* Body / Default */
+	--sl-font-size-body-md: 16px;
+	--sl-font-weight-body-md: 400;
+	--sl-line-height-body-md: 26px;
+	--sl-letter-spacing-body-md: 0;
+
+	/* Body / Small */
+	--sl-font-size-body-sm: 14px;
+	--sl-font-weight-body-sm: 400;
+	--sl-line-height-body-sm: 22px;
+	--sl-letter-spacing-body-sm: 0;
+
+	/* Label / Default */
+	--sl-font-size-label: 13px;
+	--sl-font-weight-label: 500;
+	--sl-line-height-label: 18px;
+	--sl-letter-spacing-label: 0.1px;
+
+	/* Code / Default */
+	--sl-font-size-code: 14px;
+	--sl-font-weight-code: 400;
+	--sl-line-height-code: 23px;
+	--sl-letter-spacing-code: 0;
+
+	/* Spacing */
+	--sl-spacing-2xs: 4px;
+	--sl-spacing-xs: 8px;
+	--sl-spacing-sm: 12px;
+	--sl-spacing-md: 16px;
+	--sl-spacing-lg: 24px;
+	--sl-spacing-xl: 32px;
+	--sl-spacing-2xl: 48px;
+	--sl-spacing-3xl: 64px;
+
+	/* Radius */
+	--sl-radius-none: 0;
+	--sl-radius-sm: 6px;
+	--sl-radius-md: 12px;
+	--sl-radius-lg: 18px;
+	--sl-radius-full: 999px;
+
+	/* Layout */
+	--sl-layout-canvas-desktop: 1440px;
+	--sl-layout-content-max: 1328px;
+	--sl-layout-prose-max: 720px;
+
+	/* Elevation */
+	--sl-shadow-sm: 0 1px 3px rgb(0 0 0 / 6%);
+	--sl-shadow-md: 0 6px 18px -4px rgb(0 0 0 / 8%);
+}
