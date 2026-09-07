@@ -1,0 +1,39 @@
+.sl-tag-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 88px;
+	height: 32px;
+	padding: 0 var(--sl-spacing-sm);
+	border: 2px solid transparent;
+	border-radius: var(--sl-radius-full);
+	font-family: var(--sl-font-family-sans);
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.sl-tag-badge--neutral {
+	background: var(--sl-color-bg-subtle);
+	color: var(--sl-color-text-secondary);
+}
+
+.sl-tag-badge--brand {
+	background: var(--sl-color-bg-brand-soft);
+	color: var(--sl-color-text-brand);
+}
+
+.sl-tag-badge--accent {
+	background: var(--sl-color-bg-accent-soft);
+	color: var(--sl-color-text-primary);
+}
+
+.sl-tag-badge--neutral.sl-tag-badge--selected,
+.sl-tag-badge--brand.sl-tag-badge--selected {
+	border-color: var(--sl-color-action-primary);
+}
+
+.sl-tag-badge--accent.sl-tag-badge--selected {
+	border-color: var(--sl-color-accent-default);
+}
