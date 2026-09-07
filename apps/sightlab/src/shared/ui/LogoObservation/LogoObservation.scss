@@ -1,4 +1,6 @@
 .sl-logo-observation {
+	$self: &;
+
 	display: inline-flex;
 	align-items: center;
 	color: var(--sl-color-text-primary);
@@ -18,12 +20,12 @@
 		gap: var(--sl-spacing-sm);
 		height: 36px;
 
-		.sl-logo-observation__symbol {
+		#{$self}__symbol {
 			width: 36px;
 			height: 36px;
 		}
 
-		.sl-logo-observation__wordmark {
+		#{$self}__wordmark {
 			font-size: 28px;
 			font-weight: 700;
 		}
@@ -33,12 +35,12 @@
 		gap: var(--sl-spacing-xs);
 		height: 28px;
 
-		.sl-logo-observation__symbol {
+		#{$self}__symbol {
 			width: 28px;
 			height: 28px;
 		}
 
-		.sl-logo-observation__wordmark {
+		#{$self}__wordmark {
 			font-size: 22px;
 			font-weight: 600;
 		}
@@ -47,7 +49,7 @@
 	&--icon {
 		height: 52px;
 
-		.sl-logo-observation__symbol {
+		#{$self}__symbol {
 			width: 52px;
 			height: 52px;
 		}
