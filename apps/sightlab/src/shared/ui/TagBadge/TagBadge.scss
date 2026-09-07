@@ -1,4 +1,6 @@
 .sl-tag-badge {
+	$self: &;
+
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -17,7 +19,7 @@
 		background: var(--sl-color-bg-subtle);
 		color: var(--sl-color-text-secondary);
 
-		&.sl-tag-badge--selected {
+		&#{$self}--selected {
 			border-color: var(--sl-color-action-primary);
 		}
 	}
@@ -26,7 +28,7 @@
 		background: var(--sl-color-bg-brand-soft);
 		color: var(--sl-color-text-brand);
 
-		&.sl-tag-badge--selected {
+		&#{$self}--selected {
 			border-color: var(--sl-color-action-primary);
 		}
 	}
@@ -35,7 +37,7 @@
 		background: var(--sl-color-bg-accent-soft);
 		color: var(--sl-color-text-primary);
 
-		&.sl-tag-badge--selected {
+		&#{$self}--selected {
 			border-color: var(--sl-color-accent-default);
 		}
 	}
