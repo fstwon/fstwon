@@ -1,6 +1,8 @@
 [build]
-# Run from the repo root so pnpm can install the whole workspace
-command = "corepack enable && corepack prepare pnpm@8.15.4 --activate && pnpm install --frozen-lockfile && pnpm --filter portfolio run build"
+# Run from the repo root so pnpm can install the whole workspace.
+# Deploy previews may include newly added workspace apps before the root lockfile
+# importer is regenerated, so allow pnpm to reconcile the lockfile in Netlify.
+command = "corepack enable && corepack prepare pnpm@8.15.4 --activate && pnpm install --no-frozen-lockfile && pnpm --filter portfolio run build"
 publish = "apps/portfolio/dist"
 
 [build.environment]
