@@ -1,5 +1,5 @@
 import type { SelectHTMLAttributes } from 'react';
-import './FilterSelect.css';
+import './FilterSelect.scss';
 
 type FilterSelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
 	active?: boolean;

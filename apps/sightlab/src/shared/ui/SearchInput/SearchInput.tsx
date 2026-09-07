@@ -1,5 +1,5 @@
 import type { InputHTMLAttributes } from 'react';
-import './SearchInput.css';
+import './SearchInput.scss';
 
 type SearchInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
 

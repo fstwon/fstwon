@@ -1,0 +1,57 @@
+.sl-logo-observation {
+	$self: &;
+
+	display: inline-flex;
+	align-items: center;
+	color: var(--sl-color-text-primary);
+	white-space: nowrap;
+
+	&__symbol {
+		display: block;
+		flex: 0 0 auto;
+	}
+
+	&__wordmark {
+		font-family: var(--sl-font-family-sans);
+		line-height: normal;
+	}
+
+	&--primary {
+		gap: var(--sl-spacing-sm);
+		height: 36px;
+
+		#{$self}__symbol {
+			width: 36px;
+			height: 36px;
+		}
+
+		#{$self}__wordmark {
+			font-size: 28px;
+			font-weight: 700;
+		}
+	}
+
+	&--compact {
+		gap: var(--sl-spacing-xs);
+		height: 28px;
+
+		#{$self}__symbol {
+			width: 28px;
+			height: 28px;
+		}
+
+		#{$self}__wordmark {
+			font-size: 22px;
+			font-weight: 600;
+		}
+	}
+
+	&--icon {
+		height: 52px;
+
+		#{$self}__symbol {
+			width: 52px;
+			height: 52px;
+		}
+	}
+}

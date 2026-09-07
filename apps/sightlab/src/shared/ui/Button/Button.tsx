@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
-import './Button.css';
+import './Button.scss';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
 

@@ -1,0 +1,44 @@
+.sl-tag-badge {
+	$self: &;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 88px;
+	height: 32px;
+	padding: 0 var(--sl-spacing-sm);
+	border: 2px solid transparent;
+	border-radius: var(--sl-radius-full);
+	font-family: var(--sl-font-family-sans);
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1;
+	white-space: nowrap;
+
+	&--neutral {
+		background: var(--sl-color-bg-subtle);
+		color: var(--sl-color-text-secondary);
+
+		&#{$self}--selected {
+			border-color: var(--sl-color-action-primary);
+		}
+	}
+
+	&--brand {
+		background: var(--sl-color-bg-brand-soft);
+		color: var(--sl-color-text-brand);
+
+		&#{$self}--selected {
+			border-color: var(--sl-color-action-primary);
+		}
+	}
+
+	&--accent {
+		background: var(--sl-color-bg-accent-soft);
+		color: var(--sl-color-text-primary);
+
+		&#{$self}--selected {
+			border-color: var(--sl-color-accent-default);
+		}
+	}
+}

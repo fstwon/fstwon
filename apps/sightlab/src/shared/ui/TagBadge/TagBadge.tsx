@@ -1,5 +1,5 @@
 import type { HTMLAttributes, PropsWithChildren } from 'react';
-import './TagBadge.css';
+import './TagBadge.scss';
 
 export type TagBadgeVariant = 'neutral' | 'brand' | 'accent';
 
