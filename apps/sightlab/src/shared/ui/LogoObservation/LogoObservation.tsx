@@ -1,5 +1,5 @@
 import observationSymbol from '@/shared/assets/observation-symbol.svg';
-import './LogoObservation.css';
+import './LogoObservation.scss';
 
 export type LogoObservationVariant = 'primary' | 'compact' | 'icon';
 

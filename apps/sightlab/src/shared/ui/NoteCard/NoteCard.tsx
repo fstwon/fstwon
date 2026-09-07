@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './NoteCard.css';
+import './NoteCard.scss';
 
 export type NoteCardProps = {
 	to: string;

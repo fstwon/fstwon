@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { LogoObservation } from '../LogoObservation/LogoObservation';
-import './PublicNavigation.css';
+import './PublicNavigation.scss';
 
 export function PublicNavigation() {
 	return (
