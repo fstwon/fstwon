@@ -14,6 +14,10 @@
 		color: inherit;
 		text-decoration: none;
 
+		&--mobile {
+			display: none;
+		}
+
 		&:focus-visible {
 			outline: 3px solid var(--sl-color-action-primary);
 			outline-offset: 3px;
@@ -44,5 +48,62 @@
 		&--active {
 			color: var(--sl-color-text-brand);
 		}
+	}
+
+	&__menu-trigger {
+		display: none;
+		width: 44px;
+		height: 44px;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 4px;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		color: var(--sl-color-text-primary);
+
+		span {
+			display: block;
+			width: 20px;
+			height: 2px;
+			border-radius: var(--sl-radius-full);
+			background: currentColor;
+		}
+
+		&:disabled {
+			opacity: 1;
+		}
+	}
+}
+
+@media (width < 768px) {
+	.sl-public-navigation {
+		height: 64px;
+		padding: 0 var(--sl-spacing-lg);
+
+		&__brand {
+			&--desktop {
+				display: none;
+			}
+
+			&--mobile {
+				display: inline-flex;
+			}
+		}
+
+		&__links {
+			display: none;
+		}
+
+		&__menu-trigger {
+			display: flex;
+		}
+	}
+}
+
+@media (768px <= width < 1024px) {
+	.sl-public-navigation {
+		padding-inline: var(--sl-spacing-lg);
 	}
 }

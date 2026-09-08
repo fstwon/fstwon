@@ -1,0 +1,18 @@
+.sl-public-layout {
+	display: flex;
+	min-height: 100vh;
+	min-height: 100dvh;
+	flex-direction: column;
+	border-top: 4px solid var(--sl-color-action-primary);
+	background: var(--sl-color-bg-canvas);
+
+	&__header {
+		display: flex;
+		justify-content: center;
+		background: var(--sl-color-bg-surface);
+	}
+
+	&__main {
+		flex: 1;
+	}
+}
