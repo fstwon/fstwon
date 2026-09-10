@@ -1,0 +1,55 @@
+.sl-notes-page {
+	width: min(calc(100% - 48px), 1200px);
+	margin: 0 auto;
+	padding: 52px 0 80px;
+
+	&__header {
+		max-width: 720px;
+
+		> p:last-child {
+			margin: var(--sl-spacing-sm) 0 0;
+			color: var(--sl-color-text-secondary);
+			font-size: var(--sl-font-size-body-md);
+			line-height: var(--sl-line-height-body-md);
+		}
+
+		h1 {
+			margin: var(--sl-spacing-xs) 0 0;
+			font-size: var(--sl-font-size-heading-h1);
+			font-weight: var(--sl-font-weight-heading-h1);
+			line-height: var(--sl-line-height-heading-h1);
+		}
+	}
+
+	&__eyebrow {
+		margin: 0;
+		color: var(--sl-color-text-brand);
+		font-family: var(--sl-font-family-mono);
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 0.02em;
+	}
+
+	&__results {
+		display: grid;
+		gap: var(--sl-spacing-xl);
+		margin-top: var(--sl-spacing-lg);
+	}
+
+	@media (width < 768px) {
+		width: min(calc(100% - 48px), 342px);
+		padding: 36px 0 64px;
+
+		&__header {
+			h1 {
+				font-size: 32px;
+				line-height: 40px;
+			}
+
+			> p:last-child {
+				font-size: var(--sl-font-size-body-sm);
+				line-height: var(--sl-line-height-body-sm);
+			}
+		}
+	}
+}
