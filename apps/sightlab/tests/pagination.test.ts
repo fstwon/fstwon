@@ -1,6 +1,9 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { getCompactPaginationItems, getPaginationItems } from '../src/shared/ui/Pagination/pagination.ts';
+import {
+	getCompactPaginationItems,
+	getPaginationItems,
+} from '../src/shared/ui/Pagination/getPaginationItems.ts';
 
 test('shows leading pages, ellipsis, and last page near the start', () => {
 	assert.deepEqual(getPaginationItems(1, 12), [1, 2, 3, 'ellipsis', 12]);
