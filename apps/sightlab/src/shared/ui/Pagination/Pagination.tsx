@@ -1,4 +1,4 @@
-import { getCompactPaginationItems, getPaginationItems } from './pagination';
+import { getCompactPaginationItems, getPaginationItems } from './getPaginationItems';
 import './Pagination.scss';
 
 type PaginationProps = {
