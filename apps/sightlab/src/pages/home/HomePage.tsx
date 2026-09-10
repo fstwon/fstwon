@@ -1,9 +1,20 @@
-import { Link } from 'react-router-dom';
-import { NoteCard } from '@/shared/ui/NoteCard/NoteCard';
-import { TagBadge } from '@/shared/ui/TagBadge/TagBadge';
+import { FeaturedNoteSection } from './components/FeaturedNoteSection/FeaturedNoteSection';
+import { HomeHero } from './components/HomeHero/HomeHero';
+import {
+	RecentNotesSection,
+	type RecentNote,
+} from './components/RecentNotesSection/RecentNotesSection';
 import './HomePage.scss';
 
-const recentNotes = [
+const featuredNote = {
+	to: '/notes/react-state-design',
+	title: 'React 상태 설계를 다시 바라보기',
+	summary: 'Context 분리 기준과 실제 리팩터링 과정을 정리합니다.',
+	tag: 'React',
+	readTimeLabel: '6 min',
+};
+
+const recentNotes: RecentNote[] = [
 	{
 		to: '/notes/context-separation',
 		eyebrow: 'React · Architecture',
@@ -33,72 +44,9 @@ const recentNotes = [
 export function HomePage() {
 	return (
 		<div className="sl-home">
-			<section className="sl-home__hero" aria-labelledby="home-title">
-				<div className="sl-home__hero-copy">
-					<p className="sl-home__eyebrow">LEARNING ARCHIVE</p>
-					<h1 id="home-title" className="sl-home__title">
-						배운 것을 기록하고,
-						<br />
-						다시 꺼내보는 공간.
-					</h1>
-					<p className="sl-home__description">
-						문제 해결 과정과 설계 판단을 축적하는 개인 학습 연구소입니다.
-					</p>
-					<div className="sl-home__actions">
-						<Link className="sl-button sl-button--primary sl-home__action" to="/notes">
-							Notes 보기
-						</Link>
-						<Link
-							className="sl-button sl-button--secondary sl-home__action sl-home__action--secondary"
-							to="/projects"
-						>
-							Projects 보기
-						</Link>
-					</div>
-					<span className="sl-home__mobile-focus" aria-hidden="true" />
-				</div>
-
-				<div className="sl-home__hero-graphic" aria-hidden="true">
-					<p className="sl-home__graphic-copy">
-						<span>OBSERVE</span>
-						<span>DOCUMENT</span>
-						<span>REVISIT</span>
-					</p>
-					<span className="sl-home__orbit" />
-					<span className="sl-home__observation-ring" />
-					<span className="sl-home__focus" />
-				</div>
-			</section>
-
-			<Link className="sl-home__featured" to="/notes/react-state-design">
-				<p className="sl-home__featured-eyebrow">FEATURED NOTE</p>
-				<h2 className="sl-home__featured-title">React 상태 설계를 다시 바라보기</h2>
-				<p className="sl-home__featured-summary">
-					Context 분리 기준과 실제 리팩터링 과정을 정리합니다.
-				</p>
-				<div className="sl-home__featured-meta sl-home__featured-meta--desktop">
-					<TagBadge>React</TagBadge>
-					<TagBadge>6 min</TagBadge>
-				</div>
-				<p className="sl-home__featured-meta sl-home__featured-meta--mobile">
-					React · 6 min
-				</p>
-			</Link>
-
-			<section className="sl-home__recent" aria-labelledby="recent-notes-title">
-				<h2 id="recent-notes-title" className="sl-home__section-title">
-					Recent Notes
-				</h2>
-				<div className="sl-home__recent-grid">
-					{recentNotes.map((note, index) => (
-						<NoteCard
-							key={note.to}
-							className={`sl-home__recent-card${index === 2 ? ' sl-home__recent-card--desktop-only' : ''}`}
-							{...note}
-						/>
-					))}
-				</div>
-			</section>
+			<HomeHero />
+			<FeaturedNoteSection note={featuredNote} />
+			<RecentNotesSection notes={recentNotes} />
 		</div>
 	);
 }
