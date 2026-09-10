@@ -1,13 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { AdminLayout } from '../shells/AdminLayout';
 import { PublicLayout } from '../shells/PublicLayout';
+import { HomePage } from '@/pages/home/HomePage';
 import { RoutePlaceholder } from '@/shared/ui/RoutePlaceholder';
 
 export const router = createBrowserRouter([
 	{
 		element: <PublicLayout />,
 		children: [
-			{ path: '/', element: <RoutePlaceholder title="Home" /> },
+			{ path: '/', element: <HomePage /> },
 			{ path: '/notes', element: <RoutePlaceholder title="Notes" /> },
 			{ path: '/notes/:slug', element: <RoutePlaceholder title="Note Detail" /> },
 			{ path: '/projects', element: <RoutePlaceholder title="Projects" /> },
