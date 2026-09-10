@@ -1,0 +1,10 @@
+.sl-home {
+	width: min(calc(100% - 48px), 1200px);
+	margin: 0 auto;
+	padding: 44px 0 72px;
+
+	@media (width < 768px) {
+		width: min(calc(100% - 48px), 342px);
+		padding: 36px 0 56px;
+	}
+}

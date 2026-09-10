@@ -1,0 +1,83 @@
+.sl-recent-notes {
+	margin-top: 44px;
+
+	&__title {
+		margin: 0;
+		color: var(--sl-color-text-primary);
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 32px;
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 32px;
+		margin-top: 20px;
+	}
+
+	&__card {
+		max-width: none;
+		min-height: 220px;
+
+		.sl-note-card__link {
+			min-height: 218px;
+		}
+	}
+
+	@media (width < 1024px) {
+		&__grid {
+			gap: var(--sl-spacing-lg);
+		}
+	}
+
+	@media (width < 768px) {
+		margin-top: 36px;
+
+		&__title {
+			font-size: 22px;
+			line-height: 30px;
+		}
+
+		&__grid {
+			display: flex;
+			margin-top: 18px;
+			flex-direction: column;
+			gap: 20px;
+		}
+
+		&__card {
+			min-height: 206px;
+
+			.sl-note-card__link {
+				min-height: 204px;
+				gap: 14px;
+				padding: 16px;
+			}
+
+			.sl-note-card__eyebrow {
+				font-family: var(--sl-font-family-mono);
+				font-size: 10px;
+			}
+
+			.sl-note-card__title {
+				font-size: 18px;
+				line-height: 26px;
+			}
+
+			.sl-note-card__summary {
+				font-size: 13px;
+				line-height: 20px;
+			}
+
+			.sl-note-card__meta {
+				font-family: var(--sl-font-family-mono);
+				font-size: 11px;
+			}
+		}
+
+		&__card--desktop-only {
+			display: none;
+		}
+	}
+}
