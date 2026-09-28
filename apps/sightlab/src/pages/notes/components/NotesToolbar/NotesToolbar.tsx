@@ -1,7 +1,7 @@
 import type { ChangeEvent, RefObject } from 'react';
+import { TagBadge } from '@/entities/tag';
 import { FilterSelect } from '@/shared/ui/FilterSelect/FilterSelect';
 import { SearchInput } from '@/shared/ui/SearchInput/SearchInput';
-import { TagBadge } from '@/shared/ui/TagBadge/TagBadge';
 import './NotesToolbar.scss';
 
 type FilterOption = {
@@ -35,6 +35,7 @@ export function NotesToolbar({
 	onReset,
 }: NotesToolbarProps) {
 	const hasFilter = Boolean(searchValue.trim() || selectedTag);
+	const selectedTagEntity = selectedTag ? { slug: selectedTag, name: selectedTagLabel } : null;
 
 	return (
 		<section className="sl-notes-toolbar" aria-label="노트 검색과 필터">
@@ -68,7 +69,7 @@ export function NotesToolbar({
 			</div>
 			<div className="sl-notes-toolbar__meta">
 				<p>{resultCount}개의 노트</p>
-				{selectedTag ? <TagBadge variant="brand" selected>{selectedTagLabel}</TagBadge> : null}
+				{selectedTagEntity ? <TagBadge tag={selectedTagEntity} variant="brand" selected /> : null}
 				{hasFilter ? <button type="button" onClick={onReset}>필터 초기화</button> : null}
 			</div>
 		</section>
