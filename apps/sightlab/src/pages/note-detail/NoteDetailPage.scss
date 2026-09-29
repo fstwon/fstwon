@@ -58,7 +58,7 @@
 .sl-note-toc {
 	> strong { display: block; margin-bottom: 12px; font-size: 13px; }
 	&__items { display: grid; gap: 2px; }
-	&__items a { position: relative; display: flex; min-height: 36px; align-items: center; padding: 8px 12px; border-radius: 6px; color: var(--sl-color-text-secondary); font-size: 12px; line-height: 18px; text-decoration: none;
+	&__items a { position: relative; display: flex; min-height: 36px; align-items: center; padding: 8px 12px; border-radius: 6px; color: var(--sl-color-text-secondary); font-size: 14px; line-height: 20px; text-decoration: none;
 		&.is-child { padding-left: 32px; }
 		&.is-active { background: var(--sl-color-bg-brand-soft); color: var(--sl-color-text-brand); font-weight: 600; &::before { position: absolute; left: 0; width: 3px; height: 20px; border-radius: 3px; background: var(--sl-color-action-primary); content: ''; } }
 	}
@@ -77,8 +77,13 @@
 	blockquote { margin: 24px 0; padding: 16px 20px; border-left: 3px solid var(--sl-color-action-primary); background: var(--sl-color-bg-brand-soft); }
 	figure { margin: 32px 0; img { display: block; width: 100%; max-height: 400px; border-radius: var(--sl-radius-md); object-fit: cover; } figcaption { margin-top: 8px; color: var(--sl-color-text-secondary); font-size: 14px; line-height: 22px; } }
 	hr { margin: 40px 0; border: 0; border-top: 1px solid var(--sl-color-border-default); }
-	&__list, &__task { display: flex; gap: 10px; margin: 6px 0; }
-	&__task > span { display: grid; width: 18px; height: 18px; flex: 0 0 18px; place-items: center; margin-top: 5px; border: 1px solid var(--sl-color-border-default); border-radius: 4px; color: var(--sl-color-text-brand); font-size: 12px; }
+	&__list, &__task { display: flex; gap: 12px; margin: 6px 0; }
+	&__task { color: var(--sl-color-text-primary);
+		> span { display: grid; width: 18px; height: 18px; flex: 0 0 18px; place-items: center; margin-top: 5px; border: 1px solid var(--sl-color-border-default); border-radius: 4px; background: var(--sl-color-bg-surface); color: transparent; font-size: 12px; font-weight: 600; line-height: 1; }
+		&.is-checked { color: var(--sl-color-text-secondary);
+			> span { border-color: var(--sl-color-text-brand); background: var(--sl-color-text-brand); color: var(--sl-color-text-inverse); }
+		}
+	}
 	&__code { margin: 28px 0; overflow: hidden; border-radius: var(--sl-radius-md); background: var(--sl-color-bg-code); color: var(--sl-color-text-inverse);
 		pre { margin: 0; padding: 20px; overflow-x: auto; font: var(--sl-font-size-code)/var(--sl-line-height-code) var(--sl-font-family-mono); }
 	}

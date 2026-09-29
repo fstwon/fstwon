@@ -70,7 +70,7 @@ export function NoteArticle({ markdown }: { markdown: string }) {
 				if (block.type === 'image') return <figure key={index}><img src={block.value} alt={block.extra ?? ''} /><figcaption>{block.extra}</figcaption></figure>;
 				if (block.type === 'hr') return <hr key={index} />;
 				if (block.type === 'quote') return <blockquote key={index}><InlineContent text={block.value} /></blockquote>;
-				if (block.type === 'task') return <div className="sl-note-article__task" key={index}><span aria-hidden="true">{block.extra ? '✓' : ''}</span><InlineContent text={block.value} /></div>;
+				if (block.type === 'task') return <div className={`sl-note-article__task${block.extra === 'checked' ? ' is-checked' : ''}`} key={index}><span aria-hidden="true">{block.extra === 'checked' ? '✓' : ''}</span><InlineContent text={block.value} /></div>;
 				if (block.type === 'list' || block.type === 'ordered') return <div className="sl-note-article__list" key={index}><span aria-hidden="true">{block.type === 'list' ? '•' : `${index + 1}.`}</span><InlineContent text={block.value} /></div>;
 				if (block.type.startsWith('h')) {
 					const level = Number(block.type.slice(1));
