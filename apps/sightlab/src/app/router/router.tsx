@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { AdminLayout } from '../shells/AdminLayout';
 import { PublicLayout } from '../shells/PublicLayout';
 import { HomePage } from '@/pages/home/HomePage';
+import { NoteDetailPage } from '@/pages/note-detail/NoteDetailPage';
 import { NotesPage } from '@/pages/notes/NotesPage';
 import { RoutePlaceholder } from '@/shared/ui/RoutePlaceholder';
 
@@ -11,7 +12,7 @@ export const router = createBrowserRouter([
 		children: [
 			{ path: '/', element: <HomePage /> },
 			{ path: '/notes', element: <NotesPage /> },
-			{ path: '/notes/:slug', element: <RoutePlaceholder title="Note Detail" /> },
+			{ path: '/notes/:slug', element: <NoteDetailPage /> },
 			{ path: '/projects', element: <RoutePlaceholder title="Projects" /> },
 			{ path: '/projects/:slug', element: <RoutePlaceholder title="Project Detail" /> },
 		],
