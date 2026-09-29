@@ -1,5 +1,5 @@
 .sl-note-detail {
-	width: min(calc(100% - 48px), 1008px);
+	width: min(calc(100% - 48px), 1040px);
 	margin: 0 auto;
 	padding: 54px 0 96px;
 
@@ -21,8 +21,8 @@
 
 	&__layout {
 		display: grid;
-		grid-template-columns: minmax(0, 720px) 240px;
-		gap: 48px;
+		grid-template-columns: minmax(0, 720px) 280px;
+		gap: 40px;
 		align-items: start;
 	}
 
@@ -76,7 +76,7 @@
 	&__aside {
 		position: sticky;
 		top: 112px;
-		padding-top: 114px;
+		padding: 114px 20px 20px;
 	}
 
 	&__mobile-toc {
