@@ -10,3 +10,19 @@ export type Note = {
 	publishedAt: string;
 	readingTime: number;
 };
+
+export type NoteReference = {
+	title: string;
+	url: string;
+	source?: string;
+};
+
+export type NoteDetail = Note & {
+	content: string;
+	references: NoteReference[];
+};
+
+export type NoteDetailResponse = {
+	note: NoteDetail;
+	relatedNotes: Note[];
+};
