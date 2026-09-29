@@ -24,27 +24,27 @@ export function NoteDetailPage() {
 	const [showToToc, setShowToToc] = useState(false);
 	const toc = useMemo(
 		() => (query.data ? extractTableOfContents(query.data.note.content) : []),
-		[query.data],
+		[query.data]
 	);
 
 	useEffect(() => {
 		if (!query.data) return;
 
 		const headings = toc
-			.map((item) => document.getElementById(item.id))
+			.map(item => document.getElementById(item.id))
 			.filter((item): item is HTMLElement => Boolean(item));
 		const observer = new IntersectionObserver(
-			(entries) => {
+			entries => {
 				const visible = entries
-					.filter((entry) => entry.isIntersecting)
+					.filter(entry => entry.isIntersecting)
 					.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
 
 				if (visible[0]) setActiveId(visible[0].target.id);
 			},
-			{ rootMargin: '-96px 0px -65% 0px' },
+			{ rootMargin: '-96px 0px -65% 0px' }
 		);
 
-		headings.forEach((heading) => observer.observe(heading));
+		headings.forEach(heading => observer.observe(heading));
 
 		return () => observer.disconnect();
 	}, [query.data, toc]);
@@ -65,7 +65,7 @@ export function NoteDetailPage() {
 					articleTop: rect.top + window.scrollY,
 					articleHeight: rect.height,
 					viewportHeight: window.innerHeight,
-				}),
+				})
 			);
 		};
 
@@ -95,7 +95,10 @@ export function NoteDetailPage() {
 
 	if (query.isPending) {
 		return (
-			<main className="sl-note-detail" aria-busy="true">
+			<main
+				className="sl-note-detail"
+				aria-busy="true"
+			>
 				<NoteDetailSkeleton />
 			</main>
 		);
@@ -105,7 +108,10 @@ export function NoteDetailPage() {
 		const notFound = query.error instanceof NoteNotFoundError;
 
 		return (
-			<main className="sl-note-detail" aria-busy="false">
+			<main
+				className="sl-note-detail"
+				aria-busy="false"
+			>
 				<div className="sl-note-detail__state-stage">
 					<NoteDetailSkeleton dimmed />
 					<NoteDetailState
@@ -123,14 +129,23 @@ export function NoteDetailPage() {
 	const formatDate = note.publishedAt.replaceAll('-', '.');
 
 	return (
-		<main className="sl-note-detail" aria-busy="false">
-			<div className="sl-reading-progress" aria-hidden="true">
+		<main
+			className="sl-note-detail"
+			aria-busy="false"
+		>
+			<div
+				className="sl-reading-progress"
+				aria-hidden="true"
+			>
 				<span style={{ width: `${progress}%` }} />
 			</div>
 
 			<div className="sl-note-detail__layout">
 				<div className="sl-note-detail__main">
-					<nav className="sl-note-detail__breadcrumb" aria-label="Breadcrumb">
+					<nav
+						className="sl-note-detail__breadcrumb"
+						aria-label="Breadcrumb"
+					>
 						<Link to="/notes">Notes</Link>
 						<span>/</span>
 						<span>{note.category.name}</span>
@@ -144,20 +159,30 @@ export function NoteDetailPage() {
 							{formatDate} · {note.readingTime} min
 						</p>
 						<div className="sl-note-detail__badges">
-							<CategoryBadge category={note.category} variant="brand" />
-							{note.tags.map((tag) => (
-								<TagBadge key={tag.slug} tag={tag} variant="brand" />
+							<CategoryBadge
+								category={note.category}
+								variant="brand"
+							/>
+							{note.tags.map(tag => (
+								<TagBadge
+									key={tag.slug}
+									tag={tag}
+									variant="brand"
+								/>
 							))}
 						</div>
 					</header>
 
-					<div ref={tocRef} className="sl-note-detail__mobile-toc">
+					<div
+						ref={tocRef}
+						className="sl-note-detail__mobile-toc"
+					>
 						<NoteTableOfContents
 							items={toc}
 							activeId={activeId}
 							mobile
 							open={mobileTocOpen}
-							onToggle={() => setMobileTocOpen((value) => !value)}
+							onToggle={() => setMobileTocOpen(value => !value)}
 							onSelect={() => setMobileTocOpen(false)}
 						/>
 					</div>
@@ -169,7 +194,7 @@ export function NoteDetailPage() {
 					{note.references.length ? (
 						<section className="sl-note-detail__references">
 							<h2>References</h2>
-							{note.references.map((reference) => (
+							{note.references.map(reference => (
 								<a
 									key={reference.url}
 									href={reference.url}
@@ -186,7 +211,10 @@ export function NoteDetailPage() {
 				</div>
 
 				<aside className="sl-note-detail__aside">
-					<NoteTableOfContents items={toc} activeId={activeId} />
+					<NoteTableOfContents
+						items={toc}
+						activeId={activeId}
+					/>
 				</aside>
 			</div>
 
@@ -194,8 +222,11 @@ export function NoteDetailPage() {
 				<section className="sl-note-detail__related">
 					<h2>Related Notes</h2>
 					<div>
-						{relatedNotes.slice(0, 2).map((related) => (
-							<NoteCard key={related.slug} note={related} />
+						{relatedNotes.slice(0, 2).map(related => (
+							<NoteCard
+								key={related.slug}
+								note={related}
+							/>
 						))}
 					</div>
 				</section>

@@ -16,12 +16,14 @@ export function Button({
 	type = 'button',
 	...props
 }: ButtonProps) {
-	const classNames = ['sl-button', `sl-button--${variant}`, className]
-		.filter(Boolean)
-		.join(' ');
+	const classNames = ['sl-button', `sl-button--${variant}`, className].filter(Boolean).join(' ');
 
 	return (
-		<button className={classNames} type={type} {...props}>
+		<button
+			className={classNames}
+			type={type}
+			{...props}
+		>
 			{children}
 		</button>
 	);

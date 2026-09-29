@@ -21,10 +21,19 @@ function formatPublishedAt(publishedAt: string) {
 
 export function FeaturedNoteSection({ note }: FeaturedNoteSectionProps) {
 	return (
-		<section className="sl-featured-note" aria-labelledby="featured-note-title">
-			<Link className="sl-featured-note__link" to={note.to}>
+		<section
+			className="sl-featured-note"
+			aria-labelledby="featured-note-title"
+		>
+			<Link
+				className="sl-featured-note__link"
+				to={note.to}
+			>
 				<p className="sl-featured-note__eyebrow">FEATURED NOTE</p>
-				<h2 id="featured-note-title" className="sl-featured-note__title">
+				<h2
+					id="featured-note-title"
+					className="sl-featured-note__title"
+				>
 					{note.title}
 				</h2>
 				<p className="sl-featured-note__summary">{note.summary}</p>

@@ -8,17 +8,21 @@ export type LogoObservationProps = {
 	className?: string;
 };
 
-export function LogoObservation({
-	variant = 'primary',
-	className = '',
-}: LogoObservationProps) {
+export function LogoObservation({ variant = 'primary', className = '' }: LogoObservationProps) {
 	const classNames = ['sl-logo-observation', `sl-logo-observation--${variant}`, className]
 		.filter(Boolean)
 		.join(' ');
 
 	return (
-		<span className={classNames} aria-label="Sightlab">
-			<img className="sl-logo-observation__symbol" src={observationSymbol} alt="" />
+		<span
+			className={classNames}
+			aria-label="Sightlab"
+		>
+			<img
+				className="sl-logo-observation__symbol"
+				src={observationSymbol}
+				alt=""
+			/>
 			{variant !== 'icon' && <span className="sl-logo-observation__wordmark">Sightlab</span>}
 		</span>
 	);

@@ -12,8 +12,14 @@ export function SearchInput({
 	const classNames = ['sl-search-input', className].filter(Boolean).join(' ');
 
 	return (
-		<label className={classNames} data-disabled={disabled || undefined}>
-			<span className="sl-search-input__icon" aria-hidden="true">
+		<label
+			className={classNames}
+			data-disabled={disabled || undefined}
+		>
+			<span
+				className="sl-search-input__icon"
+				aria-hidden="true"
+			>
 				⌕
 			</span>
 			<input

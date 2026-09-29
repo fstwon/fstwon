@@ -11,15 +11,7 @@ export function getPaginationItems(currentPage: number, totalPages: number): Pag
 		return [1, 'ellipsis', totalPages - 2, totalPages - 1, totalPages];
 	}
 
-	return [
-		1,
-		'ellipsis',
-		currentPage - 1,
-		currentPage,
-		currentPage + 1,
-		'ellipsis',
-		totalPages,
-	];
+	return [1, 'ellipsis', currentPage - 1, currentPage, currentPage + 1, 'ellipsis', totalPages];
 }
 
 export function getCompactPaginationItems(currentPage: number, totalPages: number) {

@@ -17,7 +17,8 @@ export function NotesPage() {
 	const [isFilterOpen, setFilterOpen] = useState(false);
 	const filterTriggerRef = useRef<HTMLButtonElement>(null);
 	const notesQuery = useNotesQuery(filters);
-	const selectedTagLabel = noteTagOptions.find((option) => option.value === filters.tag)?.label ?? '전체 태그';
+	const selectedTagLabel =
+		noteTagOptions.find(option => option.value === filters.tag)?.label ?? '전체 태그';
 
 	useEffect(() => {
 		setSearchValue(filters.query);
@@ -26,7 +27,9 @@ export function NotesPage() {
 	useEffect(() => {
 		if (searchValue.trim() === filters.query) return;
 		const timeoutId = window.setTimeout(() => {
-			setSearchParams(updateNotesSearchParams(searchParams, { query: searchValue }), { replace: true });
+			setSearchParams(updateNotesSearchParams(searchParams, { query: searchValue }), {
+				replace: true,
+			});
 		}, 400);
 		return () => window.clearTimeout(timeoutId);
 	}, [filters.query, searchParams, searchValue, setSearchParams]);
@@ -66,10 +69,23 @@ export function NotesPage() {
 				onReset={handleReset}
 			/>
 
-			<section className="sl-notes-page__results" aria-label="노트 목록">
+			<section
+				className="sl-notes-page__results"
+				aria-label="노트 목록"
+			>
 				{notesQuery.isPending ? <StatePanel state="loading" /> : null}
-				{notesQuery.isError ? <StatePanel state="error" onAction={() => void notesQuery.refetch()} /> : null}
-				{notesQuery.isSuccess && notesQuery.data.content.length === 0 ? <StatePanel state="empty" onAction={handleReset} /> : null}
+				{notesQuery.isError ? (
+					<StatePanel
+						state="error"
+						onAction={() => void notesQuery.refetch()}
+					/>
+				) : null}
+				{notesQuery.isSuccess && notesQuery.data.content.length === 0 ? (
+					<StatePanel
+						state="empty"
+						onAction={handleReset}
+					/>
+				) : null}
 				{notesQuery.isSuccess && notesQuery.data.content.length > 0 ? (
 					<>
 						<NotesList notes={notesQuery.data.content} />

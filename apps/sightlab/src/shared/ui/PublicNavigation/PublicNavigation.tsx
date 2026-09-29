@@ -4,7 +4,10 @@ import './PublicNavigation.scss';
 
 export function PublicNavigation() {
 	return (
-		<nav className="sl-public-navigation" aria-label="주요 탐색">
+		<nav
+			className="sl-public-navigation"
+			aria-label="주요 탐색"
+		>
 			<Link
 				className="sl-public-navigation__brand sl-public-navigation__brand--desktop"
 				to="/"

@@ -29,7 +29,10 @@ export function Pagination({
 	);
 
 	return (
-		<nav className="sl-pagination" aria-label={ariaLabel}>
+		<nav
+			className="sl-pagination"
+			aria-label={ariaLabel}
+		>
 			<div className="sl-pagination__controls sl-pagination__controls--desktop">
 				<button
 					className="sl-pagination__control"
@@ -42,12 +45,16 @@ export function Pagination({
 				</button>
 				{getPaginationItems(currentPage, totalPages).map((item, index) =>
 					item === 'ellipsis' ? (
-						<span key={`ellipsis-${index}`} className="sl-pagination__ellipsis" aria-hidden="true">
+						<span
+							key={`ellipsis-${index}`}
+							className="sl-pagination__ellipsis"
+							aria-hidden="true"
+						>
 							…
 						</span>
 					) : (
 						renderPageButton(item)
-					),
+					)
 				)}
 				<button
 					className="sl-pagination__control"

@@ -9,8 +9,11 @@ type NotesListProps = {
 export function NotesList({ notes }: NotesListProps) {
 	return (
 		<div className="sl-notes-list">
-			{notes.map((note) => (
-				<NoteCard key={note.slug} note={note} />
+			{notes.map(note => (
+				<NoteCard
+					key={note.slug}
+					note={note}
+				/>
 			))}
 		</div>
 	);
