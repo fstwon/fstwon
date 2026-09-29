@@ -1,4 +1,4 @@
-import { NoteCard, type NoteCardProps } from '@/shared/ui/NoteCard/NoteCard';
+import { NoteCard, type NoteCardProps } from '@/entities/note/ui/NoteCard';
 import './RecentNotesSection.scss';
 
 export type RecentNote = Omit<NoteCardProps, 'className'>;
