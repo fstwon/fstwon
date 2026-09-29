@@ -9,7 +9,8 @@ const featuredNote = {
 	title: 'React 상태 설계를 다시 바라보기',
 	summary: 'Context 분리 기준과 실제 리팩터링 과정을 정리합니다.',
 	tag: 'React',
-	readTimeLabel: '6 min',
+	publishedAt: '2026-09-07',
+	readingTime: 6,
 };
 
 const recentNotes: Note[] = [
