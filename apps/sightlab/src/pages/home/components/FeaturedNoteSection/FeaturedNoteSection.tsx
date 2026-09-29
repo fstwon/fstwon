@@ -7,12 +7,17 @@ type FeaturedNote = {
 	title: string;
 	summary: string;
 	tag: string;
-	readTimeLabel: string;
+	publishedAt: string;
+	readingTime: number;
 };
 
 type FeaturedNoteSectionProps = {
 	note: FeaturedNote;
 };
+
+function formatPublishedAt(publishedAt: string) {
+	return publishedAt.replaceAll('-', '.');
+}
 
 export function FeaturedNoteSection({ note }: FeaturedNoteSectionProps) {
 	return (
@@ -23,13 +28,12 @@ export function FeaturedNoteSection({ note }: FeaturedNoteSectionProps) {
 					{note.title}
 				</h2>
 				<p className="sl-featured-note__summary">{note.summary}</p>
-				<div className="sl-featured-note__meta sl-featured-note__meta--desktop">
-					<Badge>{note.tag}</Badge>
-					<Badge>{note.readTimeLabel}</Badge>
+				<div className="sl-featured-note__meta">
+					<Badge variant="brand">{note.tag}</Badge>
+					<p className="sl-featured-note__meta-text">
+						{formatPublishedAt(note.publishedAt)} · {note.readingTime} min
+					</p>
 				</div>
-				<p className="sl-featured-note__meta sl-featured-note__meta--mobile">
-					{note.tag} · {note.readTimeLabel}
-				</p>
 			</Link>
 		</section>
 	);
