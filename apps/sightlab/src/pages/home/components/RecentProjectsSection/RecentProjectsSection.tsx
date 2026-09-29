@@ -22,10 +22,10 @@ export function RecentProjectsSection({ projects }: RecentProjectsSectionProps) 
 					Recent Projects
 				</h2>
 				<Link
-					className="sl-button sl-button--secondary sl-recent-projects__view-all"
+					className="sl-recent-projects__view-all"
 					to="/projects"
 				>
-					View All Projects
+					View all
 				</Link>
 			</div>
 			<div className="sl-recent-projects__grid">
