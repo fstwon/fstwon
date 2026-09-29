@@ -1,27 +1,14 @@
 import { Link } from 'react-router-dom';
+import type { Project } from '../model/types';
 import './ProjectCard.scss';
 
 export type ProjectCardProps = {
-	to: string;
-	index: string;
-	category: string;
-	title: string;
-	description: string;
-	tag?: string;
-	connectedNotes: number;
+	project: Project;
 	className?: string;
 };
 
-export function ProjectCard({
-	to,
-	index,
-	category,
-	title,
-	description,
-	tag,
-	connectedNotes,
-	className = '',
-}: ProjectCardProps) {
+export function ProjectCard({ project, className = '' }: ProjectCardProps) {
+	const { id, slug, category, title, description, tag, connectedNotes } = project;
 	const classNames = ['sl-project-card', className].filter(Boolean).join(' ');
 	const connectedNotesLabel = `${connectedNotes} connected ${connectedNotes === 1 ? 'note' : 'notes'}`;
 
@@ -29,10 +16,10 @@ export function ProjectCard({
 		<article className={classNames}>
 			<Link
 				className="sl-project-card__link"
-				to={to}
+				to={`/projects/${slug}`}
 			>
 				<div className="sl-project-card__thumbnail">
-					<span className="sl-project-card__index">{index}</span>
+					<span className="sl-project-card__index">{id}</span>
 					<span className="sl-project-card__category">{category}</span>
 				</div>
 
