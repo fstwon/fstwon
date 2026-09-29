@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
-import { ProjectCard, type ProjectCardProps } from '@/entities/project/ui/ProjectCard';
+import type { Project } from '@/entities/project/model/types';
+import { ProjectCard } from '@/entities/project/ui/ProjectCard';
 import './RecentProjectsSection.scss';
 
-type RecentProject = Omit<ProjectCardProps, 'className'>;
-
 type RecentProjectsSectionProps = {
-	projects: RecentProject[];
+	projects: Project[];
 };
 
 export function RecentProjectsSection({ projects }: RecentProjectsSectionProps) {
@@ -31,8 +30,8 @@ export function RecentProjectsSection({ projects }: RecentProjectsSectionProps) 
 			<div className="sl-recent-projects__grid">
 				{projects.map(project => (
 					<ProjectCard
-						key={project.to}
-						{...project}
+						key={project.id}
+						project={project}
 					/>
 				))}
 			</div>
