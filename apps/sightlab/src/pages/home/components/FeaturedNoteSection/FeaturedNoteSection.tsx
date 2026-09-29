@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { TagBadge } from '@/shared/ui/TagBadge/TagBadge';
+import { Badge } from '@/shared/ui/Badge/Badge';
 import './FeaturedNoteSection.scss';
 
 type FeaturedNote = {
@@ -24,8 +24,8 @@ export function FeaturedNoteSection({ note }: FeaturedNoteSectionProps) {
 				</h2>
 				<p className="sl-featured-note__summary">{note.summary}</p>
 				<div className="sl-featured-note__meta sl-featured-note__meta--desktop">
-					<TagBadge>{note.tag}</TagBadge>
-					<TagBadge>{note.readTimeLabel}</TagBadge>
+					<Badge>{note.tag}</Badge>
+					<Badge>{note.readTimeLabel}</Badge>
 				</div>
 				<p className="sl-featured-note__meta sl-featured-note__meta--mobile">
 					{note.tag} · {note.readTimeLabel}
