@@ -4,6 +4,7 @@ import { PublicLayout } from '../shells/PublicLayout';
 import { HomePage } from '@/pages/home/HomePage';
 import { NoteDetailPage } from '@/pages/note-detail/NoteDetailPage';
 import { NotesPage } from '@/pages/notes/NotesPage';
+import { ProjectsPage } from '@/pages/projects/ProjectsPage';
 import { RoutePlaceholder } from '@/shared/ui/RoutePlaceholder';
 
 export const router = createBrowserRouter([
@@ -13,7 +14,7 @@ export const router = createBrowserRouter([
 			{ path: '/', element: <HomePage /> },
 			{ path: '/notes', element: <NotesPage /> },
 			{ path: '/notes/:slug', element: <NoteDetailPage /> },
-			{ path: '/projects', element: <RoutePlaceholder title="Projects" /> },
+			{ path: '/projects', element: <ProjectsPage /> },
 			{ path: '/projects/:slug', element: <RoutePlaceholder title="Project Detail" /> },
 		],
 	},
