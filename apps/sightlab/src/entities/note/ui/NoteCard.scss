@@ -30,19 +30,10 @@
 		}
 	}
 
-	&__eyebrow,
 	&__title,
 	&__summary,
 	&__meta {
 		margin: 0;
-	}
-
-	&__eyebrow {
-		color: var(--sl-color-text-brand);
-		font-size: 11px;
-		font-weight: 500;
-		line-height: normal;
-		text-transform: uppercase;
 	}
 
 	&__title {
@@ -55,6 +46,7 @@
 	&__summary {
 		display: -webkit-box;
 		overflow: hidden;
+		min-height: 50px;
 		color: var(--sl-color-text-secondary);
 		font-size: var(--sl-font-size-body-sm);
 		font-weight: var(--sl-font-weight-body-sm);
@@ -63,8 +55,19 @@
 		-webkit-line-clamp: 2;
 	}
 
+	&__badges {
+		display: flex;
+		align-items: center;
+		gap: var(--sl-spacing-xs);
+		overflow: hidden;
+
+		.sl-badge {
+			min-width: 0;
+			flex: 0 0 auto;
+		}
+	}
+
 	&__meta {
-		margin-top: auto;
 		color: var(--sl-color-text-secondary);
 		font-size: 12px;
 		line-height: normal;
