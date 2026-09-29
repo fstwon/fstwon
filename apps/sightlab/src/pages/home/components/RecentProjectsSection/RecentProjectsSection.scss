@@ -17,8 +17,22 @@
 	}
 
 	&__view-all {
-		width: 120px;
 		flex-shrink: 0;
+		color: var(--sl-color-text-brand);
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 20px;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--sl-color-action-primary);
+			outline-offset: 4px;
+			border-radius: var(--sl-radius-sm);
+		}
 	}
 
 	&__grid {
