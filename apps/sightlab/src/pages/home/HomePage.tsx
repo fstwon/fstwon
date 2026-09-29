@@ -2,6 +2,7 @@ import type { Note } from '@/entities/note/model/types';
 import { FeaturedNoteSection } from './components/FeaturedNoteSection/FeaturedNoteSection';
 import { HomeHero } from './components/HomeHero/HomeHero';
 import { RecentNotesSection } from './components/RecentNotesSection/RecentNotesSection';
+import { RecentProjectsSection } from './components/RecentProjectsSection/RecentProjectsSection';
 import './HomePage.scss';
 
 const featuredNote = {
@@ -43,12 +44,43 @@ const recentNotes: Note[] = [
 	},
 ];
 
+const recentProjects = [
+	{
+		to: '/projects/sightlab',
+		index: '01',
+		category: 'Frontend Architecture',
+		title: 'Sightlab',
+		description: '배운 것을 기록하고 다시 꺼내보기 위한 개인 학습 아카이브입니다.',
+		tag: 'React',
+		connectedNotes: 8,
+	},
+	{
+		to: '/projects/fstwon',
+		index: '02',
+		category: 'Portfolio',
+		title: 'fstwon',
+		description: '프로젝트와 경험을 하나의 흐름으로 정리한 개인 포트폴리오입니다.',
+		tag: 'TypeScript',
+		connectedNotes: 5,
+	},
+	{
+		to: '/projects/hwabaek',
+		index: '03',
+		category: 'Community',
+		title: '화백',
+		description: '패션 디자인 작품을 전시하고 소통할 수 있는 플랫폼을 설계합니다.',
+		tag: 'Product Design',
+		connectedNotes: 3,
+	},
+];
+
 export function HomePage() {
 	return (
 		<div className="sl-home">
 			<HomeHero />
 			<FeaturedNoteSection note={featuredNote} />
 			<RecentNotesSection notes={recentNotes} />
+			<RecentProjectsSection projects={recentProjects} />
 		</div>
 	);
 }
