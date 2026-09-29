@@ -50,7 +50,9 @@ export function NotesFilterSheet({
 		}
 
 		if (event.key !== 'Tab') return;
-		const focusable = Array.from(sheetRef.current?.querySelectorAll<HTMLElement>('input:not([disabled])') ?? []);
+		const focusable = Array.from(
+			sheetRef.current?.querySelectorAll<HTMLElement>('input:not([disabled])') ?? []
+		);
 		if (focusable.length === 0) return;
 		const first = focusable[0];
 		const last = focusable[focusable.length - 1];
@@ -67,7 +69,7 @@ export function NotesFilterSheet({
 	return (
 		<div
 			className="sl-notes-filter-sheet"
-			onMouseDown={(event) => {
+			onMouseDown={event => {
 				if (event.target === event.currentTarget) onClose();
 			}}
 		>
@@ -79,11 +81,17 @@ export function NotesFilterSheet({
 				aria-labelledby="notes-filter-sheet-title"
 				onKeyDown={handleKeyDown}
 			>
-				<div className="sl-notes-filter-sheet__handle" aria-hidden="true" />
+				<div
+					className="sl-notes-filter-sheet__handle"
+					aria-hidden="true"
+				/>
 				<h2 id="notes-filter-sheet-title">태그 필터</h2>
 				<div className="sl-notes-filter-sheet__options">
-					{options.map((option) => (
-						<label key={option.value || 'all'} className="sl-notes-filter-sheet__option">
+					{options.map(option => (
+						<label
+							key={option.value || 'all'}
+							className="sl-notes-filter-sheet__option"
+						>
 							<input
 								type="radio"
 								name="note-tag-filter"

@@ -8,8 +8,14 @@ type RecentNotesSectionProps = {
 
 export function RecentNotesSection({ notes }: RecentNotesSectionProps) {
 	return (
-		<section className="sl-recent-notes" aria-labelledby="recent-notes-title">
-			<h2 id="recent-notes-title" className="sl-recent-notes__title">
+		<section
+			className="sl-recent-notes"
+			aria-labelledby="recent-notes-title"
+		>
+			<h2
+				id="recent-notes-title"
+				className="sl-recent-notes__title"
+			>
 				Recent Notes
 			</h2>
 			<div className="sl-recent-notes__grid">

@@ -33,13 +33,19 @@ export function StatePanel({ state, onAction }: StatePanelProps) {
 			aria-live={state === 'error' ? 'assertive' : 'polite'}
 		>
 			{state === 'loading' ? (
-				<div className="sl-state-panel__skeleton" aria-hidden="true">
+				<div
+					className="sl-state-panel__skeleton"
+					aria-hidden="true"
+				>
 					<span />
 					<span />
 					<span />
 				</div>
 			) : (
-				<div className="sl-state-panel__symbol" aria-hidden="true">
+				<div
+					className="sl-state-panel__symbol"
+					aria-hidden="true"
+				>
 					{state === 'empty' ? '⌕' : '!'}
 				</div>
 			)}
@@ -48,7 +54,12 @@ export function StatePanel({ state, onAction }: StatePanelProps) {
 				<p>{content.description}</p>
 			</div>
 			{state === 'empty' && onAction ? (
-				<Button variant="secondary" onClick={onAction}>필터 초기화</Button>
+				<Button
+					variant="secondary"
+					onClick={onAction}
+				>
+					필터 초기화
+				</Button>
 			) : null}
 			{state === 'error' && onAction ? <Button onClick={onAction}>다시 시도</Button> : null}
 		</div>

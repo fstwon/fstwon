@@ -27,7 +27,11 @@ export function Badge({
 		.join(' ');
 
 	return (
-		<span className={classNames} data-selected={selected || undefined} {...props}>
+		<span
+			className={classNames}
+			data-selected={selected || undefined}
+			{...props}
+		>
 			{children}
 		</span>
 	);

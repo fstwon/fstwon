@@ -12,11 +12,7 @@ export function FilterSelect({
 	disabled,
 	...props
 }: FilterSelectProps) {
-	const classNames = [
-		'sl-filter-select',
-		active && 'sl-filter-select--active',
-		className,
-	]
+	const classNames = ['sl-filter-select', active && 'sl-filter-select--active', className]
 		.filter(Boolean)
 		.join(' ');
 
@@ -26,10 +22,17 @@ export function FilterSelect({
 			data-active={active || undefined}
 			data-disabled={disabled || undefined}
 		>
-			<select className="sl-filter-select__field" disabled={disabled} {...props}>
+			<select
+				className="sl-filter-select__field"
+				disabled={disabled}
+				{...props}
+			>
 				{children}
 			</select>
-			<span className="sl-filter-select__icon" aria-hidden="true">
+			<span
+				className="sl-filter-select__icon"
+				aria-hidden="true"
+			>
 				⌄
 			</span>
 		</div>

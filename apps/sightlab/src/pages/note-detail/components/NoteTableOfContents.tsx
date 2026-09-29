@@ -36,7 +36,7 @@ export function NoteTableOfContents({
 			)}
 			{open ? (
 				<div className="sl-note-toc__items">
-					{items.map((item) => (
+					{items.map(item => (
 						<a
 							key={item.id}
 							className={`${item.level === 3 ? 'is-child ' : ''}${activeId === item.id ? 'is-active' : ''}`}

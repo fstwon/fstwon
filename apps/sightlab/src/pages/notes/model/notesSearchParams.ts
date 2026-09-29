@@ -19,10 +19,7 @@ export function readNotesSearchParams(searchParams: URLSearchParams): NotesSearc
 	};
 }
 
-export function updateNotesSearchParams(
-	searchParams: URLSearchParams,
-	update: NotesSearchUpdate,
-) {
+export function updateNotesSearchParams(searchParams: URLSearchParams, update: NotesSearchUpdate) {
 	const next = new URLSearchParams(searchParams);
 	const changesCollection = 'query' in update || 'tag' in update;
 

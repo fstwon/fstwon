@@ -27,7 +27,10 @@ export function ProjectCard({
 
 	return (
 		<article className={classNames}>
-			<Link className="sl-project-card__link" to={to}>
+			<Link
+				className="sl-project-card__link"
+				to={to}
+			>
 				<div className="sl-project-card__thumbnail">
 					<span className="sl-project-card__index">{index}</span>
 					<span className="sl-project-card__category">{category}</span>

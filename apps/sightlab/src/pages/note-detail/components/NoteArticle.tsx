@@ -30,7 +30,12 @@ function InlineContent({ text }: { text: string }) {
 
 		if (link) {
 			return (
-				<a key={index} href={link[2]} target="_blank" rel="noreferrer noopener">
+				<a
+					key={index}
+					href={link[2]}
+					target="_blank"
+					rel="noreferrer noopener"
+				>
 					{link[1]}
 				</a>
 			);
@@ -53,7 +58,10 @@ function CodeBlock({ language, code }: { language: string; code: string }) {
 		<div className="sl-note-article__code">
 			<div className="sl-note-article__code-header">
 				<span>{language || 'text'}</span>
-				<button type="button" onClick={() => void copy()}>
+				<button
+					type="button"
+					onClick={() => void copy()}
+				>
 					{copied ? 'Copied' : 'Copy'}
 				</button>
 			</div>
@@ -155,10 +163,41 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
 }
 
 function renderHeading(block: Extract<MarkdownBlock, { type: 'heading' }>, key: number) {
-	if (block.level === 1) return <h1 key={key} id={block.id}>{block.text}</h1>;
-	if (block.level === 2) return <h2 key={key} id={block.id}>{block.text}</h2>;
-	if (block.level === 3) return <h3 key={key} id={block.id}>{block.text}</h3>;
-	return <h4 key={key} id={block.id}>{block.text}</h4>;
+	if (block.level === 1)
+		return (
+			<h1
+				key={key}
+				id={block.id}
+			>
+				{block.text}
+			</h1>
+		);
+	if (block.level === 2)
+		return (
+			<h2
+				key={key}
+				id={block.id}
+			>
+				{block.text}
+			</h2>
+		);
+	if (block.level === 3)
+		return (
+			<h3
+				key={key}
+				id={block.id}
+			>
+				{block.text}
+			</h3>
+		);
+	return (
+		<h4
+			key={key}
+			id={block.id}
+		>
+			{block.text}
+		</h4>
+	);
 }
 
 export function NoteArticle({ markdown }: { markdown: string }) {
@@ -171,11 +210,20 @@ export function NoteArticle({ markdown }: { markdown: string }) {
 					case 'heading':
 						return renderHeading(block, index);
 					case 'code':
-						return <CodeBlock key={index} language={block.language} code={block.code} />;
+						return (
+							<CodeBlock
+								key={index}
+								language={block.language}
+								code={block.code}
+							/>
+						);
 					case 'image':
 						return (
 							<figure key={index}>
-								<img src={block.src} alt={block.alt} />
+								<img
+									src={block.src}
+									alt={block.alt}
+								/>
 								<figcaption>{block.alt}</figcaption>
 							</figure>
 						);
@@ -200,10 +248,11 @@ export function NoteArticle({ markdown }: { markdown: string }) {
 					case 'list':
 					case 'ordered-list':
 						return (
-							<div className="sl-note-article__list" key={index}>
-								<span aria-hidden="true">
-									{block.type === 'list' ? '•' : `${block.order}.`}
-								</span>
+							<div
+								className="sl-note-article__list"
+								key={index}
+							>
+								<span aria-hidden="true">{block.type === 'list' ? '•' : `${block.order}.`}</span>
 								<InlineContent text={block.text} />
 							</div>
 						);
@@ -213,7 +262,7 @@ export function NoteArticle({ markdown }: { markdown: string }) {
 								<InlineContent text={block.text} />
 							</p>
 						);
-			}
+				}
 			})}
 		</article>
 	);

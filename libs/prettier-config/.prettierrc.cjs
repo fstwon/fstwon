@@ -11,7 +11,7 @@ const config = {
 	trailingComma: 'es5',
 
 	// 줄 바꿈 기준 길이 (가독성 확보)
-	printWidth: 30,
+	printWidth: 100,
 
 	// 들여쓰기 너비
 	tabWidth: 2,

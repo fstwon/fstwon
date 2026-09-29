@@ -21,12 +21,23 @@ export function NoteCard({ note, className = '' }: NoteCardProps) {
 
 	return (
 		<article className={classNames}>
-			<Link className="sl-note-card__link" to={`/notes/${note.slug}`}>
+			<Link
+				className="sl-note-card__link"
+				to={`/notes/${note.slug}`}
+			>
 				<h3 className="sl-note-card__title">{note.title}</h3>
 				<p className="sl-note-card__summary">{note.summary}</p>
 				<div className="sl-note-card__badges">
-					<CategoryBadge category={note.category} variant="brand" />
-					{primaryTag && <TagBadge tag={primaryTag} variant="brand" />}
+					<CategoryBadge
+						category={note.category}
+						variant="brand"
+					/>
+					{primaryTag && (
+						<TagBadge
+							tag={primaryTag}
+							variant="brand"
+						/>
+					)}
 					{overflowCount > 0 && <Badge variant="neutral">+{overflowCount}</Badge>}
 				</div>
 				<p className="sl-note-card__meta">
