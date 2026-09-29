@@ -1,10 +1,9 @@
-import { NoteCard, type NoteCardProps } from '@/entities/note/ui/NoteCard';
+import type { Note } from '@/entities/note/model/types';
+import { NoteCard } from '@/entities/note/ui/NoteCard';
 import './RecentNotesSection.scss';
 
-export type RecentNote = Omit<NoteCardProps, 'className'>;
-
 type RecentNotesSectionProps = {
-	notes: RecentNote[];
+	notes: Note[];
 };
 
 export function RecentNotesSection({ notes }: RecentNotesSectionProps) {
@@ -16,9 +15,9 @@ export function RecentNotesSection({ notes }: RecentNotesSectionProps) {
 			<div className="sl-recent-notes__grid">
 				{notes.map((note, index) => (
 					<NoteCard
-						key={note.to}
+						key={note.slug}
+						note={note}
 						className={`sl-recent-notes__card${index === 2 ? ' sl-recent-notes__card--desktop-only' : ''}`}
-						{...note}
 					/>
 				))}
 			</div>
