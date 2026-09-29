@@ -1,5 +1,5 @@
 import type { NoteListItem } from '../../model/mockNotes';
-import { NoteCard } from '@/shared/ui/NoteCard/NoteCard';
+import { NoteCard } from '@/entities/note/ui/NoteCard';
 import './NotesList.scss';
 
 type NotesListProps = {
