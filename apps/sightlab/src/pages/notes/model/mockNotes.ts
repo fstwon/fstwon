@@ -18,7 +18,7 @@ export const noteTagOptions = [
 ] as const;
 
 // UI 구현 단계의 임시 fixture입니다. 실제 API 연결 시 이 모듈을 제거합니다.
-const mockNotes: Note[] = [
+export const mockNotes: Note[] = [
 	{
 		slug: 'context-separation',
 		title: 'Context를 분리한 기준',
