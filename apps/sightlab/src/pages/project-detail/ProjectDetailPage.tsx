@@ -1,23 +1,43 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { NoteCard } from '@/entities/note/ui/NoteCard';
-import { getProjectDetail, getProjectStatusLabel } from './model/projectDetail';
+import { ProjectDetailSkeleton } from './components/ProjectDetailSkeleton';
+import { ProjectDetailState } from './components/ProjectDetailState';
+import { ProjectNotFoundError, getProjectStatusLabel } from './model/projectDetail';
+import { useProjectDetailQuery } from './model/useProjectDetailQuery';
 import './ProjectDetailPage.scss';
 
 export function ProjectDetailPage() {
 	const { slug = '' } = useParams();
-	const data = getProjectDetail(slug);
+	const navigate = useNavigate();
+	const query = useProjectDetailQuery(slug);
 
-	if (!data) {
+	if (query.isPending) {
 		return (
-			<div className="sl-project-detail sl-project-detail--state">
-				<h1>Project를 찾을 수 없습니다.</h1>
-				<p>요청한 Project가 없거나 아직 상세 정보가 준비되지 않았습니다.</p>
-				<Link to="/projects">Projects로 돌아가기</Link>
+			<div className="sl-project-detail" aria-busy="true">
+				<ProjectDetailSkeleton />
 			</div>
 		);
 	}
 
-	const { project, connectedNotes } = data;
+	if (query.isError) {
+		const notFound = query.error instanceof ProjectNotFoundError;
+
+		return (
+			<div className="sl-project-detail" aria-busy="false">
+				<div className="sl-project-detail__state-stage">
+					<ProjectDetailSkeleton dimmed />
+					<ProjectDetailState
+						kind={notFound ? 'not-found' : 'error'}
+						retrying={query.isFetching}
+						onRetry={() => void query.refetch()}
+						onBack={() => navigate(-1)}
+					/>
+				</div>
+			</div>
+		);
+	}
+
+	const { project, connectedNotes } = query.data;
 
 	return (
 		<div className="sl-project-detail">
