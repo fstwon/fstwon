@@ -51,7 +51,7 @@ export function getProjectDetail(slug: string): ProjectDetailResponse | undefine
 }
 
 export async function queryMockProjectDetail(slug: string): Promise<ProjectDetailResponse> {
-	await new Promise(resolve => window.setTimeout(resolve, 250));
+	await new Promise(resolve => globalThis.setTimeout(resolve, 250));
 
 	if (slug === 'error') throw new Error('Mock project detail error');
 
