@@ -1,6 +1,7 @@
 export type NotesSearchState = {
 	query: string;
 	tag: string;
+	project: string;
 	page: number;
 };
 
@@ -15,6 +16,7 @@ export function readNotesSearchParams(searchParams: URLSearchParams): NotesSearc
 	return {
 		query: searchParams.get('q')?.trim() ?? '',
 		tag: searchParams.get('tag')?.trim() ?? '',
+		project: searchParams.get('project')?.trim() ?? '',
 		page: normalizePage(searchParams.get('page')),
 	};
 }

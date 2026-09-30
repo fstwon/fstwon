@@ -7,7 +7,7 @@ import {
 
 test('reads normalized notes search params', () => {
 	const result = readNotesSearchParams(new URLSearchParams('q=%20react%20&tag=typescript&page=3'));
-	assert.deepEqual(result, { query: 'react', tag: 'typescript', page: 3 });
+	assert.deepEqual(result, { query: 'react', tag: 'typescript', project: '', page: 3 });
 });
 
 test('falls back to page 1 for an invalid page', () => {
@@ -27,4 +27,18 @@ test('keeps the current filters when only page changes', () => {
 		page: 2,
 	});
 	assert.equal(next.toString(), 'q=react&tag=typescript&page=2');
+});
+
+test('reads project filter from notes search params', () => {
+	const result = readNotesSearchParams(new URLSearchParams('project=sightlab'));
+	assert.equal(result.project, 'sightlab');
+});
+
+test('keeps project filter while query, tag, and page change', () => {
+	const next = updateNotesSearchParams(
+		new URLSearchParams('project=sightlab&q=react&tag=typescript&page=2'),
+		{ query: 'spring' }
+	);
+	assert.equal(next.get('project'), 'sightlab');
+	assert.equal(next.get('page'), '1');
 });

@@ -5,6 +5,7 @@ import { HomePage } from '@/pages/home/HomePage';
 import { NoteDetailPage } from '@/pages/note-detail/NoteDetailPage';
 import { NotesPage } from '@/pages/notes/NotesPage';
 import { ProjectsPage } from '@/pages/projects/ProjectsPage';
+import { ProjectDetailPage } from '@/pages/project-detail/ProjectDetailPage';
 import { RoutePlaceholder } from '@/shared/ui/RoutePlaceholder';
 
 export const router = createBrowserRouter([
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
 			{ path: '/notes', element: <NotesPage /> },
 			{ path: '/notes/:slug', element: <NoteDetailPage /> },
 			{ path: '/projects', element: <ProjectsPage /> },
-			{ path: '/projects/:slug', element: <RoutePlaceholder title="Project Detail" /> },
+			{ path: '/projects/:slug', element: <ProjectDetailPage /> },
 		],
 	},
 	{

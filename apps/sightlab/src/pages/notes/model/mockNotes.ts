@@ -1,4 +1,5 @@
-import type { Note } from '@/entities/note/model/types';
+import type { Note } from '../../../entities/note/model/types.ts';
+import { projects } from '../../../entities/project/model/mockProjects.ts';
 
 export type NotesPageResponse = {
 	content: Note[];
@@ -18,7 +19,7 @@ export const noteTagOptions = [
 ] as const;
 
 // UI 구현 단계의 임시 fixture입니다. 실제 API 연결 시 이 모듈을 제거합니다.
-const mockNotes: Note[] = [
+export const mockNotes: Note[] = [
 	{
 		slug: 'context-separation',
 		title: 'Context를 분리한 기준',
@@ -27,6 +28,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'architecture', name: 'Architecture' }],
 		publishedAt: '2026-09-07',
 		readingTime: 6,
+		projectId: '01',
 	},
 	{
 		slug: 'typed-components',
@@ -36,6 +38,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'design', name: 'Design' }],
 		publishedAt: '2026-09-02',
 		readingTime: 8,
+		projectId: '01',
 	},
 	{
 		slug: 'jwt-auth-flow',
@@ -45,6 +48,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'auth', name: 'Auth' }],
 		publishedAt: '2026-08-28',
 		readingTime: 7,
+		projectId: '01',
 	},
 	{
 		slug: 'react-state-design',
@@ -57,6 +61,7 @@ const mockNotes: Note[] = [
 		],
 		publishedAt: '2026-08-22',
 		readingTime: 6,
+		projectId: '01',
 	},
 	{
 		slug: 'automatic-batching',
@@ -66,6 +71,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'runtime', name: 'Runtime' }],
 		publishedAt: '2026-08-18',
 		readingTime: 7,
+		projectId: '01',
 	},
 	{
 		slug: 'websocket-event-types',
@@ -75,6 +81,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'websocket', name: 'WebSocket' }],
 		publishedAt: '2026-08-12',
 		readingTime: 8,
+		projectId: null,
 	},
 	{
 		slug: 'intersection-observer',
@@ -84,6 +91,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'performance', name: 'Performance' }],
 		publishedAt: '2026-08-07',
 		readingTime: 6,
+		projectId: '01',
 	},
 	{
 		slug: 'api-abstraction',
@@ -93,6 +101,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'api', name: 'API' }],
 		publishedAt: '2026-08-03',
 		readingTime: 7,
+		projectId: null,
 	},
 	{
 		slug: 'dispatcher-servlet',
@@ -102,6 +111,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'web', name: 'Web' }],
 		publishedAt: '2026-07-29',
 		readingTime: 9,
+		projectId: null,
 	},
 	{
 		slug: 'payment-aggregation',
@@ -111,6 +121,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'architecture', name: 'Architecture' }],
 		publishedAt: '2026-07-22',
 		readingTime: 10,
+		projectId: null,
 	},
 	{
 		slug: 'carousel-focus',
@@ -120,6 +131,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'ui', name: 'UI' }],
 		publishedAt: '2026-07-16',
 		readingTime: 6,
+		projectId: null,
 	},
 	{
 		slug: 'auth-boundaries',
@@ -129,6 +141,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'auth', name: 'Auth' }],
 		publishedAt: '2026-07-10',
 		readingTime: 8,
+		projectId: null,
 	},
 ];
 
@@ -137,20 +150,24 @@ const PAGE_SIZE = 9;
 export async function queryMockNotes({
 	query,
 	tag,
+	project,
 	page,
 }: {
 	query: string;
 	tag: string;
+	project: string;
 	page: number;
 }): Promise<NotesPageResponse> {
-	await new Promise(resolve => window.setTimeout(resolve, 250));
+	await new Promise(resolve => globalThis.setTimeout(resolve, 250));
 	const normalizedQuery = query.trim().toLocaleLowerCase();
+	const projectId = projects.find(item => item.slug === project)?.id;
 	const filtered = mockNotes.filter(note => {
 		const classificationSlugs = [note.category.slug, ...note.tags.map(item => item.slug)];
 		const matchesTag = !tag || classificationSlugs.includes(tag);
+		const matchesProject = !project || note.projectId === projectId;
 		const classificationNames = [note.category.name, ...note.tags.map(item => item.name)].join(' ');
 		const haystack = `${note.title} ${note.summary} ${classificationNames}`.toLocaleLowerCase();
-		return matchesTag && (!normalizedQuery || haystack.includes(normalizedQuery));
+		return matchesTag && matchesProject && (!normalizedQuery || haystack.includes(normalizedQuery));
 	});
 	const start = (page - 1) * PAGE_SIZE;
 

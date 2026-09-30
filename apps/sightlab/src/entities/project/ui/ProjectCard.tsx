@@ -8,9 +8,9 @@ export type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, className = '' }: ProjectCardProps) {
-	const { id, slug, category, title, description, tag, connectedNotes } = project;
+	const { id, slug, category, title, description, tag, connectedNoteCount } = project;
 	const classNames = ['sl-project-card', className].filter(Boolean).join(' ');
-	const connectedNotesLabel = `${connectedNotes} connected ${connectedNotes === 1 ? 'note' : 'notes'}`;
+	const connectedNotesLabel = `${connectedNoteCount} connected ${connectedNoteCount === 1 ? 'note' : 'notes'}`;
 
 	return (
 		<article className={classNames}>

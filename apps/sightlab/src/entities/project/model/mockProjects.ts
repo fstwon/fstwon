@@ -8,7 +8,7 @@ export const projects: Project[] = [
 		title: 'Sightlab',
 		description: '학습 기록과 복습 경험을 하나의 흐름으로 연결합니다.',
 		tag: 'React',
-		connectedNotes: 12,
+		connectedNoteCount: 12,
 	},
 	{
 		id: '02',
@@ -17,7 +17,7 @@ export const projects: Project[] = [
 		title: 'fstwon',
 		description: '개인 포트폴리오와 기술 실험을 관리하는 모노레포입니다.',
 		tag: 'Turborepo',
-		connectedNotes: 8,
+		connectedNoteCount: 8,
 	},
 	{
 		id: '03',
@@ -26,6 +26,6 @@ export const projects: Project[] = [
 		title: '화백',
 		description: '패션 작품을 전시하고 소통하는 플랫폼입니다.',
 		tag: 'Spring',
-		connectedNotes: 6,
+		connectedNoteCount: 6,
 	},
 ];
