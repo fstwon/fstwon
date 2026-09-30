@@ -13,6 +13,7 @@ const relatedNotes: Note[] = [
 		tags: [{ slug: 'runtime', name: 'Runtime' }],
 		publishedAt: '2026-08-18',
 		readingTime: 7,
+		projectId: '01',
 	},
 	{
 		slug: 'intersection-observer',
@@ -37,6 +38,7 @@ const noteDetail: NoteDetailResponse = {
 		],
 		publishedAt: '2026-08-22',
 		readingTime: 6,
+		projectId: '01',
 		content: `## 상태를 어디에 둘 것인가
 
 상태 관리 도구를 선택하기 전에 **상태가 왜 변경되는지**와 어디에서 소비되는지를 먼저 확인했습니다.
