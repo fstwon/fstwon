@@ -1,4 +1,5 @@
 import type { Note } from '../../../entities/note/model/types.ts';
+import { projects } from '../../../entities/project/model/mockProjects.ts';
 
 export type NotesPageResponse = {
 	content: Note[];
@@ -149,20 +150,24 @@ const PAGE_SIZE = 9;
 export async function queryMockNotes({
 	query,
 	tag,
+	project,
 	page,
 }: {
 	query: string;
 	tag: string;
+	project: string;
 	page: number;
 }): Promise<NotesPageResponse> {
-	await new Promise(resolve => window.setTimeout(resolve, 250));
+	await new Promise(resolve => globalThis.setTimeout(resolve, 250));
 	const normalizedQuery = query.trim().toLocaleLowerCase();
+	const projectId = projects.find(item => item.slug === project)?.id;
 	const filtered = mockNotes.filter(note => {
 		const classificationSlugs = [note.category.slug, ...note.tags.map(item => item.slug)];
 		const matchesTag = !tag || classificationSlugs.includes(tag);
+		const matchesProject = !project || note.projectId === projectId;
 		const classificationNames = [note.category.name, ...note.tags.map(item => item.name)].join(' ');
 		const haystack = `${note.title} ${note.summary} ${classificationNames}`.toLocaleLowerCase();
-		return matchesTag && (!normalizedQuery || haystack.includes(normalizedQuery));
+		return matchesTag && matchesProject && (!normalizedQuery || haystack.includes(normalizedQuery));
 	});
 	const start = (page - 1) * PAGE_SIZE;
 
