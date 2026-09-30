@@ -31,6 +31,10 @@ export function getConnectedNotes(projectId: string) {
 		.slice(0, 3);
 }
 
+export class ProjectNotFoundError extends Error {
+	status = 404 as const;
+}
+
 export function getProjectDetail(slug: string): ProjectDetailResponse | undefined {
 	const project = projects.find(item => item.slug === slug);
 	const detail = projectDetails[slug];
@@ -44,4 +48,16 @@ export function getProjectDetail(slug: string): ProjectDetailResponse | undefine
 		},
 		connectedNotes: getConnectedNotes(project.id),
 	};
+}
+
+export async function queryMockProjectDetail(slug: string): Promise<ProjectDetailResponse> {
+	await new Promise(resolve => window.setTimeout(resolve, 250));
+
+	if (slug === 'error') throw new Error('Mock project detail error');
+
+	const detail = getProjectDetail(slug);
+
+	if (!detail) throw new ProjectNotFoundError();
+
+	return detail;
 }
