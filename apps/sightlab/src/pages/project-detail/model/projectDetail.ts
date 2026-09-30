@@ -2,6 +2,16 @@ import type { ProjectDetail, ProjectDetailResponse } from '../../../entities/pro
 import { projects } from '../../../entities/project/model/mockProjects.ts';
 import { mockNotes } from '../../notes/model/mockNotes.ts';
 
+const PROJECT_STATUS_LABEL = {
+	'in-progress': 'In progress',
+	completed: 'Completed',
+	paused: 'Paused',
+} as const;
+
+export function getProjectStatusLabel(status: keyof typeof PROJECT_STATUS_LABEL) {
+	return PROJECT_STATUS_LABEL[status];
+}
+
 const projectDetails: Record<string, Omit<ProjectDetail, keyof (typeof projects)[number]>> = {
 	sightlab: {
 		role: 'Full-stack',
