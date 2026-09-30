@@ -45,3 +45,12 @@ test('Project 상태는 화면 표시용 label로 변환한다', async () => {
 	assert.equal(getProjectStatusLabel('completed'), 'Completed');
 	assert.equal(getProjectStatusLabel('paused'), 'Paused');
 });
+
+test('Project 상세 조회는 error와 404 상태를 구분한다', async () => {
+	const { ProjectNotFoundError, queryMockProjectDetail } = await import(
+		'../src/pages/project-detail/model/projectDetail.ts'
+	);
+
+	await assert.rejects(() => queryMockProjectDetail('error'));
+	await assert.rejects(() => queryMockProjectDetail('unknown-project'), ProjectNotFoundError);
+});
