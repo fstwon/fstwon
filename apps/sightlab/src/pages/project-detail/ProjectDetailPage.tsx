@@ -13,7 +13,10 @@ export function ProjectDetailPage() {
 
 	if (query.isPending) {
 		return (
-			<div className="sl-project-detail" aria-busy="true">
+			<div
+				className="sl-project-detail"
+				aria-busy="true"
+			>
 				<ProjectDetailSkeleton />
 			</div>
 		);
@@ -23,7 +26,10 @@ export function ProjectDetailPage() {
 		const notFound = query.error instanceof ProjectNotFoundError;
 
 		return (
-			<div className="sl-project-detail" aria-busy="false">
+			<div
+				className="sl-project-detail"
+				aria-busy="false"
+			>
 				<div className="sl-project-detail__state-stage">
 					<ProjectDetailSkeleton dimmed />
 					<ProjectDetailState
@@ -41,28 +47,63 @@ export function ProjectDetailPage() {
 
 	return (
 		<div className="sl-project-detail">
-			<nav className="sl-project-detail__breadcrumb" aria-label="Breadcrumb">
-				<Link to="/projects">Projects</Link><span>/</span><span aria-current="page">{project.title}</span>
+			<nav
+				className="sl-project-detail__breadcrumb"
+				aria-label="Breadcrumb"
+			>
+				<Link to="/projects">Projects</Link>
+				<span>/</span>
+				<span aria-current="page">{project.title}</span>
 			</nav>
 			<header className="sl-project-detail__header">
-				<h1>{project.title}</h1><p>{project.description}</p>
+				<h1>{project.title}</h1>
+				<p>{project.description}</p>
 			</header>
-			<section className="sl-project-detail__overview" aria-label="Project overview">
-				<div className="sl-project-detail__preview"><img src={project.preview.src} alt={project.preview.alt} /></div>
+			<section
+				className="sl-project-detail__overview"
+				aria-label="Project overview"
+			>
+				<div className="sl-project-detail__preview">
+					<img
+						src={project.preview.src}
+						alt={project.preview.alt}
+					/>
+				</div>
 				<div className="sl-project-detail__info">
 					<p className="sl-project-detail__info-label">PROJECT INFO</p>
 					<dl>
-						<div><dt>Role</dt><dd>{project.role}</dd></div>
-						<div><dt>Stack</dt><dd>{project.stack.join(' · ')}</dd></div>
-						<div><dt>Status</dt><dd>{getProjectStatusLabel(project.status)}</dd></div>
-						<div><dt>Notes</dt><dd>{project.connectedNoteCount} connected</dd></div>
+						<div>
+							<dt>Role</dt>
+							<dd>{project.role}</dd>
+						</div>
+						<div>
+							<dt>Stack</dt>
+							<dd>{project.stack.join(' · ')}</dd>
+						</div>
+						<div>
+							<dt>Status</dt>
+							<dd>{getProjectStatusLabel(project.status)}</dd>
+						</div>
+						<div>
+							<dt>Notes</dt>
+							<dd>{project.connectedNoteCount} connected</dd>
+						</div>
 					</dl>
 				</div>
 			</section>
 			<section className="sl-project-detail__notes">
-				<div className="sl-project-detail__notes-header"><h2>Connected Notes</h2><Link to={`/notes?project=${project.slug}`}>View all</Link></div>
+				<div className="sl-project-detail__notes-header">
+					<h2>Connected Notes</h2>
+					<Link to={`/notes?project=${project.slug}`}>View all</Link>
+				</div>
 				<div className="sl-project-detail__notes-grid">
-					{connectedNotes.map(note => <NoteCard key={note.slug} note={note} className="sl-project-detail__note-card" />)}
+					{connectedNotes.map(note => (
+						<NoteCard
+							key={note.slug}
+							note={note}
+							className="sl-project-detail__note-card"
+						/>
+					))}
 				</div>
 			</section>
 		</div>

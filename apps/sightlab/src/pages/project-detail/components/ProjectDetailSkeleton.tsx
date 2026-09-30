@@ -16,7 +16,9 @@ export function ProjectDetailSkeleton({ dimmed = false }: ProjectDetailSkeletonP
 				<div className="sl-project-detail__skeleton-info" />
 			</div>
 			<div className="sl-project-detail__skeleton-notes">
-				<span /><span /><span />
+				<span />
+				<span />
+				<span />
 			</div>
 		</div>
 	);

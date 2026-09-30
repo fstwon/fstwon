@@ -1,4 +1,7 @@
-import type { ProjectDetail, ProjectDetailResponse } from '../../../entities/project/model/types.ts';
+import type {
+	ProjectDetail,
+	ProjectDetailResponse,
+} from '../../../entities/project/model/types.ts';
 import { projects } from '../../../entities/project/model/mockProjects.ts';
 import { mockNotes } from '../../notes/model/mockNotes.ts';
 

@@ -8,12 +8,7 @@ type ProjectDetailStateProps = {
 	onBack?: () => void;
 };
 
-export function ProjectDetailState({
-	kind,
-	retrying,
-	onRetry,
-	onBack,
-}: ProjectDetailStateProps) {
+export function ProjectDetailState({ kind, retrying, onRetry, onBack }: ProjectDetailStateProps) {
 	const notFound = kind === 'not-found';
 
 	return (
@@ -21,7 +16,10 @@ export function ProjectDetailState({
 			className="sl-project-detail__state"
 			role={notFound ? 'status' : 'alert'}
 		>
-			<div className="sl-project-detail__state-symbol" aria-hidden="true">
+			<div
+				className="sl-project-detail__state-symbol"
+				aria-hidden="true"
+			>
 				{notFound ? '?' : '!'}
 			</div>
 			<h1>{notFound ? 'Project를 찾을 수 없습니다.' : 'Project를 불러오지 못했습니다.'}</h1>
@@ -32,15 +30,24 @@ export function ProjectDetailState({
 			</p>
 			<div className="sl-project-detail__state-actions">
 				{notFound ? (
-					<Link className="sl-project-detail__return" to="/projects">
+					<Link
+						className="sl-project-detail__return"
+						to="/projects"
+					>
 						돌아가기
 					</Link>
 				) : (
 					<>
-						<Button disabled={retrying} onClick={onRetry}>
+						<Button
+							disabled={retrying}
+							onClick={onRetry}
+						>
 							{retrying ? '다시 시도 중' : '다시 시도'}
 						</Button>
-						<Button variant="secondary" onClick={onBack}>
+						<Button
+							variant="secondary"
+							onClick={onBack}
+						>
 							뒤로가기
 						</Button>
 					</>
