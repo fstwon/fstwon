@@ -1,4 +1,4 @@
-import type { Note } from '@/entities/note/model/types';
+import type { Note } from '../../../entities/note/model/types.ts';
 
 export type NotesPageResponse = {
 	content: Note[];
