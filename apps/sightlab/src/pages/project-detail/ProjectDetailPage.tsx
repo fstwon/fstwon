@@ -60,7 +60,7 @@ export function ProjectDetailPage() {
 				</div>
 			</section>
 			<section className="sl-project-detail__notes">
-				<div className="sl-project-detail__notes-header"><h2>Connected Notes</h2><Link to={`/notes?project=${project.slug}`}>View all notes</Link></div>
+				<div className="sl-project-detail__notes-header"><h2>Connected Notes</h2><Link to={`/notes?project=${project.slug}`}>View all</Link></div>
 				<div className="sl-project-detail__notes-grid">
 					{connectedNotes.map(note => <NoteCard key={note.slug} note={note} className="sl-project-detail__note-card" />)}
 				</div>
