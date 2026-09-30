@@ -35,3 +35,13 @@ test('Project 목록의 연결 Note 수는 connectedNoteCount로 표현한다', 
 test('존재하지 않는 slug는 Project 상세을 반환하지 않는다', () => {
 	assert.equal(getProjectDetail('unknown-project'), undefined);
 });
+
+test('Project 상태는 화면 표시용 label로 변환한다', async () => {
+	const { getProjectStatusLabel } = await import(
+		'../src/pages/project-detail/model/projectDetail.ts'
+	);
+
+	assert.equal(getProjectStatusLabel('in-progress'), 'In progress');
+	assert.equal(getProjectStatusLabel('completed'), 'Completed');
+	assert.equal(getProjectStatusLabel('paused'), 'Paused');
+});
