@@ -1,6 +1,6 @@
-import type { ProjectDetail, ProjectDetailResponse } from '@/entities/project/model/types';
-import { projects } from '@/entities/project/model/mockProjects';
-import { mockNotes } from '@/pages/notes/model/mockNotes';
+import type { ProjectDetail, ProjectDetailResponse } from '../../../entities/project/model/types.ts';
+import { projects } from '../../../entities/project/model/mockProjects.ts';
+import { mockNotes } from '../../notes/model/mockNotes.ts';
 
 const projectDetails: Record<string, Omit<ProjectDetail, keyof (typeof projects)[number]>> = {
 	sightlab: {
