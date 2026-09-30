@@ -27,6 +27,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'architecture', name: 'Architecture' }],
 		publishedAt: '2026-09-07',
 		readingTime: 6,
+		projectId: '01',
 	},
 	{
 		slug: 'typed-components',
@@ -36,6 +37,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'design', name: 'Design' }],
 		publishedAt: '2026-09-02',
 		readingTime: 8,
+		projectId: '01',
 	},
 	{
 		slug: 'jwt-auth-flow',
@@ -45,6 +47,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'auth', name: 'Auth' }],
 		publishedAt: '2026-08-28',
 		readingTime: 7,
+		projectId: '01',
 	},
 	{
 		slug: 'react-state-design',
@@ -57,6 +60,7 @@ const mockNotes: Note[] = [
 		],
 		publishedAt: '2026-08-22',
 		readingTime: 6,
+		projectId: '01',
 	},
 	{
 		slug: 'automatic-batching',
@@ -66,6 +70,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'runtime', name: 'Runtime' }],
 		publishedAt: '2026-08-18',
 		readingTime: 7,
+		projectId: '01',
 	},
 	{
 		slug: 'websocket-event-types',
@@ -75,6 +80,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'websocket', name: 'WebSocket' }],
 		publishedAt: '2026-08-12',
 		readingTime: 8,
+		projectId: null,
 	},
 	{
 		slug: 'intersection-observer',
@@ -84,6 +90,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'performance', name: 'Performance' }],
 		publishedAt: '2026-08-07',
 		readingTime: 6,
+		projectId: '01',
 	},
 	{
 		slug: 'api-abstraction',
@@ -93,6 +100,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'api', name: 'API' }],
 		publishedAt: '2026-08-03',
 		readingTime: 7,
+		projectId: null,
 	},
 	{
 		slug: 'dispatcher-servlet',
@@ -102,6 +110,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'web', name: 'Web' }],
 		publishedAt: '2026-07-29',
 		readingTime: 9,
+		projectId: null,
 	},
 	{
 		slug: 'payment-aggregation',
@@ -111,6 +120,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'architecture', name: 'Architecture' }],
 		publishedAt: '2026-07-22',
 		readingTime: 10,
+		projectId: null,
 	},
 	{
 		slug: 'carousel-focus',
@@ -120,6 +130,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'ui', name: 'UI' }],
 		publishedAt: '2026-07-16',
 		readingTime: 6,
+		projectId: null,
 	},
 	{
 		slug: 'auth-boundaries',
@@ -129,6 +140,7 @@ const mockNotes: Note[] = [
 		tags: [{ slug: 'auth', name: 'Auth' }],
 		publishedAt: '2026-07-10',
 		readingTime: 8,
+		projectId: null,
 	},
 ];
 
