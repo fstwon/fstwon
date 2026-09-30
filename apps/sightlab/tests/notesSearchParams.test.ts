@@ -7,7 +7,7 @@ import {
 
 test('reads normalized notes search params', () => {
 	const result = readNotesSearchParams(new URLSearchParams('q=%20react%20&tag=typescript&page=3'));
-	assert.deepEqual(result, { query: 'react', tag: 'typescript', page: 3 });
+	assert.deepEqual(result, { query: 'react', tag: 'typescript', project: '', page: 3 });
 });
 
 test('falls back to page 1 for an invalid page', () => {
