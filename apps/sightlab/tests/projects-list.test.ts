@@ -14,7 +14,7 @@ test('Projects 목록은 고유한 id와 slug를 가진다', () => {
 
 test('Projects 목록은 Figma에 정의된 연결 노트 수를 사용한다', () => {
 	assert.deepEqual(
-		projects.map(project => project.connectedNotes),
+		projects.map(project => project.connectedNoteCount),
 		[12, 8, 6]
 	);
 });
