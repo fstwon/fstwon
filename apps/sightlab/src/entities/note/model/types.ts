@@ -9,6 +9,7 @@ export type Note = {
 	tags: Tag[];
 	publishedAt: string;
 	readingTime: number;
+	projectId: string | null;
 };
 
 export type NoteReference = {
