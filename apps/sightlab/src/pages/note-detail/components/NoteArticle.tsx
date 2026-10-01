@@ -1,5 +1,6 @@
-import { isValidElement, useMemo, useState, type ReactNode } from 'react';
+import { isValidElement, useState, type ReactNode } from 'react';
 import ReactMarkdown, { type Components } from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { createHeadingId } from '../model/noteDetail';
 
 function getTextContent(node: ReactNode): string {
@@ -41,7 +42,7 @@ function CodeBlock({ language, code }: { language: string; code: string }) {
 }
 
 export function NoteArticle({ markdown }: { markdown: string }) {
-	const headingCounts = useMemo(() => new Map<string, number>(), [markdown]);
+	const headingCounts = new Map<string, number>();
 
 	const createHeadingProps = (children: ReactNode) => {
 		const baseId = createHeadingId(getTextContent(children));
@@ -94,7 +95,12 @@ export function NoteArticle({ markdown }: { markdown: string }) {
 
 	return (
 		<article className="sl-note-article">
-			<ReactMarkdown components={components}>{markdown}</ReactMarkdown>
+			<ReactMarkdown
+				components={components}
+				remarkPlugins={[remarkGfm]}
+			>
+				{markdown}
+			</ReactMarkdown>
 		</article>
 	);
 }
