@@ -13,6 +13,17 @@ export function createHeadingId(text: string) {
 		.replace(/-+/g, '-');
 }
 
+function normalizeHeadingText(text: string) {
+	return text
+		.replace(/!\[([^\]]*)\]\([^)]+\)/g, '$1')
+		.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+		.replace(/(\*\*|__)(.*?)\1/g, '$2')
+		.replace(/(\*|_)(.*?)\1/g, '$2')
+		.replace(/~~(.*?)~~/g, '$1')
+		.replace(/`([^`]+)`/g, '$1')
+		.trim();
+}
+
 export function extractTableOfContents(markdown: string): TableOfContentsItem[] {
 	const counts = new Map<string, number>();
 	const items: TableOfContentsItem[] = [];
@@ -30,7 +41,7 @@ export function extractTableOfContents(markdown: string): TableOfContentsItem[] 
 
 		if (!match) continue;
 
-		const text = match[2].trim();
+		const text = normalizeHeadingText(match[2]);
 		const baseId = createHeadingId(text);
 		const count = (counts.get(baseId) ?? 0) + 1;
 
