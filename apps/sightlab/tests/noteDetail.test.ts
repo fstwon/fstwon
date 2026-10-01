@@ -27,6 +27,14 @@ test('deduplicates repeated heading ids', () => {
 	);
 });
 
+test('ignores heading-like text inside fenced code blocks', () => {
+	const markdown = '## 실제 제목\n\n\`\`\`md\n## 코드 안 제목\n\`\`\`\n\n### 실제 하위 제목';
+	assert.deepEqual(extractTableOfContents(markdown), [
+		{ id: '실제-제목', level: 2, text: '실제 제목' },
+		{ id: '실제-하위-제목', level: 3, text: '실제 하위 제목' },
+	]);
+});
+
 test('clamps article reading progress between zero and one hundred', () => {
 	assert.equal(
 		calculateReadingProgress({
