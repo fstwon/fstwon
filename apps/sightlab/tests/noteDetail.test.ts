@@ -19,6 +19,14 @@ test('extracts only h2 and h3 headings for the table of contents', () => {
 	]);
 });
 
+test('normalizes inline Markdown in table of contents headings', () => {
+	const markdown = '## **React** 상태 설계\n### `Query`와 *Mutation*';
+	assert.deepEqual(extractTableOfContents(markdown), [
+		{ id: 'react-상태-설계', level: 2, text: 'React 상태 설계' },
+		{ id: 'query와-mutation', level: 3, text: 'Query와 Mutation' },
+	]);
+});
+
 test('deduplicates repeated heading ids', () => {
 	const markdown = '## 상태\n## 상태\n### 상태';
 	assert.deepEqual(
