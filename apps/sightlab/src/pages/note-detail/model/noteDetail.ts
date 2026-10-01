@@ -15,18 +15,34 @@ export function createHeadingId(text: string) {
 
 export function extractTableOfContents(markdown: string): TableOfContentsItem[] {
 	const counts = new Map<string, number>();
+	const items: TableOfContentsItem[] = [];
+	let inFence = false;
 
-	return markdown.split('\n').flatMap(line => {
+	for (const line of markdown.split('\n')) {
+		if (/^\s*```/.test(line)) {
+			inFence = !inFence;
+			continue;
+		}
+
+		if (inFence) continue;
+
 		const match = /^(##|###)\s+(.+)$/.exec(line);
-		if (!match) return [];
+
+		if (!match) continue;
+
 		const text = match[2].trim();
 		const baseId = createHeadingId(text);
 		const count = (counts.get(baseId) ?? 0) + 1;
+
 		counts.set(baseId, count);
-		return [
-			{ id: count === 1 ? baseId : `${baseId}-${count}`, level: match[1].length as 2 | 3, text },
-		];
-	});
+		items.push({
+			id: count === 1 ? baseId : `${baseId}-${count}`,
+			level: match[1].length as 2 | 3,
+			text,
+		});
+	}
+
+	return items;
 }
 
 export function calculateReadingProgress({
