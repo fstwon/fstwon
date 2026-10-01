@@ -3,10 +3,10 @@
 	min-height: 240px;
 	align-items: center;
 	justify-content: center;
-	gap: 10px;
-	color: var(--sl-color-text-secondary, #686b70);
-	font-size: 14px;
-	font-weight: 500;
+	gap: var(--sl-spacing-xs);
+	color: var(--sl-color-text-secondary);
+	font-size: var(--sl-font-size-body-sm);
+	font-weight: var(--sl-font-weight-label);
 	opacity: 0;
 }
 
@@ -17,9 +17,9 @@
 .sl-route-loading__spinner {
 	width: 18px;
 	height: 18px;
-	border: 2px solid var(--sl-color-border-default, #e2e2dd);
-	border-top-color: var(--sl-color-action-primary, #6535d8);
-	border-radius: 50%;
+	border: 2px solid var(--sl-color-border-default);
+	border-top-color: var(--sl-color-action-primary);
+	border-radius: var(--sl-radius-full);
 	animation: sl-route-loading-spin 0.8s linear infinite;
 }
 
@@ -32,6 +32,6 @@
 @media (prefers-reduced-motion: reduce) {
 	.sl-route-loading__spinner {
 		animation: none;
-		border-color: var(--sl-color-action-primary, #6535d8);
+		border-color: var(--sl-color-action-primary);
 	}
 }
