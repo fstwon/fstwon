@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { AdminLayout } from '../shells/AdminLayout';
 import { PublicLayout } from '../shells/PublicLayout';
+import { RouteLoadingFallback } from '@/shared/ui/RouteLoadingFallback/RouteLoadingFallback';
 import { RoutePlaceholder } from '@/shared/ui/RoutePlaceholder';
 
 const HomePage = lazy(() =>
@@ -23,7 +24,7 @@ const ProjectDetailPage = lazy(() =>
 );
 
 function lazyPage(page: React.ReactNode) {
-	return <Suspense fallback={null}>{page}</Suspense>;
+	return <Suspense fallback={<RouteLoadingFallback />}>{page}</Suspense>;
 }
 
 export const router = createBrowserRouter([
