@@ -1,6 +1,6 @@
 .sl-route-loading {
 	display: flex;
-	min-height: 240px;
+	min-height: calc(100dvh - 76px);
 	align-items: center;
 	justify-content: center;
 	gap: var(--sl-spacing-xs);
@@ -33,5 +33,11 @@
 	.sl-route-loading__spinner {
 		animation: none;
 		border-color: var(--sl-color-action-primary);
+	}
+}
+
+@media (width < 768px) {
+	.sl-route-loading {
+		min-height: calc(100dvh - 68px);
 	}
 }
