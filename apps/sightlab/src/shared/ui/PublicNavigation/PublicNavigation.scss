@@ -1,4 +1,5 @@
 .sl-public-navigation {
+	position: relative;
 	display: flex;
 	width: 100%;
 	max-width: 1200px;
@@ -14,9 +15,7 @@
 		color: inherit;
 		text-decoration: none;
 
-		&--mobile {
-			display: none;
-		}
+		&--mobile { display: none; }
 
 		&:focus-visible {
 			outline: 3px solid var(--sl-color-action-primary);
@@ -45,9 +44,7 @@
 		}
 
 		&:hover,
-		&--active {
-			color: var(--sl-color-text-brand);
-		}
+		&--active { color: var(--sl-color-text-brand); }
 	}
 
 	&__menu-trigger {
@@ -62,6 +59,7 @@
 		border: 0;
 		background: transparent;
 		color: var(--sl-color-text-primary);
+		cursor: pointer;
 
 		span {
 			display: block;
@@ -71,10 +69,14 @@
 			background: currentColor;
 		}
 
-		&:disabled {
-			opacity: 1;
+		&:focus-visible {
+			outline: 3px solid var(--sl-color-action-primary);
+			outline-offset: 2px;
+			border-radius: var(--sl-radius-sm);
 		}
 	}
+
+	&__panel { display: none; }
 }
 
 @media (width < 768px) {
@@ -83,27 +85,35 @@
 		padding: 0 var(--sl-spacing-lg);
 
 		&__brand {
-			&--desktop {
-				display: none;
-			}
-
-			&--mobile {
-				display: inline-flex;
-			}
+			&--desktop { display: none; }
+			&--mobile { display: inline-flex; }
 		}
 
-		&__links {
-			display: none;
-		}
+		&__links { display: none; }
+		&__menu-trigger { display: flex; }
 
-		&__menu-trigger {
-			display: flex;
+		&__panel {
+			position: absolute;
+			z-index: 10;
+			top: calc(100% + var(--sl-spacing-xs));
+			right: var(--sl-spacing-lg);
+			left: var(--sl-spacing-lg);
+			display: grid;
+			gap: var(--sl-spacing-xs);
+			padding: var(--sl-spacing-sm);
+			border: 1px solid var(--sl-color-border-default);
+			border-radius: var(--sl-radius-md);
+			background: var(--sl-color-bg-surface);
+			box-shadow: 0 12px 32px rgb(24 26 27 / 12%);
+
+			.sl-public-navigation__link {
+				padding: var(--sl-spacing-sm) var(--sl-spacing-md);
+				border-radius: var(--sl-radius-sm);
+			}
 		}
 	}
 }
 
 @media (768px <= width < 1024px) {
-	.sl-public-navigation {
-		padding-inline: var(--sl-spacing-lg);
-	}
+	.sl-public-navigation { padding-inline: var(--sl-spacing-lg); }
 }
