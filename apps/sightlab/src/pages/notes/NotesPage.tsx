@@ -72,27 +72,37 @@ export function NotesPage() {
 			/>
 
 			{selectedProject ? (
-				<div className="sl-notes-page__project-filter" aria-label="적용된 프로젝트 필터">
+				<div
+					className="sl-notes-page__project-filter"
+					aria-label="적용된 프로젝트 필터"
+				>
 					<span>Project: {selectedProject.title}</span>
 					<button
 						type="button"
 						aria-label={`${selectedProject.title} 프로젝트 필터 제거`}
-						onClick={() =>
-							setSearchParams(updateNotesSearchParams(searchParams, { project: '' }))
-						}
+						onClick={() => setSearchParams(updateNotesSearchParams(searchParams, { project: '' }))}
 					>
 						×
 					</button>
 				</div>
 			) : null}
 
-			<section className="sl-notes-page__results" aria-label="노트 목록">
+			<section
+				className="sl-notes-page__results"
+				aria-label="노트 목록"
+			>
 				{notesQuery.isPending ? <StatePanel state="loading" /> : null}
 				{notesQuery.isError ? (
-					<StatePanel state="error" onAction={() => void notesQuery.refetch()} />
+					<StatePanel
+						state="error"
+						onAction={() => void notesQuery.refetch()}
+					/>
 				) : null}
 				{notesQuery.isSuccess && notesQuery.data.content.length === 0 ? (
-					<StatePanel state="empty" onAction={handleReset} />
+					<StatePanel
+						state="empty"
+						onAction={handleReset}
+					/>
 				) : null}
 				{notesQuery.isSuccess && notesQuery.data.content.length > 0 ? (
 					<>

@@ -29,16 +29,37 @@ export function PublicNavigation() {
 		`sl-public-navigation__link${isActive ? ' sl-public-navigation__link--active' : ''}`;
 
 	return (
-		<nav className="sl-public-navigation" aria-label="주요 탐색">
-			<Link className="sl-public-navigation__brand sl-public-navigation__brand--desktop" to="/" aria-label="Sightlab 홈">
+		<nav
+			className="sl-public-navigation"
+			aria-label="주요 탐색"
+		>
+			<Link
+				className="sl-public-navigation__brand sl-public-navigation__brand--desktop"
+				to="/"
+				aria-label="Sightlab 홈"
+			>
 				<LogoObservation />
 			</Link>
-			<Link className="sl-public-navigation__brand sl-public-navigation__brand--mobile" to="/" aria-label="Sightlab 홈">
+			<Link
+				className="sl-public-navigation__brand sl-public-navigation__brand--mobile"
+				to="/"
+				aria-label="Sightlab 홈"
+			>
 				<LogoObservation variant="compact" />
 			</Link>
 			<div className="sl-public-navigation__links">
-				<NavLink className={linkClassName} to="/notes">Notes</NavLink>
-				<NavLink className={linkClassName} to="/projects">Projects</NavLink>
+				<NavLink
+					className={linkClassName}
+					to="/notes"
+				>
+					Notes
+				</NavLink>
+				<NavLink
+					className={linkClassName}
+					to="/projects"
+				>
+					Projects
+				</NavLink>
 			</div>
 			<button
 				ref={menuButtonRef}
@@ -54,9 +75,22 @@ export function PublicNavigation() {
 				<span aria-hidden="true" />
 			</button>
 			{menuOpen ? (
-				<div id="public-navigation-panel" className="sl-public-navigation__panel">
-					<NavLink className={linkClassName} to="/notes">Notes</NavLink>
-					<NavLink className={linkClassName} to="/projects">Projects</NavLink>
+				<div
+					id="public-navigation-panel"
+					className="sl-public-navigation__panel"
+				>
+					<NavLink
+						className={linkClassName}
+						to="/notes"
+					>
+						Notes
+					</NavLink>
+					<NavLink
+						className={linkClassName}
+						to="/projects"
+					>
+						Projects
+					</NavLink>
 				</div>
 			) : null}
 		</nav>
