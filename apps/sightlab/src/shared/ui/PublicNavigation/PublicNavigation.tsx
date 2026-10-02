@@ -1,33 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { LogoObservation } from '../LogoObservation/LogoObservation';
 import './PublicNavigation.scss';
 
 export function PublicNavigation() {
-	const [menuOpen, setMenuOpen] = useState(false);
-	const menuButtonRef = useRef<HTMLButtonElement>(null);
-	const location = useLocation();
-
-	useEffect(() => {
-		setMenuOpen(false);
-	}, [location.pathname]);
-
-	useEffect(() => {
-		if (!menuOpen) return;
-
-		const handleKeyDown = (event: KeyboardEvent) => {
-			if (event.key !== 'Escape') return;
-			setMenuOpen(false);
-			menuButtonRef.current?.focus();
-		};
-
-		document.addEventListener('keydown', handleKeyDown);
-		return () => document.removeEventListener('keydown', handleKeyDown);
-	}, [menuOpen]);
-
-	const linkClassName = ({ isActive }: { isActive: boolean }) =>
-		`sl-public-navigation__link${isActive ? ' sl-public-navigation__link--active' : ''}`;
-
 	return (
 		<nav
 			className="sl-public-navigation"
@@ -49,50 +24,32 @@ export function PublicNavigation() {
 			</Link>
 			<div className="sl-public-navigation__links">
 				<NavLink
-					className={linkClassName}
+					className={({ isActive }) =>
+						`sl-public-navigation__link${isActive ? ' sl-public-navigation__link--active' : ''}`
+					}
 					to="/notes"
 				>
 					Notes
 				</NavLink>
 				<NavLink
-					className={linkClassName}
+					className={({ isActive }) =>
+						`sl-public-navigation__link${isActive ? ' sl-public-navigation__link--active' : ''}`
+					}
 					to="/projects"
 				>
 					Projects
 				</NavLink>
 			</div>
 			<button
-				ref={menuButtonRef}
 				className="sl-public-navigation__menu-trigger"
 				type="button"
-				aria-label={menuOpen ? '메뉴 닫기' : '메뉴 열기'}
-				aria-expanded={menuOpen}
-				aria-controls="public-navigation-panel"
-				onClick={() => setMenuOpen(value => !value)}
+				aria-label="메뉴"
+				disabled
 			>
 				<span aria-hidden="true" />
 				<span aria-hidden="true" />
 				<span aria-hidden="true" />
 			</button>
-			{menuOpen ? (
-				<div
-					id="public-navigation-panel"
-					className="sl-public-navigation__panel"
-				>
-					<NavLink
-						className={linkClassName}
-						to="/notes"
-					>
-						Notes
-					</NavLink>
-					<NavLink
-						className={linkClassName}
-						to="/projects"
-					>
-						Projects
-					</NavLink>
-				</div>
-			) : null}
 		</nav>
 	);
 }
