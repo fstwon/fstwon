@@ -8,8 +8,7 @@ const navigationItems = [
 	{ index: '02', label: 'Projects', to: '/projects' },
 ] as const;
 
-const FOCUSABLE_SELECTOR =
-	'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export function PublicNavigation() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,8 +43,8 @@ export function PublicNavigation() {
 			}
 
 			const focusableElements = Array.from(
-				navigationRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
-			).filter((element) => element.offsetParent !== null);
+				navigationRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+			).filter(element => element.offsetParent !== null);
 
 			if (focusableElements.length === 0) {
 				return;
@@ -103,7 +102,7 @@ export function PublicNavigation() {
 			</Link>
 
 			<div className="sl-public-navigation__links">
-				{navigationItems.map((item) => (
+				{navigationItems.map(item => (
 					<NavLink
 						key={item.to}
 						className={({ isActive }) =>
@@ -125,14 +124,20 @@ export function PublicNavigation() {
 				aria-label={isMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
 				aria-expanded={isMenuOpen}
 				aria-controls="sl-mobile-navigation"
-				onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+				onClick={() => setIsMenuOpen(isOpen => !isOpen)}
 			>
 				{isMenuOpen ? (
-					<span className="sl-public-navigation__close-icon" aria-hidden="true">
+					<span
+						className="sl-public-navigation__close-icon"
+						aria-hidden="true"
+					>
 						×
 					</span>
 				) : (
-					<span className="sl-public-navigation__menu-icon" aria-hidden="true">
+					<span
+						className="sl-public-navigation__menu-icon"
+						aria-hidden="true"
+					>
 						<span />
 						<span />
 						<span />
@@ -153,7 +158,7 @@ export function PublicNavigation() {
 						id="sl-mobile-navigation"
 						className="sl-public-navigation__mobile-panel"
 					>
-						{navigationItems.map((item) => (
+						{navigationItems.map(item => (
 							<NavLink
 								key={item.to}
 								className={({ isActive }) =>
@@ -169,21 +174,18 @@ export function PublicNavigation() {
 									aria-hidden="true"
 								/>
 								<span className="sl-public-navigation__mobile-label-group">
-									<span className="sl-public-navigation__mobile-index">
-										{item.index}
-									</span>
-									<span className="sl-public-navigation__mobile-label">
-										{item.label}
-									</span>
+									<span className="sl-public-navigation__mobile-index">{item.index}</span>
+									<span className="sl-public-navigation__mobile-label">{item.label}</span>
 								</span>
-								<span className="sl-public-navigation__mobile-arrow" aria-hidden="true">
+								<span
+									className="sl-public-navigation__mobile-arrow"
+									aria-hidden="true"
+								>
 									→
 								</span>
 							</NavLink>
 						))}
-						<div className="sl-public-navigation__mobile-footer">
-							LEARNING ARCHIVE
-						</div>
+						<div className="sl-public-navigation__mobile-footer">LEARNING ARCHIVE</div>
 					</div>
 				</>
 			)}
