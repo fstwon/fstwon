@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { projects } from '@/entities/project/model/mockProjects';
+import { Pagination } from '@/shared/ui/Pagination/Pagination';
+import { StatePanel } from '@/shared/ui/StatePanel/StatePanel';
 import { NotesFilterSheet } from './components/NotesFilterSheet/NotesFilterSheet';
 import { NotesList } from './components/NotesList/NotesList';
 import { NotesToolbar } from './components/NotesToolbar/NotesToolbar';
 import { noteTagOptions } from './model/mockNotes';
 import { readNotesSearchParams, updateNotesSearchParams } from './model/notesSearchParams';
 import { useNotesQuery } from './model/useNotesQuery';
-import { Pagination } from '@/shared/ui/Pagination/Pagination';
-import { StatePanel } from '@/shared/ui/StatePanel/StatePanel';
 import './NotesPage.scss';
 
 export function NotesPage() {
@@ -19,6 +20,7 @@ export function NotesPage() {
 	const notesQuery = useNotesQuery(filters);
 	const selectedTagLabel =
 		noteTagOptions.find(option => option.value === filters.tag)?.label ?? '전체 태그';
+	const selectedProject = projects.find(project => project.slug === filters.project);
 
 	useEffect(() => {
 		setSearchValue(filters.query);
@@ -41,7 +43,7 @@ export function NotesPage() {
 
 	const handleReset = () => {
 		setSearchValue('');
-		setSearchParams(updateNotesSearchParams(searchParams, { query: '', tag: '' }));
+		setSearchParams(updateNotesSearchParams(searchParams, { query: '', tag: '', project: '' }));
 	};
 
 	const handlePageChange = (page: number) => {
@@ -68,6 +70,22 @@ export function NotesPage() {
 				onOpenMobileFilter={() => setFilterOpen(true)}
 				onReset={handleReset}
 			/>
+
+			{selectedProject ? (
+				<div
+					className="sl-notes-page__project-filter"
+					aria-label="적용된 프로젝트 필터"
+				>
+					<span>Project: {selectedProject.title}</span>
+					<button
+						type="button"
+						aria-label={`${selectedProject.title} 프로젝트 필터 제거`}
+						onClick={() => setSearchParams(updateNotesSearchParams(searchParams, { project: '' }))}
+					>
+						×
+					</button>
+				</div>
+			) : null}
 
 			<section
 				className="sl-notes-page__results"

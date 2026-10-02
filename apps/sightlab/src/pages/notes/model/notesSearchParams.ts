@@ -23,7 +23,7 @@ export function readNotesSearchParams(searchParams: URLSearchParams): NotesSearc
 
 export function updateNotesSearchParams(searchParams: URLSearchParams, update: NotesSearchUpdate) {
 	const next = new URLSearchParams(searchParams);
-	const changesCollection = 'query' in update || 'tag' in update;
+	const changesCollection = 'query' in update || 'tag' in update || 'project' in update;
 
 	if ('query' in update) {
 		const query = update.query?.trim() ?? '';
@@ -33,6 +33,11 @@ export function updateNotesSearchParams(searchParams: URLSearchParams, update: N
 	if ('tag' in update) {
 		const tag = update.tag?.trim() ?? '';
 		tag ? next.set('tag', tag) : next.delete('tag');
+	}
+
+	if ('project' in update) {
+		const project = update.project?.trim() ?? '';
+		project ? next.set('project', project) : next.delete('project');
 	}
 
 	if ('page' in update) {
