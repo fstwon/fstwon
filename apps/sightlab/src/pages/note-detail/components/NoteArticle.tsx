@@ -1,6 +1,7 @@
 import { isValidElement, useState, type ReactNode } from 'react';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { getCodeBlockProps } from '../model/codeBlock';
 import { createHeadingId } from '../model/noteDetail';
 
 function getTextContent(node: ReactNode): string {
@@ -78,19 +79,16 @@ export function NoteArticle({ markdown }: { markdown: string }) {
 				{alt ? <figcaption>{alt}</figcaption> : null}
 			</figure>
 		),
-		code: ({ children, className }) => {
-			const language = /language-([^\s]+)/.exec(className ?? '')?.[1];
+		code: ({ children, className }) => <code className={className}>{children}</code>,
+		pre: ({ children }) => {
+			if (!isValidElement(children)) return <pre>{children}</pre>;
 
-			if (!language) return <code className={className}>{children}</code>;
+			const codeBlock = getCodeBlockProps(children);
 
-			return (
-				<CodeBlock
-					language={language}
-					code={String(children).replace(/\n$/, '')}
-				/>
-			);
+			if (!codeBlock) return <pre>{children}</pre>;
+
+			return <CodeBlock {...codeBlock} />;
 		},
-		pre: ({ children }) => <>{children}</>,
 	};
 
 	return (
