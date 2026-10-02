@@ -42,3 +42,11 @@ test('keeps project filter while query, tag, and page change', () => {
 	assert.equal(next.get('project'), 'sightlab');
 	assert.equal(next.get('page'), '1');
 });
+
+test('removes project filter and resets page when project is cleared', () => {
+	const next = updateNotesSearchParams(
+		new URLSearchParams('project=sightlab&q=react&tag=typescript&page=3'),
+		{ project: '' }
+	);
+	assert.equal(next.toString(), 'q=react&tag=typescript&page=1');
+});
