@@ -95,12 +95,12 @@ export function NoteDetailPage() {
 
 	if (query.isPending) {
 		return (
-			<main
+			<div
 				className="sl-note-detail"
 				aria-busy="true"
 			>
 				<NoteDetailSkeleton />
-			</main>
+			</div>
 		);
 	}
 
@@ -108,7 +108,7 @@ export function NoteDetailPage() {
 		const notFound = query.error instanceof NoteNotFoundError;
 
 		return (
-			<main
+			<div
 				className="sl-note-detail"
 				aria-busy="false"
 			>
@@ -121,7 +121,7 @@ export function NoteDetailPage() {
 						onBack={() => navigate(-1)}
 					/>
 				</div>
-			</main>
+			</div>
 		);
 	}
 
@@ -129,7 +129,7 @@ export function NoteDetailPage() {
 	const formatDate = note.publishedAt.replaceAll('-', '.');
 
 	return (
-		<main
+		<div
 			className="sl-note-detail"
 			aria-busy="false"
 		>
@@ -244,6 +244,6 @@ export function NoteDetailPage() {
 					To TOC ↑
 				</button>
 			) : null}
-		</main>
+		</div>
 	);
 }
